@@ -3,7 +3,7 @@ import { AppService } from './app.service';
 import { CreateAppDto } from './dto/create-app.dto';
 import { UpdateAppDto } from './dto/update-app.dto';
 import {RabbitMQService} from "../rabbitmq/rmq.service";
-import {EXCHANGE, ROUTING_KEY} from "../rabbitmq/rmq.common";
+import {AMQ_DIRECT, EXCHANGE, ROUTING_KEY} from "../rabbitmq/rmq.common";
 import {AmqpConnection} from "@golevelup/nestjs-rabbitmq";
 
 @Controller('app')
@@ -13,8 +13,6 @@ export class AppController {
 
   constructor(
       private readonly appService: AppService,
-
-
   ) {
 
   }
@@ -25,10 +23,10 @@ export class AppController {
   }
 
   @Post('pub')
-  pub(@Body() msg: any) {
+  async pub(@Body() msg: any): Promise<string> {
     try {
       Logger.error('receive: ');
-       this.rabbitMQService.amqpConnection.publish(EXCHANGE, ROUTING_KEY, JSON.stringify(msg))
+      await this.rabbitMQService.amqpConnection.publish(AMQ_DIRECT, ROUTING_KEY, JSON.stringify(msg))
     } catch (err: any) {
       Logger.error('not receive: ');
     }

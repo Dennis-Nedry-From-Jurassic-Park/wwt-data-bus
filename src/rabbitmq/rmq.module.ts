@@ -1,7 +1,7 @@
 import {Global, Module} from "@nestjs/common";
 import {AmqpConnection, RabbitMQModule} from "@golevelup/nestjs-rabbitmq";
 import {RabbitMQService} from "./rmq.service";
-import {EXCHANGE} from "./rmq.common";
+import {AMQ_DIRECT, EXCHANGE} from "./rmq.common";
 
 @Global()
 @Module({
@@ -14,7 +14,7 @@ import {EXCHANGE} from "./rmq.common";
                 //     type: 'topic',
                 // },
                 {
-                    name: 'amq.direct',
+                    name: AMQ_DIRECT,
                     type: 'direct'
                 }
             ],
@@ -30,7 +30,7 @@ import {EXCHANGE} from "./rmq.common";
         }),
     ],
     providers: [RabbitMQService],
-    exports: [RabbitMQService],
+    exports: [RabbitMQService, RabbitMQModule],
     controllers: [],
 })
 export class RabbitModule {}
