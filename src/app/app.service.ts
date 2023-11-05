@@ -1,26 +1,32 @@
-import { Injectable } from '@nestjs/common';
-import { CreateAppDto } from './dto/create-app.dto';
-import { UpdateAppDto } from './dto/update-app.dto';
+import {Inject, Injectable} from '@nestjs/common';
+import {CreateAppDto} from './dto/create-app.dto';
+import {UpdateAppDto} from './dto/update-app.dto';
+import {AmqpConnection, RabbitSubscribe} from "@golevelup/nestjs-rabbitmq";
+import {RabbitMQService} from "../rabbitmq/rmq.service";
 
 @Injectable()
 export class AppService {
-  create(createAppDto: CreateAppDto) {
-    return 'This action adds a new app';
-  }
+    constructor() {
 
-  findAll() {
-    return `This action returns all app`;
-  }
+    }
 
-  findOne(id: number) {
-    return `This action returns a #${id} app`;
-  }
+    create(createAppDto: CreateAppDto) {
+        return 'This action adds a new app';
+    }
 
-  update(id: number, updateAppDto: UpdateAppDto) {
-    return `This action updates a #${id} app`;
-  }
+    findAll() {
+        return `This action returns all app`;
+    }
 
-  remove(id: number) {
-    return `This action removes a #${id} app`;
-  }
+    findOne(id: number) {
+        return `This action returns a #${id} app`;
+    }
+
+    update(id: number, updateAppDto: UpdateAppDto) {
+        return `This action updates a #${id} app`;
+    }
+
+    remove(id: number) {
+        return `This action removes a #${id} app`;
+    }
 }
