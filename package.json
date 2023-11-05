@@ -31,7 +31,7 @@
     "pnpm:add": "npx pnpm add -g pnpm",
     "pnpm:setup": "npx pnpm setup",
     "-------- pnpm package ----------": "",
-    "pnpm:add:p": "npx pnpm add -w body-parser @nestjs/cli @nestjs/platform-fastify",
+    "pnpm:add:p": "npx pnpm add -w amqplib @golevelup/nestjs-rabbitmq",
     "pnpm:add:p:dev": "npx pnpm add -w -D ts-jest",
     "pnpm:update-deps": "pnpm update --latest",
     "pnpm:install": "npx pnpm -r install --recursive",
@@ -62,11 +62,13 @@
     "nestjs:init": "npx nest g resource"
   },
   "dependencies": {
+    "@golevelup/nestjs-rabbitmq": "^4.0.0",
     "@nestjs/cli": "^10.2.1",
     "@nestjs/common": "^10.2.8",
     "@nestjs/core": "^10.2.8",
     "@nestjs/mapped-types": "*",
     "@nestjs/platform-fastify": "^10.2.8",
+    "amqplib": "^0.10.3",
     "body-parser": "^1.20.2",
     "rimraf": "^5.0.5",
     "rxjs": "^7.8.1",
