@@ -5,9 +5,6 @@ import {Logger} from "@nestjs/common";
 import {FastifyAdapter, NestFastifyApplication} from "@nestjs/platform-fastify";
 
 async function bootstrap() {
-    Logger.error('init nestjs')
-    console.log('init nestjs')
-
     // https://github.com/CoinCatEx/nestjs-rabbitmq
     // const amqp = await NestFactory.create(
     //     RabbitModule.forRoot({
@@ -26,13 +23,14 @@ async function bootstrap() {
     // );
     //const amqpTransport = amqp.get<RabbitTransport>(RabbitTransport);
     // https://docs.nestjs.com/techniques/performance
-    const app = await NestFactory.create<NestFastifyApplication>(AppModule, new FastifyAdapter(), { bodyParser: false });
+    const options = { bodyParser: false }
+    const app = await NestFactory.create<NestFastifyApplication>(AppModule, new FastifyAdapter(), options);
     app.use(json({ limit: '16mb' }));
     // app.connectMicroservice({
     //     strategy: amqpTransport,
     //     options: {},
     // });
-    //await app.startAllMicroservices();
+    await app.startAllMicroservices();
     Logger.error('init nestjs')
 
     await app.listen(3000, '0.0.0.0', () => console.log(`Listening on port: 3000`));
