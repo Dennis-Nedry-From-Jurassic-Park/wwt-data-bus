@@ -20,10 +20,13 @@ export class RabbitMQService {
         }
     })
     public async onQueueConsumption(msg: {}, amqpMsg: ConsumeMessage) {
-        const eventData = JSON.parse(amqpMsg.content.toString())
-        // do something with eventData
+        const eventData: any = JSON.parse(amqpMsg.content.toString())
+        const obj: { msg: string } = JSON.parse(JSON.parse(eventData))
         console.log(`EventData: `)
-        console.log(eventData);
+        console.log(obj);
+        console.log(typeof obj);
+        console.log(typeof eventData);
+        console.log(obj.msg);
     }
 
     pub(

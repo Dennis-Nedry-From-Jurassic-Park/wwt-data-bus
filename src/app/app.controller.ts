@@ -28,7 +28,7 @@ export class AppController {
       Logger.error('receive: ');
       await this.rabbitMQService.amqpConnection.publish(AMQ_DIRECT, ROUTING_KEY, JSON.stringify(msg))
     } catch (err: any) {
-      Logger.error('not receive: ');
+      Logger.error('not receive msg: ' + err);
     }
 
     return 'success' //this.rmqService.competingPubSubHandler(msg);
