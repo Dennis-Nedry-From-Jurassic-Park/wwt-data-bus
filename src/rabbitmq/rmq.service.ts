@@ -14,14 +14,20 @@ export class RabbitMQService {
         routingKey: ROUTING_KEY,
         queue: QUEUE,
         errorHandler: (channel: Channel, msg: ConsumeMessage, error: Error) => {
-            console.log('1111')
             console.log(error)
             channel.reject(msg, false)
         }
     })
     public async onQueueConsumption(msg: {}, amqpMsg: ConsumeMessage) {
-        const eventData: any = JSON.parse(amqpMsg.content.toString())
+        const content = amqpMsg.content
+        const eventData0 = JSON.parse(JSON.stringify(content))
+        console.log(`eventData0: `)
+        console.log(eventData0);
+
+        const eventData: any = JSON.parse(content)
         const obj: { msg: string } = JSON.parse(JSON.parse(eventData))
+        console.log(`msg: `)
+        console.log(msg);
         console.log(`EventData: `)
         console.log(obj);
         console.log(typeof obj);
