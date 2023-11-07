@@ -1,20 +1,31 @@
 import {Inject, Injectable, Logger} from "@nestjs/common";
 import {AmqpConnection, RabbitRPC, RabbitSubscribe} from "@golevelup/nestjs-rabbitmq";
-import {AMQ_DIRECT, CHANNEL, EXCHANGE, QUEUE, ROUTING_KEY} from "./rmq.common";
+import {AMQ_DIRECT, CHANNEL, EXCHANGE, QUEUE, ROUTING_KEY, ROUTING_KEY_ERROR} from "./rmq.common";
 import {Channel, ConsumeMessage} from 'amqplib'
 
 @Injectable()
 export class RabbitMQService {
     constructor(
-        public readonly amqpConnection: AmqpConnection
+        private readonly _amqpConnection: AmqpConnection
     ) {}
 
     @RabbitSubscribe({
         exchange: AMQ_DIRECT,
         routingKey: ROUTING_KEY,
         queue: QUEUE,
-        errorHandler: (channel: Channel, msg: ConsumeMessage, error: Error) => {
-            console.log(error)
+        errorHandler: async (channel: Channel, msg: ConsumeMessage, error: Error) => {
+            const body = {
+                error: error,
+                msg: msg
+            }
+            console.log(body)
+
+            // if(this!) {
+            //     await this!.amqpConnection.publish(AMQ_DIRECT, ROUTING_KEY_ERROR, body)
+            // } else {
+            //     Logger.error('amqpConnection is undefined')
+            // }
+
             channel.reject(msg, false)
         }
     })
@@ -22,6 +33,11 @@ export class RabbitMQService {
         const eventData: any = JSON.parse(amqpMsg.content /* BufferType */)
         console.log(eventData);
         console.log(eventData.body);
+    }
+
+    get amqpConnection(): AmqpConnection {
+
+        return this._amqpConnection
     }
 
     pub(

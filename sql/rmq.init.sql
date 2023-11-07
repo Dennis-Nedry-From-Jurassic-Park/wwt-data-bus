@@ -7,6 +7,7 @@ DROP VIEW rmq.event_view
 CREATE OR REPLACE TABLE rmq.event (
     timestamp DateTime64(3),
     id UInt32,
+    routingKey String,
     body String,
     _exchange_name String,
     _channel_id String,
@@ -17,6 +18,7 @@ CREATE OR REPLACE TABLE rmq.event (
 CREATE OR REPLACE TABLE rmq._ (
         timestamp DateTime64(3),
         id UInt32,
+        routingKey String,
         body String,
         _exchange_name String,
         _channel_id String,
@@ -40,6 +42,7 @@ TO rmq.event AS
 SELECT
     now() as timestamp,
     id AS id,
+    routingKey AS routingKey,
     body AS body,
     _exchange_name AS _exchange_name,
     _channel_id AS _channel_id,
