@@ -1,4 +1,4 @@
-import {Controller, Get, Post, Body, Patch, Param, Delete, Logger, Inject} from '@nestjs/common';
+import {Controller, Get, Post, Body, Patch, Param, Delete, Logger, Inject, Header} from '@nestjs/common';
 import { AppService } from './app.service';
 import { CreateAppDto } from './dto/create-app.dto';
 import { UpdateAppDto } from './dto/update-app.dto';
@@ -23,10 +23,11 @@ export class AppController {
   }
 
   @Post('pub')
-  async pub(@Body() msg: any): Promise<string> {
+      //@Header('content-type', 'application/json')
+  async pub(@Body() body: any): Promise<string> {
     try {
       Logger.error('receive: ');
-      await this.rabbitMQService.amqpConnection.publish(AMQ_DIRECT, ROUTING_KEY, JSON.stringify(msg))
+      await this.rabbitMQService.amqpConnection.publish(AMQ_DIRECT, ROUTING_KEY, body)
     } catch (err: any) {
       Logger.error('not receive msg: ' + err);
     }

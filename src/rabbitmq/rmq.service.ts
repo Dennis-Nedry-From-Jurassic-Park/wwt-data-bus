@@ -18,21 +18,10 @@ export class RabbitMQService {
             channel.reject(msg, false)
         }
     })
-    public async onQueueConsumption(msg: {}, amqpMsg: ConsumeMessage) {
-        const content = amqpMsg.content
-        const eventData0 = JSON.parse(JSON.stringify(content))
-        console.log(`eventData0: `)
-        console.log(eventData0);
-
-        const eventData: any = JSON.parse(content)
-        const obj: { msg: string } = JSON.parse(JSON.parse(eventData))
-        console.log(`msg: `)
-        console.log(msg);
-        console.log(`EventData: `)
-        console.log(obj);
-        console.log(typeof obj);
-        console.log(typeof eventData);
-        console.log(obj.msg);
+    public async onQueueConsumption(msg: {}, amqpMsg: ConsumeMessage ) {
+        const eventData: any = JSON.parse(amqpMsg.content /* BufferType */)
+        console.log(eventData);
+        console.log(eventData.body);
     }
 
     pub(

@@ -6,9 +6,10 @@ import {FastifyAdapter, NestFastifyApplication} from "@nestjs/platform-fastify";
 
 async function bootstrap() {
     // TODO: https://github.com/CoinCatEx/nestjs-rabbitmq
-    const options = { bodyParser: false }
+    //const options = { bodyParser: true }
+    const options = {  }
     const app = await NestFactory.create<NestFastifyApplication>(AppModule, new FastifyAdapter(), options);
-    app.use(json({ limit: '16mb' }));
+    //app.use(json({ limit: '16mb' }));
     await app.startAllMicroservices();
     Logger.error('init nestjs')
 
