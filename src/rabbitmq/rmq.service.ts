@@ -1,6 +1,6 @@
 import {Inject, Injectable, Logger} from "@nestjs/common";
 import {AmqpConnection, RabbitRPC, RabbitSubscribe} from "@golevelup/nestjs-rabbitmq";
-import {CHANNEL, EXCHANGE, QUEUE, ROUTING_KEY} from "./rmq.common";
+import {AMQ_DIRECT, CHANNEL, EXCHANGE, QUEUE, ROUTING_KEY} from "./rmq.common";
 import {Channel, ConsumeMessage} from 'amqplib'
 
 @Injectable()
@@ -10,23 +10,18 @@ export class RabbitMQService {
     ) {}
 
     @RabbitSubscribe({
-        exchange: 'amq.direct',
+        exchange: AMQ_DIRECT,
         routingKey: ROUTING_KEY,
         queue: QUEUE,
         errorHandler: (channel: Channel, msg: ConsumeMessage, error: Error) => {
-            console.log('1111')
             console.log(error)
             channel.reject(msg, false)
         }
     })
-    public async onQueueConsumption(msg: {}, amqpMsg: ConsumeMessage) {
-        const eventData: any = JSON.parse(amqpMsg.content.toString())
-        const obj: { msg: string } = JSON.parse(JSON.parse(eventData))
-        console.log(`EventData: `)
-        console.log(obj);
-        console.log(typeof obj);
-        console.log(typeof eventData);
-        console.log(obj.msg);
+    public async onQueueConsumption(msg: {}, amqpMsg: ConsumeMessage ) {
+        const eventData: any = JSON.parse(amqpMsg.content /* BufferType */)
+        console.log(eventData);
+        console.log(eventData.body);
     }
 
     pub(
