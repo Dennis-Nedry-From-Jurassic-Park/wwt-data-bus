@@ -1,6 +1,6 @@
 import {Inject, Injectable, Logger} from "@nestjs/common";
 import {AmqpConnection, RabbitRPC, RabbitSubscribe} from "@golevelup/nestjs-rabbitmq";
-import {CHANNEL, EXCHANGE, QUEUE, ROUTING_KEY} from "./rmq.common";
+import {AMQ_DIRECT, CHANNEL, EXCHANGE, QUEUE, ROUTING_KEY} from "./rmq.common";
 import {Channel, ConsumeMessage} from 'amqplib'
 
 @Injectable()
@@ -10,7 +10,7 @@ export class RabbitMQService {
     ) {}
 
     @RabbitSubscribe({
-        exchange: 'amq.direct',
+        exchange: AMQ_DIRECT,
         routingKey: ROUTING_KEY,
         queue: QUEUE,
         errorHandler: (channel: Channel, msg: ConsumeMessage, error: Error) => {
