@@ -1,12 +1,3 @@
-# links
-https://clickhouse.com/docs/ru/engines/table-engines/integrations/rabbitmq
-https://github.com/rabbitmq/rabbitmq-perf-test
-https://www.mongodb.com/compatibility/deploying-a-mongodb-cluster-with-docker
-
-# glossary
-https://capnproto.org/
-tp = third party (любой сторонний сервис)
-ms = microservice (на нашей стороне)
 # 1. start RabbitMQ
 ```sh
 docker run -d -p 5672:5672 -p 15672:15672 --rm --hostname rabbit_hostname --name rabbitmq -e RABBITMQ_DEFAULT_USER=zowie -e RABBITMQ_DEFAULT_PASS=2840 bitnami/rabbitmq:3.12.7
@@ -17,9 +8,21 @@ docker run -d --name clickhouse_host --expose 8123 --restart unless-stopped --ul
 ```sh
 docker inspect rabbitmq
 ```
-либо
+OR
 ```sh
 docker container inspect -f '{{ .NetworkSettings.IPAddress }}' rabbitmq
 ```
 copy Networks -> IPAddress
 add rabbitmq_host_port = '172.17.0.2:5672'
+
+# glossary
+tp = third party (любой сторонний сервис)
+ms = microservice (на нашей стороне)
+
+# schema
+https://capnproto.org/
+# links
+https://clickhouse.com/docs/ru/engines/table-engines/integrations/rabbitmq
+https://github.com/rabbitmq/rabbitmq-perf-test
+https://www.mongodb.com/compatibility/deploying-a-mongodb-cluster-with-docker
+
