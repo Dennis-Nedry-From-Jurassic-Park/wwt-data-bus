@@ -1,3 +1,8 @@
+# links
+https://clickhouse.com/docs/ru/engines/table-engines/integrations/rabbitmq
+https://github.com/rabbitmq/rabbitmq-perf-test
+https://www.mongodb.com/compatibility/deploying-a-mongodb-cluster-with-docker
+
 # glossary
 https://capnproto.org/
 tp = third party (любой сторонний сервис)
