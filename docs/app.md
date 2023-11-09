@@ -10,10 +10,33 @@ docker inspect rabbitmq
 ```
 OR
 ```sh
+$IP
 docker container inspect -f '{{ .NetworkSettings.IPAddress }}' rabbitmq
 ```
 copy Networks -> IPAddress
-add rabbitmq_host_port = '172.17.0.2:5672'
+change rabbitmq_host_port = '$IP:5672'
+
+```sql
+CREATE OR REPLACE TABLE rmq.flatten_json (
+        timestamp DateTime64(3),
+        id UInt32,
+        routingKey String,
+        body String,
+        _exchange_name String,
+        _channel_id String,
+        _delivery_tag UInt64,
+        _timestamp UInt64
+) ENGINE = RabbitMQ
+SETTINGS
+    rabbitmq_host_port = '172.17.0.3:5672',
+    rabbitmq_exchange_name = 'exch',
+    rabbitmq_exchange_type = 'direct',
+    rabbitmq_format = 'JSONEachRow',
+    rabbitmq_routing_key_list = 'ms.scam-coin.IsHoneypotCoin1',
+    rabbitmq_num_consumers = 1,
+    date_time_input_format = 'best_effort';
+    //rabbitmq_address = 'amqp://zowie:2840@localhost:5672',
+```
 
 # glossary
 tp = third party (любой сторонний сервис)
