@@ -1,3 +1,5 @@
+import {flattenObject} from "./flat";
+
 console.log(111);
 
 const obj = JSON.parse("{\"msg\": \"21111111000111111111111A111\"}".toString())
@@ -76,6 +78,8 @@ const msg = {
 
 let o = {}
 
+let objj = JSON.stringify(msg)
+console.log(JSON.stringify(msg)); 
 const pairAddress = msg.pairAddress
 console.log(pairAddress);
 
@@ -89,29 +93,35 @@ console.log(pairAddress);
 //import { flatten } from 'flat'
 //import { flatten } from 'flat'
 
-function flattenObject(obj, separator = '.') {
-    let result = {};
-    function recurse(cur, prop) {
-        if (Object(cur) !== cur) {
-            result[prop] = cur;
-        } else if (Array.isArray(cur)) {
-            for (let i = 0, l = cur.length; i < l; i++) {
-                recurse(cur[i], prop + separator + i);
-                if (l == 0) result[prop] = [];
-            }
 
 
-        } else {
-            let isEmpty = true;
-            for (let p in cur) {
-                isEmpty = false;
-                recurse(cur[p], prop ? prop + separator + p : p);
-            }
-            if (isEmpty && prop) result[prop] = {};
+function calculateObjectSize(obj) {
+    // Initialize a variable to store the total size
+    let totalSize = 0;
+    // Get the keys of the object
+    let keys = Object.keys(obj);
+    // Loop through each key
+    for (let key of keys) {
+        // Get the value of the key
+        let value = obj[key];
+        // Check the type of the value
+        if (typeof value === "string") {
+            // If the value is a string, add its length to the total size
+            totalSize += value.length;
+        } else if (typeof value === "number") {
+            // If the value is a number, add 8 bytes to the total size
+            totalSize += 8;
+        } else if (typeof value === "boolean") {
+            // If the value is a boolean, add 4 bytes to the total size
+            totalSize += 4;
+        } else if (typeof value === "object" && value !== null) {
+            // If the value is an object and not null, recursively call the function and add the result to the total size
+            totalSize += calculateObjectSize(value);
         }
+        // Ignore other types of values such as undefined, function, symbol, etc.
     }
-    recurse(obj, '');
-    return result;
+    // Return the total size
+    return totalSize;
 }
 
 const algo = async () => {
@@ -168,8 +178,17 @@ const algo = async () => {
     const obj_ = JSON.stringify(obj)
 console.log(obj_);
 }
+import sizeof from 'object-sizeof';
+import flatObj from "flat-obj";
+
 const algo1 = async () => {
-    console.log(flattenObject(msg));
+    const flat = flattenObject(msg)
+    console.log('json size: ');
+    console.log(calculateObjectSize(msg));
+    console.log(sizeof(msg)); // 1412 bytes
+    console.log('flat size: ');
+    console.log(calculateObjectSize(flat)); // 1779 bytes
+    console.log(sizeof(flat));
 }
 const algo2 = async () => {
     if(msg.honeypotResult.isHoneypot) {
@@ -180,4 +199,5 @@ const algo2 = async () => {
 
     }
 }
-algo();
+const obj_ = flatObj(msg, '.')
+console.log(obj_);
