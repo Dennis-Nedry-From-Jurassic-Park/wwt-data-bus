@@ -12,7 +12,7 @@ export class RabbitMQService {
     @RabbitSubscribe({
         exchange: AMQ_DIRECT,
         routingKey: ROUTING_KEY,
-        queue: QUEUE,
+        queue: QUEUE,  // TODO: 500err 0xF37f093feba49CB1546713DFFa568D94c210F2F1
         errorHandler: async (channel: Channel, msg: ConsumeMessage, error: Error) => {
             const body = {
                 error: error,
