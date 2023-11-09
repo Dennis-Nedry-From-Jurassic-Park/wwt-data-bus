@@ -3,10 +3,12 @@ import {HttpService} from "@nestjs/axios";
 import {AxiosResponse} from "axios";
 import {RabbitMQService} from "../rabbitmq/rmq.service";
 import {AMQ_DIRECT, ROUTING_KEY} from "../rabbitmq/rmq.common";
+import {flattenObject} from "../flat";
 
 export const HandlerId = {
     GetPairs: "1",
     IsHoneypotCoin: "2",
+    IsHoneypotCoinFlatten: "3",
 }
 
 @Controller('ScamCheck')
@@ -78,7 +80,7 @@ export class ScamCheckController {
         //Logger.debug(response.data);
         return response.data
     }
-
+    // old ver 0
     @Post('honeypot/IsHoneypotCoin')
     async isHoneypotCoin(@Body() body: { address: string, chainId: string }): Promise<AxiosResponse<any[]>> {
         //const routingKey = this.routingKey + 'getPairs'
@@ -96,6 +98,31 @@ export class ScamCheckController {
             "id": HandlerId.IsHoneypotCoin, // TODO: rename to step ???
             "routingKey": routingKey,
             "body": response // TODO: Array to Clickhouse Quote err: CANNOT_PARSE_QUOTED_STRING ???
+        })
+
+        return response
+    }
+    // new ver 1
+    @Post('honeypot/IsHoneypotCoinFlatten')
+    async isHoneypotCoinFlatten(@Body() body: { address: string, chainId: string }): Promise<AxiosResponse<any[]>> {
+        //const routingKey = this.routingKey + 'getPairs'
+
+        const data = await this.getPairs({ address: body.address, chainId: body.chainId })
+        console.log('pair data:');
+        console.log(data);
+        const pairAddr = data[0].Pair.Address
+        const response = await this.isHoneypot({ address: body.address, pair: pairAddr })
+        console.log("-".repeat(10));
+
+        const flatten: any = await flattenObject(response)
+        Logger.error(flatten);
+
+        const routingKey = this.routingKey + 'IsHoneypotCoin' + '.Flatten'
+
+        await this.rabbitMQService.amqpConnection.publish(AMQ_DIRECT, routingKey, {
+            "id": HandlerId.IsHoneypotCoinFlatten, // TODO: rename to step ???
+            "routingKey": routingKey,
+            "body": flatten // TODO: Array to Clickhouse Quote err: CANNOT_PARSE_QUOTED_STRING ???
         })
 
         return response
