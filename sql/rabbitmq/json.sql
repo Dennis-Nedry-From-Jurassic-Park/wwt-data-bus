@@ -1,7 +1,3 @@
-https://fiddle.clickhouse.com/73359b69-2e91-4a1c-836c-03b79acee835
-https://www.cloudamqp.com/blog/part4-rabbitmq-for-beginners-exchanges-routing-keys-bindings.html
-https://altinity.com/blog/clickhouse-json-data-type-version-22-6
-
 CREATE OR REPLACE TABLE rmq.json
 (
     rawJSON String,
