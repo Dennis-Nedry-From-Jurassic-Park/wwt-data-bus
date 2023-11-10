@@ -5,6 +5,8 @@ import {RabbitMQService} from "../rabbitmq/rmq.service";
 import {AMQ_DIRECT, ROUTING_KEY} from "../rabbitmq/rmq.common";
 import {flattenObject} from "../flat";
 
+const parallel = require('run-parallel');
+
 export const HandlerId = {
     GetPairs: "1",
     IsHoneypotCoin: "2",
@@ -28,6 +30,12 @@ export class ScamCheckController {
     }
     get routingKey() {
         return this._routingKey
+    }
+    
+    algo = async (
+        msg: any,
+    ) => {
+        console.log(msg);
     }
     /*
     {
@@ -119,11 +127,16 @@ export class ScamCheckController {
 
         const routingKey = this.routingKey + 'IsHoneypotCoin' + '.Flatten'
 
-        await this.rabbitMQService.amqpConnection.publish(AMQ_DIRECT, routingKey, {
-            "id": HandlerId.IsHoneypotCoinFlatten, // TODO: rename to step ???
-            "routingKey": routingKey,
-            "body": flatten // TODO: Array to Clickhouse Quote err: CANNOT_PARSE_QUOTED_STRING ???
-        })
+        parallel([
+            async () => {
+                await this.rabbitMQService.amqpConnection.publish(AMQ_DIRECT, routingKey, {
+                    "id": HandlerId.IsHoneypotCoinFlatten, // TODO: rename to step ???
+                    "routingKey": routingKey,
+                    "body": flatten // TODO: Array to Clickhouse Quote err: CANNOT_PARSE_QUOTED_STRING ???
+                })
+            },
+            async () => this.algo(flatten)
+        ]);
 
         return response
     }
