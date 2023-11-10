@@ -114,7 +114,7 @@ export class ScamCheckController {
     @Post('honeypot/IsHoneypotCoinFlatten')
     async isHoneypotCoinFlatten(@Body() body: { address: string, chainId: string }): Promise<AxiosResponse<any[]>> {
         //const routingKey = this.routingKey + 'getPairs'
-
+        // TODO: https://www.npmjs.com/package/retry-axios
         const data = await this.getPairs({ address: body.address, chainId: body.chainId })
         console.log('pair data:');
         console.log(data);
