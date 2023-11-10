@@ -1,0 +1,34 @@
+CREATE OR REPLACE TABLE rmq.flatten_json0 (
+    timestamp DateTime64(3) Codec(Delta, Default),
+    id UInt32 Codec(Delta, Default),
+    routingKey String Codec(Default),
+    body String Codec(Default),
+    pairAddress String DEFAULT JSONExtractString(body, 'pairAddress') Codec(Default),
+    pair String DEFAULT JSONExtractString(body, 'token.symbol') || '/' || JSONExtractString(body, 'withToken.symbol') Codec(Default),
+    tokenAddress String DEFAULT JSONExtractString(body, 'token.address') Codec(Default),
+    totalHolders UInt32 DEFAULT JSONExtractInt(body, 'token.totalHolders') Codec(Delta, Default),
+    holders UInt32 DEFAULT JSONExtractInt(body, 'holderAnalysis.holders') Codec(Delta, Default),
+    router String DEFAULT JSONExtractString(body, 'router') Codec(Default),
+    simulationSuccess Boolean DEFAULT JSONExtractBool(body, 'simulationSuccess') Codec(Delta, Default),
+    isHoneypot Boolean DEFAULT JSONExtractBool(body, 'honeypotResult.isHoneypot') Codec(Delta, Default),
+    chainId Int64 DEFAULT JSONExtractInt(body, 'pair.chainId') Codec(DoubleDelta, Default),
+    chainName String DEFAULT JSONExtractString(body, 'chain.name') Codec(Default),
+    reserves0 Float32 DEFAULT JSONExtractFloat(body, 'pair.reserves0') Codec(Gorilla, ZSTD),
+    reserves1 Float32 DEFAULT JSONExtractFloat(body, 'pair.reserves1') Codec(Gorilla, ZSTD),
+    liquidity Float32 DEFAULT JSONExtractFloat(body, 'pair.liquidity') Codec(Gorilla, ZSTD),
+    decimals UInt8 DEFAULT JSONExtractUInt(body, 'token.decimals') Codec(Delta, Default),
+    exchange String DEFAULT JSONExtractString(body, 'pair.pair.type') Codec(Default),
+    _exchange_name String Codec(Default),
+    _channel_id String Codec(Default),
+    _delivery_tag UInt64 Codec(Delta, Default),
+    _timestamp UInt64 Codec(Delta, Default)
+) Engine = MergeTree()
+ORDER BY (pairAddress, timestamp)
+SETTINGS index_granularity = 8192
+
+
+// truncate table rmq.flatten_json0
+
+INSERT INTO rmq.flatten_json0 SELECT * FROM generateRandom() LIMIT 1000000;
+
+describe table rmq.flatten_json0
