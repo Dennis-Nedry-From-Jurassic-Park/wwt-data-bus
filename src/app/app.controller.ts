@@ -23,13 +23,12 @@ export class AppController {
   }
 
   @Post('pub')
-      //@Header('content-type', 'application/json')
   async pub(@Body() body: any): Promise<string> {
     try {
-      Logger.error('receive: ');
+      Logger.error('send: ');
       await this.rabbitMQService.amqpConnection.publish(AMQ_DIRECT, ROUTING_KEY, body)
     } catch (err: any) {
-      Logger.error('not receive msg: ' + err);
+      Logger.error('not send msg: ' + err);
     }
 
     return 'success' //this.rmqService.competingPubSubHandler(msg);

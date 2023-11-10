@@ -1,7 +1,3 @@
-# glossary
-https://capnproto.org/
-tp = third party (любой сторонний сервис)
-ms = microservice (на нашей стороне)
 # 1. start RabbitMQ
 ```sh
 docker run -d -p 5672:5672 -p 15672:15672 --rm --hostname rabbit_hostname --name rabbitmq -e RABBITMQ_DEFAULT_USER=zowie -e RABBITMQ_DEFAULT_PASS=2840 bitnami/rabbitmq:3.12.7
@@ -12,9 +8,44 @@ docker run -d --name clickhouse_host --expose 8123 --restart unless-stopped --ul
 ```sh
 docker inspect rabbitmq
 ```
-либо
+OR
 ```sh
+$IP
 docker container inspect -f '{{ .NetworkSettings.IPAddress }}' rabbitmq
 ```
 copy Networks -> IPAddress
-add rabbitmq_host_port = '172.17.0.2:5672'
+change rabbitmq_host_port = '$IP:5672'
+
+```sql
+CREATE OR REPLACE TABLE rmq.flatten_json (
+        timestamp DateTime64(3),
+        id UInt32,
+        routingKey String,
+        body String,
+        _exchange_name String,
+        _channel_id String,
+        _delivery_tag UInt64,
+        _timestamp UInt64
+) ENGINE = RabbitMQ
+SETTINGS
+    rabbitmq_host_port = '172.17.0.3:5672',
+    rabbitmq_exchange_name = 'exch',
+    rabbitmq_exchange_type = 'direct',
+    rabbitmq_format = 'JSONEachRow',
+    rabbitmq_routing_key_list = 'ms.scam-coin.IsHoneypotCoin1',
+    rabbitmq_num_consumers = 1,
+    date_time_input_format = 'best_effort';
+    //rabbitmq_address = 'amqp://zowie:2840@localhost:5672',
+```
+
+# glossary
+tp = third party (любой сторонний сервис)
+ms = microservice (на нашей стороне)
+
+# schema
+https://capnproto.org/
+# links
+https://clickhouse.com/docs/ru/engines/table-engines/integrations/rabbitmq
+https://github.com/rabbitmq/rabbitmq-perf-test
+https://www.mongodb.com/compatibility/deploying-a-mongodb-cluster-with-docker
+

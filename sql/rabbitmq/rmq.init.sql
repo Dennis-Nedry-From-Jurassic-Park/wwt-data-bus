@@ -1,4 +1,4 @@
-CREATE DATABASE IF NOT EXISTS rmq ;
+CREATE DATABASE IF NOT EXISTS rmq;
 
 DROP TABLE rmq.event
 DROP TABLE rmq._
@@ -30,7 +30,7 @@ SETTINGS
     rabbitmq_exchange_name = 'exch',
     rabbitmq_exchange_type = 'direct',
     rabbitmq_format = 'JSONEachRow',
-    rabbitmq_routing_key_list = '#1-a',
+    rabbitmq_routing_key_list = '#1-a,ms.scam-coin.getPairs,ms.scam-coin.IsHoneypotCoin',
     rabbitmq_num_consumers = 1,
     date_time_input_format = 'best_effort';
     //rabbitmq_address = 'amqp://zowie:2840@localhost:5672',
