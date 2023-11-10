@@ -31,7 +31,7 @@
     "pnpm:add": "npx pnpm add -g pnpm",
     "pnpm:setup": "npx pnpm setup",
     "-------- pnpm package ----------": "",
-    "pnpm:add:p": "npx pnpm add -w run-parallel",
+    "pnpm:add:p": "npx pnpm add -w web3 @1inch/fusion-sdk @1inch/limit-order-protocol-utils",
     "pnpm:add:p:dev": "npx pnpm add -w -D benchmark-node",
     "pnpm:update-deps": "pnpm update --latest",
     "pnpm:install": "npx pnpm -r install --recursive",
@@ -49,6 +49,7 @@
     "doppler:setup": "doppler setup",
     "----------- runners -----------": "",
     "exec:doppler": "doppler run -- ts-node src/exec.ts",
+    "uniswap.v2": "doppler run -- ts-node src/bot/uniswap.v2.ts",
     "exec": "ts-node src/exec.ts",
     "bench": "ts-node bench/flatten.obj.ts",
     "build": "nest build",
@@ -64,6 +65,8 @@
     "nestjs:init": "npx nest g resource"
   },
   "dependencies": {
+    "@1inch/fusion-sdk": "^0.1.11",
+    "@1inch/limit-order-protocol-utils": "4.0.21-alpha",
     "@golevelup/nestjs-rabbitmq": "^4.0.0",
     "@nestjs/axios": "^3.0.1",
     "@nestjs/cli": "^10.2.1",
@@ -80,7 +83,8 @@
     "run-parallel": "^1.2.0",
     "rxjs": "^7.8.1",
     "tslib": "^2.6.2",
-    "uuid": "^9.0.1"
+    "uuid": "^9.0.1",
+    "web3": "^4.2.2"
   },
   "devDependencies": {
     "@jest/types": "^29.6.3",
