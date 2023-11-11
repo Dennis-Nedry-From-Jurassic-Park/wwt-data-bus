@@ -50,6 +50,7 @@
     "----------- runners -----------": "",
     "exec:doppler": "doppler run -- ts-node src/exec.ts",
     "uniswap.v2": "doppler run -- ts-node src/bot/uniswap.v2.ts",
+    "1inch.v5": "doppler run -- ts-node src/bot/1inch.v5.ts",
     "exec": "ts-node src/exec.ts",
     "bench": "ts-node bench/flatten.obj.ts",
     "build": "nest build",

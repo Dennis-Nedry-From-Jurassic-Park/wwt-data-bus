@@ -127,6 +127,10 @@ export class ScamCheckController {
 
         const routingKey = this.routingKey + 'IsHoneypotCoin' + '.Flatten'
 
+        // TODO: 1. isTrade field merge to FinalJson
+        // TODO: 2. other fields merge to FinalJson
+        // TODO: 3. FinalJson -> main logic
+        // TODO: 4. FinalJson -> FlattenJson
         parallel([
             async () => {
                 await this.rabbitMQService.amqpConnection.publish(AMQ_DIRECT, routingKey, {

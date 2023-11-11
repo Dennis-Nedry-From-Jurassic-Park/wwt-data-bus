@@ -14,105 +14,152 @@ import {
     Web3ProviderConnector
 } from '@1inch/limit-order-protocol-utils';
 import {ActiveOrdersResponse} from "@1inch/fusion-sdk/api/orders";
+import {PresetEnum} from "@1inch/fusion-sdk/api";
 
 export class OneInchBot {
+    private readonly _provider: any
+    private readonly _sdk: any
+    // our wallet address from metamask as example
+    private readonly _makerAddress = '0x5AeC6f5979fc093e014185f17fCD9cf81ff9942C'
+    private readonly _WETH = '0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2'
 
-}
+    private makerPrivateKey = process.env.WWT_MM_WALLET_FF9942C_PKEY
+    //private makerAddress = process.env.INFRA_1INCH_MAKER_ADDRESS
+    //private nodeUrl: any = 'HTTP://127.0.0.1:7545'
 
-const uint256 = Web3.utils.sha3('OwnershipTransferred(address,address)')!
-console.log('uint256='+uint256);
+    constructor() {
+        this._provider = new Web3(
+            new Web3.providers.HttpProvider(
+                process.env.WWT_CHAINNODES_WEB3_HTTPS
+            )
+        );
 
-const makerPrivateKey = process.env.WWT_MM_WALLET_FF9942C_PKEY
-const makerAddress = process.env.INFRA_1INCH_MAKER_ADDRESS
-const nodeUrl: any = 'HTTP://127.0.0.1:7545'
-// process.env.WWT_CHAINNODES_WEB3_HTTPS
+        const blockchainProvider = new PrivateKeyProviderConnector(this.makerPrivateKey, this.provider)
 
-//const provider = new Web3(<any>nodeUrl)
-const provider: any = new Web3(
-    new Web3.providers.HttpProvider(
-        'https://mainnet.chainnodes.org/c9e804de-0d98-4642-ba87-a1faba659a8c'
-       // process.env.WWT_CHAINNODES_WEB3_HTTPS
-        //nodeUrl
-    )
-);
+        this._sdk = new FusionSDK({
+            url: 'https://api.1inch.dev/fusion',
+            network: NetworkEnum.ETHEREUM,
+            blockchainProvider,
+            authKey: process.env.INFRA_1INCH_API_KEY
+        })
 
-// const _provider = new Web3.providers.HttpProvider(
-//     'https://mainnet.chainnodes.org/c9e804de-0d98-4642-ba87-a1faba659a8c'
-//     // process.env.WWT_CHAINNODES_WEB3_HTTPS
-//     //nodeUrl
-// )
-
-
-const chainId = +ChainId.arbitrumMainnet; // Fee ~ 6-7$
-// https://www.npmjs.com/package/@1inch/limit-order-protocol-contract
-// https://www.npmjs.com/package/@1inch/limit-order-protocol
-const blockchainProvider = new PrivateKeyProviderConnector(makerPrivateKey, provider)
-
-const sdk = new FusionSDK({
-    url: 'https://api.1inch.dev/fusion',
-    network: NetworkEnum.ETHEREUM,
-    blockchainProvider,
-    authKey: process.env.INFRA_1INCH_API_KEY
-})
-
-export const delay = (ms:number) => new Promise(resolve => setTimeout(resolve, ms));
-
-const cancel_order = async () => {
-    //await sdk.buildCancelOrderCallData('0x005e51b961cca9a1704a84252da30148fb8e2b3fe048665726df82786b9600b1')
-    try {
-        const activeOrders: ActiveOrdersResponse = await sdk.getActiveOrders({ page: 1, limit: 1 })
-        console.log(activeOrders);
-    } catch(error: any) {
-        console.log(error);
-        JSON.stringify(error,null,'\t')
     }
 
+    get provider() {
+        return this._provider
+    }
+    get sdk() {
+        return this._sdk
+    }
+    get WETH() {
+        return this._WETH
+    }
+    get makerAddress() {
+        return this._makerAddress
+    }
+
+    cancel_order = async () => {
+        //await sdk.buildCancelOrderCallData('0x005e51b961cca9a1704a84252da30148fb8e2b3fe048665726df82786b9600b1')
+        try {
+            const activeOrders: ActiveOrdersResponse = await this.sdk.getActiveOrders({ page: 1, limit: 1 })
+            console.log(activeOrders);
+        } catch(error: any) {
+            console.log(error);
+            JSON.stringify(error,null,'\t')
+        }
+    }
+
+    cancel_all_orders = async () => {
+        const activeOrders: ActiveOrdersResponse = await this.sdk.getActiveOrders({ page: 1, limit: 1 })
+
+        const limit = activeOrders.meta.totalItems
+
+        const orders = await this.sdk.getActiveOrders({ page: 1, limit: limit })
+        //console.log(JSON.stringify(orders,null,'\t'));
+
+        // отмена битых ордеров
+        // for (const order of orders.items) {
+        //     await sdk.buildCancelOrderCallData(order.orderHash)
+        //     await delay(500)
+        // }
+
+        const orders_ = await this.sdk.getActiveOrders({ page: 1, limit: limit })
+        console.log(this.pretty(orders_));
+
+    }
+
+    make_sha3 = (
+        event: string,
+    ) => {
+        const uint256_hash = Web3.utils.sha3('OwnershipTransferred(address,address)')!
+        console.log('hash=' + uint256_hash);
+        return uint256_hash
+    }
+
+    arb = (
+        event: string,
+    ) => {
+        const chainId = +ChainId.arbitrumMainnet; // Fee ~ 6-7$
+
+    }
+
+    pretty = (msg:any) => { console.log(JSON.stringify(msg,null,'\t')); }
+
+    delay = (ms:number) => new Promise(resolve => setTimeout(resolve, ms));
+
 }
-cancel_order();
 
-const cancel_all_orders = async () => {
-    const activeOrders: ActiveOrdersResponse = await sdk.getActiveOrders({ page: 1, limit: 1 })
+const main = async () => {
+    const bot = new OneInchBot()
+    //const activeOrders: ActiveOrdersResponse = await bot.sdk.getActiveOrders({ page: 1, limit: 1 })
 
-    const limit = activeOrders.meta.totalItems
 
-    const orders = await sdk.getActiveOrders({ page: 1, limit: limit })
-    //console.log(JSON.stringify(orders,null,'\t'));
+    const orders = await bot.sdk.getOrdersByMaker({
+        page: 1,
+        limit: 25,
+        address: bot.makerAddress
+    })
 
-    // отмена битых ордеров
-    // for (const order of orders.items) {
-    //     await sdk.buildCancelOrderCallData(order.orderHash)
-    //     await delay(500)
-    // }
+    bot.pretty(orders)
 
-    const orders_ = await sdk.getActiveOrders({ page: 1, limit: limit })
-    console.log(JSON.stringify(orders_,null,'\t'));
+    /*
+    {
+        "meta": {
+                "totalItems": 0,
+                "currentPage": 1,
+                "itemsPerPage": 25,
+                "totalPages": 0
+        },
+        "items": []
+    }
+     */
 
+
+    // get signal ...
+    bot.sdk.placeOrder({
+        fromTokenAddress: bot.WETH,
+        toTokenAddress: '0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48', // USDC or other toke
+        amount: '10000000000000000', // 0.01 ETH in wei https://converter.murkin.me/
+        walletAddress: bot.makerAddress, // our wallet
+        preset: PresetEnum.medium,
+        fee: {
+            takingFeeBps: 100, // 1% as we use bps format, 1% is equal to 100bps
+            takingFeeReceiver: bot.makerAddress // fee receiver address
+        }
+    }).then(console.log)
 }
-
-
-// async function main() {
-//     const sdk = new FusionSDK({
-//         url: 'https://fusion.1inch.io',
-//         network: NetworkEnum.ETHEREUM
-//     })
-//
-//     const orders = await sdk.getActiveOrders({page: 1, limit: 2})
-// }
-//
-// main()
-
-// sdk.placeOrder({
-//     fromTokenAddress: '0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2', // WETH
-//     toTokenAddress: '0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48', // USDC
-//     amount: '50000000000000000', // 0.01 ETH
-//     walletAddress: makerAddress
-// }).then(console.log)
+main();
 
 
 
 
 
 
+
+
+
+
+/*
 
 const exec = async () => {
     const walletAddress = '0x1111111111111111111111111111111111111111';
@@ -365,5 +412,5 @@ const exec = async () => {
     console.log(balances);
 }
 
-
+*/
 //exec()
