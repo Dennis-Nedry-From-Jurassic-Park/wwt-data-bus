@@ -114,7 +114,7 @@ export class ScamCheckController {
     @Post('honeypot/IsHoneypotCoinFlatten')
     async isHoneypotCoinFlatten(@Body() body: { address: string, chainId: string }): Promise<AxiosResponse<any[]>> {
         //const routingKey = this.routingKey + 'getPairs'
-
+        // TODO: https://www.npmjs.com/package/retry-axios
         const data = await this.getPairs({ address: body.address, chainId: body.chainId })
         console.log('pair data:');
         console.log(data);
@@ -127,6 +127,10 @@ export class ScamCheckController {
 
         const routingKey = this.routingKey + 'IsHoneypotCoin' + '.Flatten'
 
+        // TODO: 1. isTrade field merge to FinalJson
+        // TODO: 2. other fields merge to FinalJson
+        // TODO: 3. FinalJson -> main logic
+        // TODO: 4. FinalJson -> FlattenJson
         parallel([
             async () => {
                 await this.rabbitMQService.amqpConnection.publish(AMQ_DIRECT, routingKey, {
