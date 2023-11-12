@@ -114,13 +114,22 @@ const main = async () => {
     //const activeOrders: ActiveOrdersResponse = await bot.sdk.getActiveOrders({ page: 1, limit: 1 })
 
 
-    const orders = await bot.sdk.getOrdersByMaker({
-        page: 1,
-        limit: 25,
-        address: bot.makerAddress
-    })
+    // const orders = await bot.sdk.getOrdersByMaker({
+    //     page: 1,
+    //     limit: 25,
+    //     address: bot.makerAddress
+    // })
+    //
+    // bot.pretty(orders)
 
-    bot.pretty(orders)
+    const params = {
+        fromTokenAddress: '0x6b175474e89094c44da98b954eedeac495271d0f',
+        toTokenAddress: '0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2',
+        amount: '1000000000000000000000'
+    }
+
+    const quote = await bot.sdk.getQuote(params)
+    bot.pretty(quote)
 
     /*
     {
@@ -136,6 +145,7 @@ const main = async () => {
 
 
     // get signal ...
+    // TODO: https://docs.1inch.io/docs/fusion-swap/fusion-sdk/for-integrators/sdk-overview/
     bot.sdk.placeOrder({
         fromTokenAddress: bot.WETH,
         toTokenAddress: '0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48', // USDC or other toke
