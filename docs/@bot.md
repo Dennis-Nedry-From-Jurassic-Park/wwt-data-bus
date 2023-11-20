@@ -8,6 +8,7 @@ https://limit-orders.1inch.io/swagger/ethereum/
 https://github.com/1inch
 
 # TESTNET
+https://diadao.notion.site/Arbitrum-Testnet-Faucets-6ecc8b2b40a84b178bf57a63991442af
 https://testnet.arbiscan.io/
 https://faucet.quicknode.com/arbitrum/goerli
 https://faucets.chain.link/arbitrum-goerli
