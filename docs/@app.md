@@ -48,4 +48,10 @@ https://capnproto.org/
 https://clickhouse.com/docs/ru/engines/table-engines/integrations/rabbitmq
 https://github.com/rabbitmq/rabbitmq-perf-test
 https://www.mongodb.com/compatibility/deploying-a-mongodb-cluster-with-docker
+# audit contracts
+https://www.immunebytes.com/rust-smart-contract-audit/
+https://github.com/Vid201/awesome-ethereum-rust
+https://stellar.org/blog/developers/how-to-migrate-smart-contracts-from-ethereum-s-solidity-to-soroban-rust
+
+https://github.com/ethereum/fe
 

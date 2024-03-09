@@ -20,6 +20,7 @@ Network URL: https://endpoints.omniatech.io/v1/arbitrum/goerli/public
 Chain ID: 421613
 Currency symbol: AGOR
 Block explorer URL: https://goerli.arbiscan.io
+
 # infra
 https://book.getfoundry.sh/getting-started/installation
 anvil --fork-url https://ethereum.publicnode.com
