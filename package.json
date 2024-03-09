@@ -31,7 +31,7 @@
     "pnpm:add": "npx pnpm add -g pnpm",
     "pnpm:setup": "npx pnpm setup",
     "-------- pnpm package ----------": "",
-    "pnpm:add:p": "npx pnpm add -w web3 @bwarelabs/blast-sdk-js",
+    "pnpm:add:p": "npx pnpm add -w viem web3 @bwarelabs/blast-sdk-js",
     "pnpm:add:p:dev": "npx pnpm add -w -D benchmark-node",
     "pnpm:update-deps": "pnpm update --latest",
     "pnpm:install": "npx pnpm -r install --recursive",
@@ -52,6 +52,7 @@
     "uniswap.v2": "doppler run -- ts-node src/bot/uniswap.v2.ts",
     "1inch.v5": "doppler run -- ts-node src/bot/1inch.v5.ts",
     "blast": "doppler run -- ts-node src/bot/blast.ts",
+    "wwt": "doppler run -- ts-node src/wwt.ts",
     "exec": "ts-node src/exec.ts",
     "bench": "ts-node bench/flatten.obj.ts",
     "build": "nest build",
@@ -87,6 +88,7 @@
     "rxjs": "^7.8.1",
     "tslib": "^2.6.2",
     "uuid": "^9.0.1",
+    "viem": "^2.7.3",
     "web3": "^4.2.2"
   },
   "devDependencies": {
