@@ -1,4 +1,4 @@
-import {json} from 'body-parser';
+//import {json} from 'body-parser';
 import {NestFactory} from "@nestjs/core";
 import {AppModule} from './app/app.module';
 import {Logger} from "@nestjs/common";
