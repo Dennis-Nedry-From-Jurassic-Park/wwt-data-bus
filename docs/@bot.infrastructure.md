@@ -5,6 +5,9 @@ Ayaneo — AM02.
 https://youtu.be/4Im5sOPWPXI?t=473
 https://youtu.be/4Im5sOPWPXI?t=806
 
+NAS NVME RAID0
+https://youtu.be/p7UNMQIjd50?t=399
+
 !!! https://github.com/ledgerwatch/erigon/issues/6500
 NFS - it doesn’t support POSIX flock.
 You need some non-network file system
