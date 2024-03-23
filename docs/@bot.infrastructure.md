@@ -1,5 +1,46 @@
 # Erigon Archive Node - NUC or Barebone PC Recommendation
 
+Ayaneo — AM02.
+1н диск до 8 терабайт
+https://youtu.be/4Im5sOPWPXI?t=473
+https://youtu.be/4Im5sOPWPXI?t=806
+
+!!! https://github.com/ledgerwatch/erigon/issues/6500
+NFS - it doesn’t support POSIX flock.
+You need some non-network file system
+I am running erigon on an aliyun nas server.
+2、linux file-system
+xxxcn-hongkong.nas.aliyuncs.com:/ nfs 1.0P 11T 1014T 2% /data3/pploy_erigon_data
+
+It must not be NFS. Because Database need POSIX flock feature.
+https://help.aliyun.com/product/27516.html?spm=5176.59209.J_5834642020.4.6e6576b9ZT764b
+Alibaba Cloud File Storage NAS
+
+ASrock DeskMini B660 (LGA1700) or X300 (AM4).
+Both take two 2.5" SATA drives and two NVMe drives; 
+Gen5/Gen4 on the B660 and Gen3/Gen3 on the X300
+
+https://aliexpress.ru/popular/nvme-nas.html
+
+
+```bash
+docker run -d --name erigen -p 8833:30303 -p 8838:8545 -p 8835:9090 
+-v /data3/pploy_erigon_data:/root/erigon/data/ 
+erigon supervisord -n -c /etc/supervisor/supervisord.conf
+```
+
+Once you set up your node hardware and configure the client, 
+you can start with the Ethereum blockchain using libraries (ethers.js/web3.js) & JSON-RPC calls. 
+For example, you can try to get the balance for an old address by calling the `eth_getBalance` function.
+
+
+
+https://aliexpress.ru/item/1005005787292655.html?spm=a2g2w.detail.pers_rcmd.11.15704319kp7zZC&mixer_rcmd_bucket_id=aerabtestalgoRecommendAbV20_controlRu1&pdp_trigger_item_id=0_1005005518640501&ru_algo_pv_id=4a6544-476f2e-45fc5e-da21d7-1711101600&scenario=pcDetailBottomMoreOtherSeller&sku_id=12000034353080545&traffic_source=recommendation&type_rcmd=core
+https://novosibirsk.e2e4online.ru/catalog/item/ssd-mastero-2tb-sata3-mst-ssd-2tb-1205118/
+
+
+https://www.youtube.com/watch?v=aQOrkHSyxNQ
+
 https://aliexpress.ru/item/1005006075053161.html?sku_id=12000035613627553
 https://max.nix.ru/autocatalog/barebone/Intel-NUC-Kit-BKNUC9V7QNX2-i7-9850H-46-GGts-PCI-E-HDMI-2xGbLAN-3xM2-2DDR4-SODIMM_478446.html
 https://www.avito.ru/orel/nastolnye_kompyutery/mini_pk_intel_nuc_9_pro_kit_-_nuc9v7qnx_3599414923?context=H4sIAAAAAAAA_0q0MrSqLrYytFKqULIutjI2tFJKNk6uzCgwqixKtyw1TDXPSyw1zkzJyEutLE0yKDY2U7KuBQQAAP__Mp3AcjUAAAA
@@ -12,8 +53,19 @@ https://saratov.nix.ru/autocatalog/barebone/Intel-NUC-Kit-BKNUC9V7QNX2-i7-9850H-
 https://androidpctv.com/gmktec-k8-mini-pc/
 GMKtec Мини-ПК NucBox K8 (AMD Ryzen 7 8845HS (3.8 ГГц), RAM 64 ГБ, SSD 4096 ГБ, AMD Radeon 780M, Windows), K8, серебристый
 Aoostar Gem12 Pro
+https://bee-link.ru/catalog/mini-pc?224=Ryzen
 
 Beelink GTR7
+https://bee-link.ru/gtr7
+![img_1.png](img_1.png)
+
+https://bee-link.ru/gtr7pro
+![img_2.png](img_2.png)
+
+info@bee-link.ru
+Адрес: Научный пр-д, 8 стр. 1, Москва, 117246  (Офисный центр «На Научном»). Тел. 8 (495) 510-49-75
+
+
 https://t.me/MiTechStore/456
 https://youtu.be/a7krnyIpZoo?t=463
 
