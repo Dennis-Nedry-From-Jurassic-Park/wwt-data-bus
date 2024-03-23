@@ -27,9 +27,6 @@ async function getEthereumPriceFromCoinbase() {
     }
 }
 
-getEthereumPriceFromCoinbase();
-
-
 async function getEthereumPriceFromEtherscan(apiKey: string) {
     try {
         const response = await axios.get(`https://api.etherscan.io/api?module=stats&action=ethprice&apikey=${apiKey}`);
@@ -38,7 +35,4 @@ async function getEthereumPriceFromEtherscan(apiKey: string) {
         console.error(error);
     }
 }
-
-const apiKey = 'YourApiKeyToken'; // Replace with your actual API key
-getEthereumPriceFromEtherscan(apiKey);
 
