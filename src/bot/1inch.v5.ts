@@ -1,21 +1,17 @@
 import {FusionSDK, NetworkEnum, PrivateKeyProviderConnector} from "@1inch/fusion-sdk";
 import Web3 from "web3";
-
-import {
-    seriesNonceManagerContractAddresses,
-    ChainId,
-    Erc20Facade,
-    LimitOrderBuilder,
-    LimitOrderProtocolFacade,
-    LimitOrderPredicateBuilder,
-    NonceSeriesV2,
-    SeriesNonceManagerFacade,
-    SeriesNonceManagerPredicateBuilder,
-    Web3ProviderConnector
-} from '@1inch/limit-order-protocol-utils';
+// TODO: enterprise endpoint
+// https://portal.1inch.dev/dashboard
+import {ChainId} from '@1inch/limit-order-protocol-utils';
 import {ActiveOrdersResponse} from "@1inch/fusion-sdk/api/orders";
 import {PresetEnum} from "@1inch/fusion-sdk/api";
 
+// TODO: cost https://portal.1inch.dev/pricing
+/* TODO: https://www.reddit.com/r/defi/comments/udorhe/why_limit_order_in_1inch_often_fails/
+One assumption is that they wait for the price to exceed your limit
+by a certain threshold so that the transaction doesn't fail
+by temporary slippage which pushes prices below your limit order price.
+ */
 export class OneInchBot {
     private readonly _provider: any
     private readonly _sdk: any
@@ -48,12 +44,15 @@ export class OneInchBot {
     get provider() {
         return this._provider
     }
+
     get sdk() {
         return this._sdk
     }
+
     get WETH() {
         return this._WETH
     }
+
     get makerAddress() {
         return this._makerAddress
     }
@@ -61,20 +60,20 @@ export class OneInchBot {
     cancel_order = async () => {
         //await sdk.buildCancelOrderCallData('0x005e51b961cca9a1704a84252da30148fb8e2b3fe048665726df82786b9600b1')
         try {
-            const activeOrders: ActiveOrdersResponse = await this.sdk.getActiveOrders({ page: 1, limit: 1 })
+            const activeOrders: ActiveOrdersResponse = await this.sdk.getActiveOrders({page: 1, limit: 1})
             console.log(activeOrders);
-        } catch(error: any) {
+        } catch (error: any) {
             console.log(error);
-            JSON.stringify(error,null,'\t')
+            JSON.stringify(error, null, '\t')
         }
     }
 
     cancel_all_orders = async () => {
-        const activeOrders: ActiveOrdersResponse = await this.sdk.getActiveOrders({ page: 1, limit: 1 })
+        const activeOrders: ActiveOrdersResponse = await this.sdk.getActiveOrders({page: 1, limit: 1})
 
         const limit = activeOrders.meta.totalItems
 
-        const orders = await this.sdk.getActiveOrders({ page: 1, limit: limit })
+        const orders = await this.sdk.getActiveOrders({page: 1, limit: limit})
         //console.log(JSON.stringify(orders,null,'\t'));
 
         // отмена битых ордеров
@@ -83,7 +82,7 @@ export class OneInchBot {
         //     await delay(500)
         // }
 
-        const orders_ = await this.sdk.getActiveOrders({ page: 1, limit: limit })
+        const orders_ = await this.sdk.getActiveOrders({page: 1, limit: limit})
         console.log(this.pretty(orders_));
 
     }
@@ -103,9 +102,11 @@ export class OneInchBot {
 
     }
 
-    pretty = (msg:any) => { console.log(JSON.stringify(msg,null,'\t')); }
+    pretty = (msg: any) => {
+        console.log(JSON.stringify(msg, null, '\t'));
+    }
 
-    delay = (ms:number) => new Promise(resolve => setTimeout(resolve, ms));
+    delay = (ms: number) => new Promise(resolve => setTimeout(resolve, ms));
 
 }
 
@@ -159,14 +160,6 @@ const main = async () => {
     }).then(console.log)
 }
 main();
-
-
-
-
-
-
-
-
 
 
 /*

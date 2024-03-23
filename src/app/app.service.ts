@@ -1,13 +1,20 @@
-import {Inject, Injectable} from '@nestjs/common';
+import {Injectable} from '@nestjs/common';
 import {CreateAppDto} from './dto/create-app.dto';
 import {UpdateAppDto} from './dto/update-app.dto';
-import {AmqpConnection, RabbitSubscribe} from "@golevelup/nestjs-rabbitmq";
-import {RabbitMQService} from "../rabbitmq/rmq.service";
+
+import { DataSource } from 'typeorm';
 
 @Injectable()
 export class AppService {
     constructor() {
-
+        const data_source = new DataSource({
+            type: 'postgres',
+            url: db_config.postgres.connect_url,
+            synchronize: false,
+            logging: db_config.postgres.enable_logging,
+            entities: [],
+        });
+        await data_source.initialize();
     }
 
     create(createAppDto: CreateAppDto) {

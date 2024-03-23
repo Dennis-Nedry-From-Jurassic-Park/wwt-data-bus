@@ -53,6 +53,7 @@
     "1inch.v5": "doppler run -- ts-node src/bot/1inch.v5.ts",
     "blast": "doppler run -- ts-node src/bot/blast.ts",
     "wwt": "doppler run -- ts-node src/wwt.ts",
+    "wwt.exec": "doppler run -- ts-node src/wwt.exec.ts",
     "exec": "ts-node src/exec.ts",
     "bench": "ts-node bench/flatten.obj.ts",
     "build": "nest build",
