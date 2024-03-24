@@ -5,8 +5,14 @@ https://etherscan.io/token/0x94e496474f1725f1c1824cb5bdb92d7691a4f03a
 https://basescan.org/token/0x55bB827Bf04fa78AF6E1064f6C5Ab089D14bbF92
 https://www.bananabot.io/
 
+# node nodes
+? size https://chainstack.com/introducing-bolt-the-chainstack-technology-made-for-simple-node-synchronization/
 
+https://nodes.guru/
+https://explorers.guru/
+https://www.youtube.com/watch?v=LlFzxbTI2Es
 # gas price
+Track validator commission changes for delegation monitoring
 ! https://youtu.be/p7UNMQIjd50?t=399
 ! https://api.etherscan.io/api?module=gastracker&action=gasoracle&apikey=YourApiKeyToken
 ! https://gist.github.com/thrilok209/8b19dbd8d46b2805ab8bb8973611aea2
