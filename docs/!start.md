@@ -4,5 +4,9 @@ https://getblock.io/pricing/
 
 https://getblock.io/docs/nodes-endpoints/
 
+https://www.hetzner.com/dedicated-rootserver/matrix-ex/
 
+# cryo
+https://github.com/paradigmxyz/cryo/blob/main/examples/erc20_balances.sh
+https://github.com/paradigmxyz/cryo
 

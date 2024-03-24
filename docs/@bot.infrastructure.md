@@ -3,6 +3,7 @@
 https://nodes.guru/
 https://t.me/NodesGuru_bot
 https://drpc.org/chainlist
+https://www.hetzner.com/dedicated-rootserver/matrix-ex/
 
 
 Ayaneo — AM02.
