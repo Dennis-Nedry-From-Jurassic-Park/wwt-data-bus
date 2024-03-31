@@ -1,4 +1,5 @@
 import {client} from "./wwt";
+import {mainnet} from 'viem/chains';
 
 const block = {
     baseFeePerGas: 15724698394n,
@@ -201,14 +202,16 @@ const exec = async () => {
     // const transaction = await client.getTransaction({
     //     hash: tx
     // });
-    const transaction = await client.getTransaction({
-        blockNumber: 19496952n,
-        index: 0
-    });
 
 
-    console.log({tx});
-    console.log({transaction});
+    // const transaction = await client.getTransaction({
+    //     blockNumber: 19496952n,
+    //     index: 0
+    // });
+    //
+    //
+    // console.log({tx});
+    // console.log({transaction});
 
     const tx0 = {
         transaction: {
@@ -232,5 +235,57 @@ const exec = async () => {
         }
     }
 
+    /*const feeHistory = await client.getFeeHistory({
+        blockCount: 4,
+        // blockTag: 'safe',  // 'latest', 'earliest', 'pending', 'safe', 'finalized'
+
+        blockNumber: 19496952n,
+        rewardPercentiles: [25, 75]
+    });
+
+    console.log({feeHistory});*/
+
+    const feeHistoryMock = {
+        feeHistory: {
+            baseFeePerGas: [
+                17935313455n,
+                16079900047n,
+                18089213269n,
+                19350950365n,
+                18573138916n
+            ],
+            gasUsedRatio: [0.08619883333333334, 0.9998322666666667, 0.7790032, 0.33922],
+            oldestBlock: 19496949n,
+            reward: [[Array], [Array], [Array], [Array]]
+        }
+    }
+
+    const {gasPrice} = await client.estimateFeesPerGas({
+        type: 'legacy',
+        chain: mainnet
+    }); // TODO: EIP-1559
+    console.log({gasPrice});
+
+
 }
-exec();
+//exec();
+
+const exec0 = async () => {
+
+
+}
+exec0();
+
+/*
+const uniswapV3Contract = new ethers.Contract(uniswapV3Address, uniswapV3ABI, provider);
+
+    const simulationResult = await simulateContract(uniswapV3Contract, 'swapExactTokensForTokens', [
+        amountIn,
+        amountOutMin,
+        path,
+        to,
+        deadline
+    ]);
+
+    console.log(simulationResult);
+ */
