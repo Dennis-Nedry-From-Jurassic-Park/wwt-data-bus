@@ -1,9 +1,18 @@
 # Erigon Archive Node - NUC or Barebone PC Recommendation
 
+https://nodes.guru/
+https://t.me/NodesGuru_bot
+https://drpc.org/chainlist
+https://www.hetzner.com/dedicated-rootserver/matrix-ex/
+
+
 Ayaneo — AM02.
 1н диск до 8 терабайт
 https://youtu.be/4Im5sOPWPXI?t=473
 https://youtu.be/4Im5sOPWPXI?t=806
+
+NAS NVME RAID0
+https://youtu.be/p7UNMQIjd50?t=399
 
 !!! https://github.com/ledgerwatch/erigon/issues/6500
 NFS - it doesn’t support POSIX flock.
@@ -130,3 +139,7 @@ reddit.com/r/ethstaker/comments/14vt8el/best_website_to_host_an_ethereum_node/
 
 https://www.lenovo.com/ru/ru/desktops/thinkcentre/m-series-tiny/ThinkCentre-M75q-Gen-2/p/11TC1MTM7G2?orgRef=https%253A%252F%252Fwww.google.com%252F
 
+# remote arch full nodes hosting 
+
+https://drpc.org/pricing
+![img_3.png](img_3.png)

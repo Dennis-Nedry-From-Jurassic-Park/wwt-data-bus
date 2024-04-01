@@ -1,6 +1,5 @@
-import {formatEther} from "viem";
-import {getTokenPrice, Token} from "./eth/price.oracle";
-import {getCurrentGasPrices} from "./eth/gas";
+import {client} from "./wwt";
+//exec();
 
 const block = {
     baseFeePerGas: 15724698394n,
@@ -143,13 +142,15 @@ const block = {
 
 
 const exec = async () => {
-    const baseFeePerGas = formatEther(block.baseFeePerGas);
-    console.log({baseFeePerGas});
-    console.log({ethInDollars: Number(baseFeePerGas) * 3400});
+    // const baseFeePerGas = formatEther(block.baseFeePerGas);
+    // console.log({baseFeePerGas});
+    // console.log({ethInDollars: Number(baseFeePerGas) * 3400});
+    //
+    // await getTokenPrice(Token.arb);
+    // const ethPriceInDollars = await (await getTokenPrice(Token.eth)).USD;
+    // console.log({ethPriceInDollars});
 
-    await getTokenPrice(Token.arb);
-    const ethPriceInDollars = await (await getTokenPrice(Token.eth)).USD;
-    console.log({ethPriceInDollars});
+
     //console.log(ethPriceInDollars * baseFeePerGas);
     // const gas = await client.estimateGas({
     //     account: '0xf39fd6e51aad88f6f4ce6ab8827279cfffb92266',
@@ -170,7 +171,7 @@ const exec = async () => {
     // console.log({maxFeePerGas});
     // console.log({maxPriorityFeePerGas});
 
-    await getCurrentGasPrices();
+    // await getCurrentGasPrices();
 
     // TODO: AXIOUS https://api.etherscan.io/api?module=gastracker&action=gasoracle&apikey=YourApiKeyToken
     const resp_ok = {
@@ -192,5 +193,121 @@ const exec = async () => {
     }
 
 
+    console.log(block.transactions[4]);
+    //const tx: `0x${string}` = '0x80aed8e7b22ade179545694a36f35560fc45ef87a906449a78bc3052d358707d'
+    //const tx: `0x${string}` = '0x9a5012f73589a81b478891218f732a70dd08f07fed7b21f9e7cca334aa3d7427'
+    const tx: `0x${string}` = '0xe4ddaa27821771fc91f8dba100b20e78cea376c9468940c594bafff52d37706b'
+    // = block.transactions[0] as `0x${string}`
+    // https://etherscan.io/tx/0x9a5012f73589a81b478891218f732a70dd08f07fed7b21f9e7cca334aa3d7427
+    // const transaction = await client.getTransaction({
+    //     hash: tx
+    // });
+
+
+    // const transaction = await client.getTransaction({
+    //     blockNumber: 19496952n,
+    //     index: 0
+    // });
+    //
+    //
+    // console.log({tx});
+    // console.log({transaction});
+
+    const tx0 = {
+        transaction: {
+            blockHash: '0x75b2eb99d0a2346767724aa9eb58a390a0145c8e683bdbf66fe8d0a61746533a',
+            blockNumber: 19496952n,
+            from: '0x1ab4973a48dc892cd9971ece8e01dcc7688f8f23',
+            gas: 100000n,
+            gasPrice: 28119621992n,
+            hash: '0x8628c778f6b89b000810a5cadc7bce17da03f8c8c43dfafeff0c83e18c351f3d',
+            input: '0x',
+            nonce: 247751,
+            to: '0xee6705c4f0a5cd2f6612b678efd38d7524dc7537',
+            transactionIndex: 0,
+            value: 18165180000000000n,
+            type: 'legacy',
+            chainId: 1,
+            v: 37n,
+            r: '0xade5865f78604c47dc81ca603c0f7f3964bef93c695ecacc9f51eec56da91189',
+            s: '0x2061850f7f5cb68fbcf8f6a832ae8b8cfe837eca3f6f977334c0dc3eddceafbc',
+            typeHex: '0x0'
+        }
+    }
+
+    /*const feeHistory = await client.getFeeHistory({
+        blockCount: 4,
+        // blockTag: 'safe',  // 'latest', 'earliest', 'pending', 'safe', 'finalized'
+
+        blockNumber: 19496952n,
+        rewardPercentiles: [25, 75]
+    });
+
+    console.log({feeHistory});*/
+
+    const feeHistoryMock = {
+        feeHistory: {
+            baseFeePerGas: [
+                17935313455n,
+                16079900047n,
+                18089213269n,
+                19350950365n,
+                18573138916n
+            ],
+            gasUsedRatio: [0.08619883333333334, 0.9998322666666667, 0.7790032, 0.33922],
+            oldestBlock: 19496949n,
+            reward: [[Array], [Array], [Array], [Array]]
+        }
+    }
+
+    // const {gasPrice} = await client.estimateFeesPerGas({
+    //     type: 'legacy',
+    //     chain: mainnet
+    // }); // TODO: EIP-1559
+    // console.log({gasPrice});
+
+
 }
-exec();
+
+const exec0 = async () => {
+
+
+    const feeHistory = await client.getFeeHistory({
+        blockCount: 4,
+        rewardPercentiles: [25, 75]
+    })
+    // https://viem.sh/docs/actions/public/getFeeHistory.html
+    console.log({feeHistory});
+
+
+    // const transactions = await client.getTransactions(address);
+    // fromBlock: "0x0",
+    //     console.log(transactions);
+
+    // { balanceAsEther: '0.002355109453380625' }
+}
+///exec0();
+
+
+const exec111 = async () => {
+
+}
+exec111();
+/*
+ "paths": {
+      "*": ["*"]
+    },
+ */
+/*
+const uniswapV3Contract = new ethers.Contract(uniswapV3Address, uniswapV3ABI, provider);
+
+    const simulationResult = await simulateContract(uniswapV3Contract, 'swapExactTokensForTokens', [
+        amountIn,
+        amountOutMin,
+        path,
+        to,
+        deadline
+    ]);
+
+    console.log(simulationResult);
+ */
