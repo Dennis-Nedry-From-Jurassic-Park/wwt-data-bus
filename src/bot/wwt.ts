@@ -4,6 +4,8 @@ import {Collection} from "../db/mongo/collections";
 import {now_iso} from "../../shared/lib-base/src/datetime/dt";
 import {Catch} from "@magna_shogun/catch-decorator";
 import {OpsType, Strategy} from "./types";
+import {createPublicClient, http} from "viem";
+import {mainnet} from "viem/chains";
 
 const handler = (err) => {
     console.log('catch err111');
@@ -15,6 +17,7 @@ const CatchAll = Catch(Error, (err: any) => console.log(err.message))
 //@Catch(Error, handler)
 export class WWT {
     private mongoDbClient!: MongoDbClient;
+    private publicClient_: any
 
     private dataModel_: any;
     private logsModel_: any;
@@ -30,6 +33,10 @@ export class WWT {
         return this.logsModel_;
     }
 
+    public get publicClient() {
+        return this.publicClient_;
+    }
+
     static async create({
                             strategy
                         }: {
@@ -37,6 +44,13 @@ export class WWT {
                         }
     ): Promise<WWT> {
         const bot = new WWT();
+
+        bot.publicClient_ = createPublicClient({
+            chain: mainnet,
+            transport: http(),
+            // transport: http('http://localhost:8545'),
+            // TODO: Erigon Arch Node
+        });
 
         bot.mongoDbClient = await MongoDbClient.connect("wwt");
 

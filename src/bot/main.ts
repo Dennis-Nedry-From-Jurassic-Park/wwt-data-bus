@@ -5,8 +5,8 @@ const main = async () => {
     const wwt = await WWT.create({
         strategy: Strategy.viem_cloudflare_eth_dev
     });
-    await wwt.error_test();
-
+    const blockNumber = await wwt.publicClient.getBlockNumber();
+    console.log({blockNumber});
     //const data = {};
     //await wwt.save(data);
 }
