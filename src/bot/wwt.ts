@@ -5,7 +5,6 @@ import {now_iso} from "../../shared/lib-base/src/datetime/dt";
 import {Catch} from "@magna_shogun/catch-decorator";
 import {OpsType, Strategy} from "./types";
 
-
 const handler = (err) => {
     console.log('catch err111');
     console.log({err});
@@ -80,11 +79,6 @@ export class WWT {
         )]);
     }
 
-    //@CatchAll
-    error_test = async () => {
-        //const res = 1 / 0;
-        throw new Error("Exception12345")
-    }
     error = async (
         err: any,
     ) => {
