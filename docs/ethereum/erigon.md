@@ -4,6 +4,8 @@ https://hub.docker.com/r/gatewayfm/erigon-tools
 
 https://hub.docker.com/r/chainstack/erigon/tags
 
+# install on linux
+https://surfthedream.com.au/setting-up-a-full-erigon-ethereum-node/
 # install on windows
 
 1) git clone --branch v2.59.3 --single-branch https://github.com/ledgerwatch/erigon.git
