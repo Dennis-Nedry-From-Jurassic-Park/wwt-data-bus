@@ -1,5 +1,5 @@
 import {client} from "./wwt";
-import {mainnet} from 'viem/chains';
+//exec();
 
 const block = {
     baseFeePerGas: 15724698394n,
@@ -260,22 +260,44 @@ const exec = async () => {
         }
     }
 
-    const {gasPrice} = await client.estimateFeesPerGas({
-        type: 'legacy',
-        chain: mainnet
-    }); // TODO: EIP-1559
-    console.log({gasPrice});
+    // const {gasPrice} = await client.estimateFeesPerGas({
+    //     type: 'legacy',
+    //     chain: mainnet
+    // }); // TODO: EIP-1559
+    // console.log({gasPrice});
 
 
 }
-//exec();
 
 const exec0 = async () => {
 
 
-}
-exec0();
+    const feeHistory = await client.getFeeHistory({
+        blockCount: 4,
+        rewardPercentiles: [25, 75]
+    })
+    // https://viem.sh/docs/actions/public/getFeeHistory.html
+    console.log({feeHistory});
 
+
+    // const transactions = await client.getTransactions(address);
+    // fromBlock: "0x0",
+    //     console.log(transactions);
+
+    // { balanceAsEther: '0.002355109453380625' }
+}
+///exec0();
+
+
+const exec111 = async () => {
+
+}
+exec111();
+/*
+ "paths": {
+      "*": ["*"]
+    },
+ */
 /*
 const uniswapV3Contract = new ethers.Contract(uniswapV3Address, uniswapV3ABI, provider);
 

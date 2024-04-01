@@ -1,22 +1,18 @@
-import {createPublicClient, http, parseAbiItem} from 'viem';
-import {mainnet} from 'viem/chains';
+import {parseAbiItem} from 'viem';
 
-export const client = createPublicClient({
-    chain: mainnet,
-    transport: http(),
-    // transport: http('http://localhost:8545'), // TODO: Erigon Arch Node
-});
+import {publicClient} from "./blockchain/client";
+
 
 const event = parseAbiItem(
     'event PairCreated(address indexed token0, address indexed token1, address pair, uint)',
 )
 
 const exec = async () => {
-    const blockNumber = await client.getBlockNumber();
+    const blockNumber = await publicClient.getBlockNumber();
     console.log(blockNumber);
 
     // Get initial event logs (last 20 blocks)
-    const logs = await client.getLogs({
+    const logs = await publicClient.getLogs({
         event,
         fromBlock: blockNumber - 20n,
         toBlock: blockNumber,
@@ -25,33 +21,33 @@ const exec = async () => {
 
     // Block number: 19156366
     // Block number: 19156367
-    client.watchBlockNumber({
+    publicClient.watchBlockNumber({
         onBlockNumber: (blockNumber) => {
             console.log(`Block number: ${blockNumber}`);
         },
     })
 
-    client.watchBlocks({
+    publicClient.watchBlocks({
         onBlock: (block) => {
             console.log({block});
         },
     })
 
     // Watch for new event logs
-    client.watchEvent({
+    publicClient.watchEvent({
         event,
         onLogs: (logs) => {
             console.log(JSON.stringify(logs, null, 2));
         },
     })
     // TODO: https://github.com/wevm/viem/issues/1540
-    client.watchPendingTransactions({
+    publicClient.watchPendingTransactions({
         pollingInterval: 5000,
         onTransactions: async (hashes) => {
             await Promise.all(
                 hashes.map(async (hash) => {
                     try {
-                        const tx = await client.getTransaction({hash});
+                        const tx = await publicClient.getTransaction({hash});
                         console.log(tx.hash);
                     } catch (e) {
                         if (
