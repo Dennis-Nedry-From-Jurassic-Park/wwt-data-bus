@@ -1,6 +1,11 @@
 # devtools
 # https://starkware.co/resource/7-devtools-starknet-devs/
 
+https://github.com/PhilippeR26/starknet.js-workshop-typescript/tree/main
+https://github.com/0xs34n/starknet.js-workshop
+https://www.starknetjs.com/docs/guides/automatic_cairo_abi_parsing/
+
+
 https://hub.docker.com/r/shardlabs/starknet-devnet-rs/tags
 
 1) docker pull shardlabs/starknet-devnet-rs:a147b4cd72f9ce9d1fa665d871231370db0f51c7-amd
