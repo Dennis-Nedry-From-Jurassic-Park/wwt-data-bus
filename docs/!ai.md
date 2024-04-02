@@ -1,3 +1,7 @@
+# ?
+https://github.com/sony/nnabla
+https://github.com/sony/model_optimization
+https://github.com/orgs/sony/repositories
 # openai
 https://github.com/lucidrains/PaLM-rlhf-pytorch
 pip install palm-rlhf-pytorch
@@ -25,7 +29,7 @@ https://docs.ray.io/en/latest/ray-air/getting-started.html
 conversation tree
 
 
-# sora
+# sora open-sora video vids
 https://github.com/PKU-YuanGroup/Open-Sora-Plan
 https://openai.com/sora
 https://huggingface.co/hpcai-tech/Open-Sora
