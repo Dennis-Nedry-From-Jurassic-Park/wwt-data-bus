@@ -3,6 +3,8 @@ https://hub.docker.com/r/thorax/erigon/tags
 https://hub.docker.com/r/gatewayfm/erigon-tools
 
 https://hub.docker.com/r/chainstack/erigon/tags
+https://gitlab.com/pulsepiplus-development/pulsepiplus
+https://erigon.gitbook.io/erigon/eli5-nodes/how-to-run-an-ethereum-node
 
 # install on linux
 https://surfthedream.com.au/setting-up-a-full-erigon-ethereum-node/

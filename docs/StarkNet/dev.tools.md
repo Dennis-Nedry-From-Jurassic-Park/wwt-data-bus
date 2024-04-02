@@ -1,6 +1,8 @@
 # devtools
 # https://starkware.co/resource/7-devtools-starknet-devs/
 
+https://github.com/0xSpaceShard/starknet-devnet-rs
+
 https://github.com/PhilippeR26/starknet.js-workshop-typescript/tree/main
 https://github.com/0xs34n/starknet.js-workshop
 https://www.starknetjs.com/docs/guides/automatic_cairo_abi_parsing/
