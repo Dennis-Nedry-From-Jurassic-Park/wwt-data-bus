@@ -2,6 +2,7 @@
 https://github.com/wevm/viem/blob/main/examples/clients_public-client/index.ts
 https://github.com/jashburn8020/python-concurrency
 https://docs.ethers.org/v6/getting-started/#starting-connecting
+https://www.tradingview.com/symbols/BTC.D/
 # deps libs
 npx pnpm add -w typechain @typechain/starknet.js starknet solc ethers
 # top-performance
