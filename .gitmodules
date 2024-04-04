@@ -7,3 +7,6 @@
 	path = shared/ms-auth
 	ignore = all
 	url = https://github.com/Dennis-Nedry-From-Jurassic-Park/ms-auth.git
+[submodule "shared/lib-base"]
+	path = shared/lib-base
+	url = https://github.com/Dennis-Nedry-From-Jurassic-Park/lib-base.git

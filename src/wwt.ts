@@ -8,9 +8,6 @@ const event = parseAbiItem(
 )
 
 const exec = async () => {
-    const blockNumber = await publicClient.getBlockNumber();
-    console.log(blockNumber);
-
     // Get initial event logs (last 20 blocks)
     const logs = await publicClient.getLogs({
         event,
@@ -66,4 +63,3 @@ const exec = async () => {
         },
     });
 }
-//exec();
