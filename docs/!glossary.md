@@ -16,3 +16,8 @@ a space-efficient serialization method used in Ethereum
 typeHex=0x2
 RLP( [nonce, gasPrice, gasLimit, to, value, data, v, r, s] )
 
+**Homestead**
+In the context of Ethereum and the ethers.js library, "Homestead" refers to the mainnet, 
+which is the public, production version of the Ethereum blockchain. 
+The term "Homestead" is used to denote the latest release of the Ethereum protocol 
+that the mainnet nodes are running.

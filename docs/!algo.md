@@ -1,4 +1,6 @@
 # start
+https://docs.etherscan.io/api-endpoints/accounts#get-a-list-of-normal-transactions-by-address
+https://ethereum.stackexchange.com/questions/147756/read-transaction-history-with-ethers-v6-1-0
 https://github.com/wevm/viem/blob/main/examples/clients_public-client/index.ts
 https://github.com/jashburn8020/python-concurrency
 https://docs.ethers.org/v6/getting-started/#starting-connecting
