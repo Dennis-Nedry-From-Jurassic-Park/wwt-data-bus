@@ -106,7 +106,7 @@ export class WWT {
 
         const transactions = [];
         const transactions_failed_indexes = [];
-        for (let i = 385; i < transactionCount; i++) {
+        for (let i = 0; i < transactionCount; i++) {
             try {
                 const transaction = await this.publicClient.getTransaction({
                     blockTag: blockTag,
@@ -160,6 +160,7 @@ export class WWT {
 
         return this.etherscanProvider.fetch("account", params);
     }
+
 
     gen_msg = (msg: any, ops: OpsType,) => {
         return {

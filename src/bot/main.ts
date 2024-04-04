@@ -4,6 +4,7 @@ import {WWT} from "./wwt";
 import {Strategy} from "./types";
 import {stringify} from "../../shared/lib-base";
 import {BlockTag} from "../blockchain/ethereum/types";
+import {unix_to_dt} from "../../shared/lib-base/src/datetime/dt";
 //main()
 //import {BlockTag} from 'ethers'; //^v6
 
@@ -64,6 +65,45 @@ const main = async () => {
     // }]);
 }
 
+const parser = async () => {
+    let txs: any[]
+        = require('./txs_etherscan_0x11fa5be01476295200cb162b952972d2c9c6c599.json')
+
+    //console.log({L: txs.length});
+    txs.sort((a, b) => b.timeStamp - a.timeStamp);
+
+    const f = txs[0]
+    const l = txs.at(-1)
+
+    console.log({tx_first: f});    // 1711957727
+    console.log({tx_last: l});     // 1709243843
+
+    console.log(unix_to_dt("1711957727"));
+    console.log(unix_to_dt("1709243843"));
+
+    const obj = txs[0]
+
+    console.log({fee_usd: 347101.199718 * 0.0338})
+
+    // https://gweitousd.com/
+    const txFee = +obj.gasPrice * 0.000000001 * +obj.gasUsed * 0.0338
+    console.log({txFee});
+    //Gas limit * (Base fee + Priority fee)
+
+    const arr = [
+        {
+            datetime: unix_to_dt(f.timeStamp),
+            from: f.from,
+            to: f.to,
+            coin:
+        }
+    ]
+
+    console.table(arr);
+
+}
+parser();
+
 const exec1 = async () => {
 
     // (async () => {
@@ -77,15 +117,16 @@ const exec1 = async () => {
     //     // Log the transactions included in the block
     //     console.log('transactions', block.transactions);
     // })();
-    const wwt = await WWT.create({
-        strategy: Strategy.viem_cloudflare_eth_dev
-    });
-    const address = '0x11fa5be01476295200cb162b952972d2c9c6c599'
-    const txs = await wwt.getHistory(address);
-    await asyncWriteFile(`./txs_etherscan_${address}.json`, stringify(txs));
+
+
+    // const wwt = await WWT.create({
+    //     strategy: Strategy.viem_cloudflare_eth_dev
+    // });
+    // const address = '0x11fa5be01476295200cb162b952972d2c9c6c599'
+    // const txs = await wwt.getHistory(address);
+    // await asyncWriteFile(`./txs_etherscan_${address}_getblock.json`, stringify(txs));
 
 }
-exec1();
-
+//exec1()
 
 //
