@@ -8,7 +8,10 @@ import {createPublicClient, http} from "viem";
 import {mainnet} from "viem/chains";
 import {BlockTag} from "../blockchain/ethereum/types";
 import {delay, stringify} from "../../shared/lib-base";
-import {EtherscanProvider} from "ethers";
+import {ethers, EtherscanProvider} from "ethers";
+import {erc20Abi} from 'abitype/abis'
+
+import Web3 from "web3";
 
 const handler = (err) => {
     console.log('catch err111');
@@ -22,6 +25,11 @@ export class WWT {
     private mongoDbClient!: MongoDbClient; // OR use signaldb
     private publicClient_: any
     private etherscanProvider_: EtherscanProvider
+    private provider_: any
+
+
+    private web3_: Web3
+
 
     private dataModel_: any;
     private logsModel_: any;
@@ -45,6 +53,14 @@ export class WWT {
         return this.etherscanProvider_;
     }
 
+    public get provider() {
+        return this.provider_;
+    }
+
+    public get web3() {
+        return this.web3_;
+    }
+
     static async create({
                             strategy
                         }: {
@@ -65,9 +81,17 @@ export class WWT {
         if (!etherscanProviderApiKey) {
             throw Error("etherscanProviderApiKey is " + etherscanProviderApiKey)
         }
+
         // TODO: https://docs.etherscan.io/api-endpoints/accounts#get-a-list-of-normal-transactions-by-address
         bot.etherscanProvider_
             = new EtherscanProvider("homestead", etherscanProviderApiKey);
+
+        const RPC = 'https://cloudflare-eth.com'
+
+        bot.provider_
+            = new ethers.JsonRpcProvider(RPC);
+
+        bot.web3_ = new Web3(RPC);
 
         bot.mongoDbClient = await MongoDbClient.connect("wwt");
 
@@ -173,6 +197,7 @@ export class WWT {
     save_data = async (data: any[],) => {
         await this.dataModel.insertMany(data);
     }
+
     save = async (data: any,) => {
         await this.dataModel.insertMany([this.gen_msg(
             data, OpsType.data
@@ -184,6 +209,81 @@ export class WWT {
     ) => {
         await this.logsModel.insertMany([this.gen_msg(err, OpsType.err)]);
     }
+    // https://abitype.dev/guide/getting-started
+    isERC20 = async (address) => { // Coin erc-20-abi
+        const contract = new this.web3.eth.Contract(erc20Abi, address);
+        try {
+            await contract.methods.totalSupply().call();
+            return true;
+        } catch (error) {
+            return false;
+        }
+    }
+
+    isERC721 = async (address) => { // TODO: NFT
+        const ERC721_ABI = [] // TODO:
+        const contract = new this.web3.eth.Contract(ERC721_ABI, address);
+        try {
+            await contract.methods.ownerOf().call();
+            return true;
+        } catch (error) {
+            return false;
+        }
+    }
+
+    getERCtype = async (address) => {
+        const contract = new this.web3.eth.Contract(erc20Abi, address);
+        const is721 = await contract.methods.supportsInterface('0x80ac58cd').call();
+        if (is721) {
+            return "ERC721";
+        }
+        const is1155 = await contract.methods.supportsInterface('0xd9b67a26').call();
+        if (is1155) {
+            return "ERC1155";
+        }
+        return undefined;
+    }
+
+    checkERC20_0 = async (address: string) => {
+        const tokenContract: any = new ethers.Contract(address, erc20Abi, this.provider);
+
+        tokenContract.balanceOf(address).then(balance => {
+            console.log(`Balance: ${ethers.formatUnits(balance, 18)}`);
+            console.log("This address is likely an ERC-20 token.");
+        }).catch(error => {
+            console.error(error);
+            console.error("Error fetching balance:", error);
+        });
+
+        /* TODO:
+        code: 'BAD_DATA',
+  value: '0x',
+  info: { method: 'balanceOf', signature: 'balanceOf(address)' },
+  shortMessage: 'could not decode result data'
+         */
+    }
+
+    checkERC20 = async (address: string) => {
+        try {
+            const contract: any = new ethers.Contract(address, erc20Abi, this.provider);
+
+            // Check if the contract implements the ERC-20 standard
+            // TODO: Error: could not decode result data (value="0x", info={ "method": "decimals", "signature": "decimals()" }, code=BAD_DATA, ve
+
+            const decimals = await contract.decimals();
+            const name = await contract.name();
+            const symbol = await contract.symbol();
+
+            console.log(`Decimals: ${decimals}`);
+            console.log(`Name: ${name}`);
+            console.log(`Symbol: ${symbol}`);
+
+            console.log("This address is likely an ERC-20 token.");
+        } catch (error) {
+            console.error(error);
+            console.error("This address is not an ERC-20 token or the contract does not implement the required functions.");
+        }
+    };
 
     disconnect = () => this.mongoDbClient.disconnect()
 }

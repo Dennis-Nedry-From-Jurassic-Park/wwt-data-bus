@@ -41,6 +41,9 @@ importers:
       '@nestjs/platform-fastify':
         specifier: ^10.2.8
         version: 10.2.8(@nestjs/common@10.2.8)(@nestjs/core@10.2.8)
+      abitype:
+        specifier: ^1.0.2
+        version: 1.0.2(typescript@5.2.2)
       amqplib:
         specifier: ^0.10.3
         version: 0.10.3
@@ -4783,6 +4786,20 @@ packages:
 
   /abitype@1.0.0(typescript@5.2.2):
     resolution: {integrity: sha512-NMeMah//6bJ56H5XRj8QCV4AwuW6hB6zqz2LnhhLdcWVQOsXki6/Pn3APeqxCma62nXIcmZWdu1DlHWS74umVQ==}
+    peerDependencies:
+      typescript: '>=5.0.4'
+      zod: ^3 >=3.22.0
+    peerDependenciesMeta:
+      typescript:
+        optional: true
+      zod:
+        optional: true
+    dependencies:
+      typescript: 5.2.2
+    dev: false
+
+  /abitype@1.0.2(typescript@5.2.2):
+    resolution: {integrity: sha512-aFt4k2H+eiAKy/zxtnORa9iIb10BMBeWL18l8v4+QuwYEBXPxxjSB1bFZCzQmKPoj8m7j68K705l3uY+E2gAjg==}
     peerDependencies:
       typescript: '>=5.0.4'
       zod: ^3 >=3.22.0
