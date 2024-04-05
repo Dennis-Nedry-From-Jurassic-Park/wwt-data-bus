@@ -1,4 +1,4 @@
-lockfileVersion: '6.1'
+lockfileVersion: '6.0'
 
 settings:
   autoInstallPeers: true
@@ -724,7 +724,7 @@ packages:
     dependencies:
       '@eth-optimism/contracts': 0.5.40(ethers@5.7.2)
       '@openzeppelin/contracts': 4.3.3
-      '@openzeppelin/contracts-upgradeable': 4.9.3
+      '@openzeppelin/contracts-upgradeable': 4.9.6
       '@openzeppelin/contracts-v0.7': /@openzeppelin/contracts@3.4.2
     transitivePeerDependencies:
       - bufferutil
@@ -2153,8 +2153,8 @@ packages:
       - encoding
     dev: false
 
-  /@openzeppelin/contracts-upgradeable@4.9.3:
-    resolution: {integrity: sha512-jjaHAVRMrE4UuZNfDwjlLGDxTHWIOwTJS2ldnc278a0gevfXfPr8hxKEVBGFBE96kl2G3VHDZhUimw/+G3TG2A==}
+  /@openzeppelin/contracts-upgradeable@4.9.6:
+    resolution: {integrity: sha512-m4iHazOsOCv1DgM7eD7GupTJ+NFVujRZt1wzddDPSVGpWdKq1SKkla5htKG7+IS4d2XOCtzkUNwRZ7Vq5aEUMA==}
     dev: false
 
   /@openzeppelin/contracts@3.4.2:
