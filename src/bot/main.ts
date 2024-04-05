@@ -66,8 +66,9 @@ const main = async () => {
 }
 
 const parser = async () => {
+    const address: `0x${string}` = '0x11fa5be01476295200cb162b952972d2c9c6c599'
     let txs: any[]
-        = require('./txs_etherscan_0x11fa5be01476295200cb162b952972d2c9c6c599.json')
+        = require(`./txs_etherscan_${address}.json`)
 
     //console.log({L: txs.length});
     txs.sort((a, b) => b.timeStamp - a.timeStamp);
@@ -95,12 +96,20 @@ const parser = async () => {
             datetime: unix_to_dt(f.timeStamp),
             from: f.from,
             to: f.to,
-            coin:
+            coin: 111
         }
     ]
 
     console.table(arr);
 
+    const wwt = await WWT.create({
+        strategy: Strategy.viem_cloudflare_eth_dev
+    });
+
+    //const isERC20 = await wwt.isERC20('0x79c610b7ebddce5a87e777785600f7e6bd6f037e');
+    const typeERC
+        = await wwt.getERCtype('0x79c610b7ebddce5a87e777785600f7e6bd6f037e');
+    console.log({typeERC});
 }
 parser();
 
