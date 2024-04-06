@@ -1,0 +1,10 @@
+https://hub.docker.com/search?q=etherface
+https://hub.docker.com/r/rss3/etherface/tags
+https://www.etherface.io/api-documentation
+https://www.4byte.directory/docs/
+https://github.com/topics/4byte
+https://openchain.xyz/signatures
+https://github.com/volsa/etherface/tree/master
+https://coindetect.net/tools/4byte
+https://github.com/pipermerriam/ethereum-function-signature-registry
+https://www.educative.io/answers/type-0-vs-type-2-ethereum-transactions
