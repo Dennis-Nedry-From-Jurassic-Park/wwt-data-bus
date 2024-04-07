@@ -5,6 +5,30 @@ https://github.com/wevm/viem/blob/main/examples/clients_public-client/index.ts
 https://github.com/jashburn8020/python-concurrency
 https://docs.ethers.org/v6/getting-started/#starting-connecting
 https://www.tradingview.com/symbols/BTC.D/
+https://magnushansson.xyz/blog_posts/crypto_defi/2021-12-27-Run-Erigon-Archive-Node
+https://ethereum.stackexchange.com/questions/80485/what-is-the-recommended-read-write-speed-for-an-ssd-when-syncing-an-archive-node
+
+# testinprod
+https://www.testinprod.io/our-works
+# verify contract
+https://sourcify.dev/
+https://playground.sourcify.dev/
+https://github.com/ethereum/sourcify/pkgs/container/sourcify%2Fserver
+https://github.com/orgs/sourcifyeth/repositories
+Sourcify and Hardhat and Tenderly
+
+```shell
+docker pull ghcr.io/ethereum/sourcify/server:1.5.6
+docker pull ghcr.io/ethereum/sourcify/server:latest
+```
+```shell
+docker run \
+  -p 5555:5555 \
+  -v path/to/custom/sourcify-chains.json:/home/app/services/server/dist/sourcify-chains.json \
+  -v path/to/custom/config.js:/home/app/services/server/dist/config/local.js \
+  --env-file .env \
+  ghcr.io/ethereum/sourcify/server:1.5.6
+```
 # deps libs
 npx pnpm add -w typechain @typechain/starknet.js starknet solc ethers
 # top-performance
@@ -18,3 +42,8 @@ bad: 0x7fdcc49c1b32d6bf0336e27fe5dcf68f6771b268
 # testnets
 Morden / Kiln
 https://www.alchemy.com/overviews/what-are-testnets
+# eips
+https://eips.ethereum.org/EIPS/eip-1559
+# rss3 sdk
+@rss3/js-sdk
+https://docs.rss3.io/docs/explorer-and-faucet
