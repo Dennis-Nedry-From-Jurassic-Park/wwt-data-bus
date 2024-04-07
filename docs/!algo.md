@@ -7,7 +7,20 @@ https://docs.ethers.org/v6/getting-started/#starting-connecting
 https://www.tradingview.com/symbols/BTC.D/
 https://magnushansson.xyz/blog_posts/crypto_defi/2021-12-27-Run-Erigon-Archive-Node
 https://ethereum.stackexchange.com/questions/80485/what-is-the-recommended-read-write-speed-for-an-ssd-when-syncing-an-archive-node
+# problems
+# p1
+"hash": "0xbda0ee33cfe0e687121b59e1e67bc40aeb77810ce4933152fca0d6edd3addff5",
+"input": "0x"
+0x дает понять, что адрес шестнадцатеричный
+0x позволяет получателю узнать, что это адрес в шестнадцатеричном формате.
 
+# p? scam
+https://etherscan.io/token/0x66535b303994875116e08c48890ee614a2d51aaf?a=0x79c610b7ebddce5a87e777785600f7e6bd6f037e
+0x79c610b7ebddce5a87e777785600f7e6bd6f037e
+https://etherscan.io/address/0x79c610b7ebddce5a87e777785600f7e6bd6f037e
+
+# graph
+https://thegraph.com/studio-pricing/
 # testinprod
 https://www.testinprod.io/our-works
 # verify contract
@@ -16,7 +29,8 @@ https://playground.sourcify.dev/
 https://github.com/ethereum/sourcify/pkgs/container/sourcify%2Fserver
 https://github.com/orgs/sourcifyeth/repositories
 Sourcify and Hardhat and Tenderly
-
+https://github.com/otterscan/otterscan#otterscan-json-rpc-api-extensions
+https://playground.sourcify.dev/
 ```shell
 docker pull ghcr.io/ethereum/sourcify/server:1.5.6
 docker pull ghcr.io/ethereum/sourcify/server:latest

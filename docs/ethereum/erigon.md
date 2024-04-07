@@ -13,6 +13,7 @@ https://scan.builder0x69.io/address/0xAC9b10a9E3F24AA3ba5Df76F75221fB7801438B3
 https://www.testinprod.io/our-works
 
 # method
+Identify the Method ID: The methodId is the first 4 bytes (8 hex characters) of the input data
 swapExactETHForTokensSupportingFeeOnTransferTokens
 https://scan.builder0x69.io/tx/0xcf2d6682bd764793987b2e50e7805e5d1b31594057561a843a078bb1af7925e4
 
@@ -32,6 +33,7 @@ https://erigon.gitbook.io/erigon/eli5-nodes/how-to-run-an-ethereum-node
 --http.addr="0.0.0.0" --http.api=eth,web3,net,debug,trace,txpool
 --torrent.download.rate=512mb
 # NVME M2
+https://docs.google.com/spreadsheets/d/1B27_j9NDPU3cNlj2HKcrfpJKHkOf-Oi1DbuuQva2gT4/edit#gid=0
 Used enterprise sata SSDs are super cheap. You can get a 2 TB for like 50 USD that still have hundreds of TBW or even over a PBW remaining.
 https://club.dns-shop.ru/review/t-107-jestkie-diski/8225-obzor-jestkogo-diska-wd-re-4tb-perevod/
 https://docs.google.com/spreadsheets/d/1vlixCB8T782iJ6mC07MGLRuhVsuprSZwSj3xMXB1IrA/edit#gid=0
@@ -53,9 +55,16 @@ Erigon изначально не был разработан с учетом API
 
 Caplin еще не готов к размещению ставок,
 и включение Beacon API приведет к дополнительному использованию 6 ГБ ОЗУ
-
+# node nownode
+https://documenter.getpostman.com/view/13630829/TVmFkLwy#cb42db8b-7846-41a6-9a67-7162b4a27667
 # https://ethereum.org/en/developers/docs/nodes-and-clients/run-a-node/
 # Requirements
+4000 ГБ SSD M.2 накопитель HP FX900 Pro [4A3U2AA#ABB]
+https://www.dns-shop.ru/product/f5eb1376cdd9ed20/4000-gb-ssd-m2-nakopitel-hp-fx900-pro-4a3u2aaabb/
+
+
+
+
 ![img.png](img.png)
 
 К счастью, в Geth есть две опции: datadirи datadir.ancient. 
