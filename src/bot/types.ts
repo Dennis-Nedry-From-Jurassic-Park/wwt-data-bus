@@ -11,3 +11,8 @@ export const Strategy = {
 
 export type Strategy = typeof Strategy[keyof typeof Strategy]
 
+export const Type4byte = {
+    signatures: "signatures",
+    event_signatures: "event-signatures",
+}
+export type Type4byte = typeof Type4byte[keyof typeof Type4byte]
