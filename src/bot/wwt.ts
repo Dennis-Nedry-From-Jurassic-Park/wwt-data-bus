@@ -12,6 +12,7 @@ import {ethers, EtherscanProvider} from "ethers";
 import {erc20Abi} from 'abitype/abis'
 
 import Web3 from "web3";
+import {FourByte} from "./4byte";
 
 const handler = (err) => {
     console.log('catch err111');
@@ -26,13 +27,14 @@ export class WWT {
     private publicClient_: any
     private etherscanProvider_: EtherscanProvider
     private provider_: any
-
+    private providerGetBlock_: any
 
     private web3_: Web3
 
-
     private dataModel_: any;
     private logsModel_: any;
+
+    private fourByte_: FourByte;
 
     constructor() {
     }
@@ -57,8 +59,16 @@ export class WWT {
         return this.provider_;
     }
 
+    public get providerGetBlock() {
+        return this.providerGetBlock_;
+    }
+
     public get web3() {
         return this.web3_;
+    }
+
+    get fourByte() {
+        return this.fourByte_;
     }
 
     static async create({
@@ -71,9 +81,8 @@ export class WWT {
 
         bot.publicClient_ = createPublicClient({
             chain: mainnet,
-            transport: http(),
+            transport: http(), // TODO: Erigon Arch Node
             // transport: http('http://localhost:8545'),
-            // TODO: Erigon Arch Node
         });
 
         const etherscanProviderApiKey = process.env.WWT_ETHERSCAN
@@ -88,18 +97,20 @@ export class WWT {
 
         const RPC = 'https://cloudflare-eth.com'
 
-        bot.provider_
-            = new ethers.JsonRpcProvider(RPC);
+        bot.provider_ = new ethers.JsonRpcProvider(RPC);
+        bot.providerGetBlock_ = new ethers.JsonRpcProvider("https://go.getblock.io/eaf591696c17440fbb7f9550f0bdd91d");
 
         bot.web3_ = new Web3(RPC);
 
         bot.mongoDbClient = await MongoDbClient.connect("wwt");
 
+        bot.fourByte_ = await FourByte.create({});
+
         await bot.mongoDbClient.add_model(Model.data, Collection.data);
         await bot.mongoDbClient.add_model(Model.logs, Collection.logs);
 
-        bot.dataModel_ = await bot.mongoDbClient.get_model(Model.data)
-        bot.logsModel_ = await bot.mongoDbClient.get_model(Model.logs)
+        bot.dataModel_ = await bot.mongoDbClient.get_model(Model.data);
+        bot.logsModel_ = await bot.mongoDbClient.get_model(Model.logs);
 
         await bot.save({
             ts: now_iso(),
@@ -185,7 +196,6 @@ export class WWT {
         return this.etherscanProvider.fetch("account", params);
     }
 
-
     gen_msg = (msg: any, ops: OpsType,) => {
         return {
             ts: now_iso(),
@@ -231,17 +241,58 @@ export class WWT {
         }
     }
 
+    get_internal_txs = async (transactionHash: string) => {
+
+// The transaction hash you want to trace
+
+// Use the debug_traceTransaction method
+        // Error: could not coalesce error (error={ "code": -32601, "message": "Method not found" }
+
+        // error: {
+        //     code: -32000,
+        //         message: 'required historical state unavailable (reexec=128)'
+        // },
+
+        this.providerGetBlock.send("debug_traceTransaction", [transactionHash, {}])
+            .then(result => {
+                console.log(result);
+                return result
+            })
+            .catch(error => {
+                console.error(error);
+            });
+
+    }
+    getBytecode = async (address, blockNumber?) => {
+        const bytecode = await this.publicClient.getBytecode({
+            address: address,
+        });
+
+        console.log(bytecode);
+
+        return bytecode
+    }
+
+    getBalanceAtBlock = async (address, blockNumber) => {
+        try {
+            const balance = await this.web3.eth.getBalance(address, blockNumber);
+            return balance;
+        } catch (error) {
+            console.error(error);
+        }
+    };
+
     getERCtype = async (address) => {
-        const contract = new this.web3.eth.Contract(erc20Abi, address);
-        const is721 = await contract.methods.supportsInterface('0x80ac58cd').call();
-        if (is721) {
-            return "ERC721";
-        }
-        const is1155 = await contract.methods.supportsInterface('0xd9b67a26').call();
-        if (is1155) {
-            return "ERC1155";
-        }
-        return undefined;
+        // const contract = new this.web3.eth.Contract(erc20Abi, address);
+        // const is721 = await contract.methods.supportsInterface('0x80ac58cd').call();
+        // if (is721) {
+        //     return "ERC721";
+        // }
+        // const is1155 = await contract.methods.supportsInterface('0xd9b67a26').call();
+        // if (is1155) {
+        //     return "ERC1155";
+        // }
+        // return undefined;
     }
 
     checkERC20_0 = async (address: string) => {
@@ -265,6 +316,7 @@ export class WWT {
 
     checkERC20 = async (address: string) => {
         try {
+            // TODO: @ethersproject/abiиз ethersпакета , abi-decoderили ethereum-input-data-decoder.
             const contract: any = new ethers.Contract(address, erc20Abi, this.provider);
 
             // Check if the contract implements the ERC-20 standard
