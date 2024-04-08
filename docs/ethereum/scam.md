@@ -1,4 +1,8 @@
+# bytecode deciders
+https://github.com/mkurzmann/soldec
+
 # bytecode
+https://github.com/Consensys/bytecode-verifier
 while source code is not always available, bytecode is
 once the bytecode is deployed to the blockchain, 
 it becomes immutable and transparent. 
@@ -9,6 +13,7 @@ It can be viewed and analyzed by anyone
 https://www.anchain.ai/blog/bytecode-analysis
 https://www.anchain.ai/screen
 # mythril
+https://mythril-classic.readthedocs.io/en/master/mythril.html
 https://mythril-classic.readthedocs.io/en/master/installation.html
 https://swcregistry.io/
 https://readthedocs.org/projects/mythril-classic/downloads/pdf/master/
@@ -28,4 +33,5 @@ https://docs.blockscout.com/for-users/verifying-a-smart-contract/contracts-verif
 https://github.com/SeUniVr/EtherSolve
 java -jar EtherSolve.jar -c -H ./bytecode.evm
 java.lang.ArrayIndexOutOfBoundsException: 1
+
 
