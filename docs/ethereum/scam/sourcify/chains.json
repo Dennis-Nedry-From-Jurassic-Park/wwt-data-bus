@@ -1,0 +1,1670 @@
+[
+  {
+    "name": "Ethereum Mainnet",
+    "chainId": 1,
+    "rpc": [
+      "https://rpc.mainnet.ethpandaops.io",
+      "https://eth-mainnet.g.alchemy.com/v2/{ALCHEMY_API_KEY}"
+    ],
+    "supported": true,
+    "etherscanAPI": "https://api.etherscan.io"
+  },
+  {
+    "name": "Ethereum Testnet Holesky",
+    "title": "Ethereum Testnet Holesky",
+    "chainId": 17000,
+    "rpc": [
+      "https://rpc.holesky.ethpandaops.io"
+    ],
+    "supported": true,
+    "etherscanAPI": "https://api-holesky.etherscan.io"
+  },
+  {
+    "name": "Ethereum Testnet Goerli",
+    "title": "Ethereum Testnet Goerli",
+    "chainId": 5,
+    "rpc": [
+      "https://goerli.infura.io/v3/{INFURA_API_KEY}",
+      "wss://goerli.infura.io/v3/{INFURA_API_KEY}",
+      "https://rpc.goerli.mudit.blog/",
+      "https://ethereum-goerli-rpc.publicnode.com",
+      "wss://ethereum-goerli-rpc.publicnode.com",
+      "https://goerli.gateway.tenderly.co",
+      "wss://goerli.gateway.tenderly.co"
+    ],
+    "supported": false
+  },
+  {
+    "name": "Ethereum Testnet Sepolia",
+    "title": "Ethereum Testnet Sepolia",
+    "chainId": 11155111,
+    "rpc": [
+      "https://rpc.sepolia.ethpandaops.io",
+      "https://eth-sepolia.g.alchemy.com/v2/{ALCHEMY_API_KEY}"
+    ],
+    "supported": true,
+    "etherscanAPI": "https://api-sepolia.etherscan.io"
+  },
+  {
+    "name": "Ethereum Testnet Ropsten",
+    "title": "Ethereum Testnet Ropsten",
+    "chainId": 3,
+    "rpc": [
+      "https://ropsten.infura.io/v3/{INFURA_API_KEY}",
+      "wss://ropsten.infura.io/ws/v3/{INFURA_API_KEY}"
+    ],
+    "supported": false
+  },
+  {
+    "name": "Ethereum Testnet Rinkeby",
+    "title": "Ethereum Testnet Rinkeby",
+    "chainId": 4,
+    "rpc": [
+      "https://rinkeby.infura.io/v3/{INFURA_API_KEY}",
+      "wss://rinkeby.infura.io/ws/v3/{INFURA_API_KEY}"
+    ],
+    "supported": false
+  },
+  {
+    "name": "OP Mainnet",
+    "chainId": 10,
+    "rpc": [
+      "https://opt-mainnet.g.alchemy.com/v2/{ALCHEMY_API_KEY}"
+    ],
+    "supported": true,
+    "etherscanAPI": "https://api-optimistic.etherscan.io"
+  },
+  {
+    "name": "Gnosis",
+    "chainId": 100,
+    "rpc": [
+      "https://rpc.gnosischain.com",
+      "https://rpc.gnosis.gateway.fm",
+      "https://rpc.ankr.com/gnosis",
+      "https://gnosischain-rpc.gateway.pokt.network",
+      "https://gnosis-mainnet.public.blastapi.io",
+      "https://gnosis.api.onfinality.io/public",
+      "https://gnosis.blockpi.network/v1/rpc/public",
+      "https://web3endpoints.com/gnosischain-mainnet",
+      "https://gnosis.oat.farm",
+      "wss://rpc.gnosischain.com/wss",
+      "https://gnosis-rpc.publicnode.com",
+      "wss://gnosis-rpc.publicnode.com"
+    ],
+    "supported": true,
+    "etherscanAPI": "https://api.gnosisscan.io"
+  },
+  {
+    "name": "Klaytn Testnet Baobab",
+    "chainId": 1001,
+    "rpc": [
+      "https://api.baobab.klaytn.net:8651",
+      "https://klaytn-baobab.drpc.org",
+      "wss://klaytn-baobab.drpc.org"
+    ],
+    "supported": true
+  },
+  {
+    "name": "Gnosis Chiado Testnet",
+    "chainId": 10200,
+    "rpc": [
+      "https://rpc.chiadochain.net",
+      "https://rpc.chiado.gnosis.gateway.fm",
+      "wss://rpc.chiadochain.net/wss",
+      "https://gnosis-chiado-rpc.publicnode.com",
+      "wss://gnosis-chiado-rpc.publicnode.com",
+      "https://gnosis-chiado.drpc.org",
+      "wss://gnosis-chiado.drpc.org"
+    ],
+    "supported": true
+  },
+  {
+    "name": "Arthera Mainnet",
+    "chainId": 10242,
+    "rpc": [
+      "https://rpc.arthera.net"
+    ],
+    "supported": true
+  },
+  {
+    "name": "Arthera Testnet",
+    "chainId": 10243,
+    "rpc": [
+      "https://rpc-test.arthera.net"
+    ],
+    "supported": true
+  },
+  {
+    "name": "Conflux eSpace",
+    "chainId": 1030,
+    "rpc": [
+      "https://evm.confluxrpc.com"
+    ],
+    "supported": true,
+    "etherscanAPI": "https://evmapi.confluxscan.net"
+  },
+  {
+    "name": "Crystaleum",
+    "chainId": 103090,
+    "rpc": [
+      "https://evm.cryptocurrencydevs.org",
+      "https://rpc.crystaleum.org"
+    ],
+    "supported": false
+  },
+  {
+    "name": "Velas EVM Mainnet",
+    "chainId": 106,
+    "rpc": [
+      "https://evmexplorer.velas.com/rpc",
+      "https://explorer.velas.com/rpc"
+    ],
+    "supported": true
+  },
+  {
+    "name": "Polygon zkEVM",
+    "title": "Polygon zkEVM",
+    "chainId": 1101,
+    "rpc": [
+      "https://zkevm-rpc.com",
+      "https://polygon-zkevm.drpc.org",
+      "wss://polygon-zkevm.drpc.org"
+    ],
+    "supported": true,
+    "etherscanAPI": "https://api-zkevm.polygonscan.com"
+  },
+  {
+    "name": "Siberium Test Network",
+    "chainId": 111000,
+    "rpc": [
+      "https://rpc.test.siberium.net"
+    ],
+    "supported": true
+  },
+  {
+    "name": "WAGMI",
+    "chainId": 11111,
+    "rpc": [
+      "https://subnets.avax.network/wagmi/wagmi-chain-testnet/rpc"
+    ],
+    "supported": true
+  },
+  {
+    "name": "Core Blockchain Testnet",
+    "chainId": 1115,
+    "rpc": [
+      "https://rpc.test.btcs.network/"
+    ],
+    "supported": true,
+    "etherscanAPI": "https://api.test.btcs.network/"
+  },
+  {
+    "name": "OP Sepolia Testnet",
+    "chainId": 11155420,
+    "rpc": [
+      "https://opt-sepolia.g.alchemy.com/v2/{ALCHEMY_API_KEY}"
+    ],
+    "supported": true,
+    "etherscanAPI": "https://api-sepolia-optimistic.etherscan.io"
+  },
+  {
+    "name": "Core Blockchain Mainnet",
+    "chainId": 1116,
+    "rpc": [
+      "https://rpc.coredao.org/",
+      "https://rpc-core.icecreamswap.com",
+      "https://core.drpc.org",
+      "wss://core.drpc.org"
+    ],
+    "supported": true,
+    "etherscanAPI": "https://openapi.coredao.org/"
+  },
+  {
+    "name": "Haqq Network",
+    "chainId": 11235,
+    "rpc": [
+      "https://rpc.eth.haqq.network",
+      "https://haqq-evm-rpc.publicnode.com",
+      "wss://haqq-evm-rpc.publicnode.com",
+      "https://haqq.drpc.org",
+      "wss://haqq.drpc.org"
+    ],
+    "supported": true
+  },
+  {
+    "name": "Tiltyard Subnet",
+    "chainId": 1127469,
+    "rpc": [
+      "https://subnets.avax.network/tiltyard/testnet/rpc"
+    ],
+    "supported": true
+  },
+  {
+    "name": "Palm Testnet",
+    "chainId": 11297108099,
+    "rpc": [
+      "https://palm-testnet.infura.io/v3/{INFURA_API_KEY}"
+    ],
+    "supported": true
+  },
+  {
+    "name": "Palm",
+    "chainId": 11297108109,
+    "rpc": [
+      "https://palm-mainnet.infura.io/v3/{INFURA_API_KEY}"
+    ],
+    "supported": true
+  },
+  {
+    "name": "Symplexia Smart Chain",
+    "chainId": 1149,
+    "rpc": [
+      "https://plex-rpc.plexfinance.us"
+    ],
+    "supported": true
+  },
+  {
+    "name": "Fuse Mainnet",
+    "chainId": 122,
+    "rpc": [
+      "https://rpc.fuse.io",
+      "https://fuse.drpc.org",
+      "wss://fuse.drpc.org"
+    ],
+    "supported": true
+  },
+  {
+    "name": "Moonbeam",
+    "chainId": 1284,
+    "rpc": [
+      "https://rpc.api.moonbeam.network",
+      "wss://wss.api.moonbeam.network",
+      "https://moonbeam-rpc.publicnode.com",
+      "wss://moonbeam-rpc.publicnode.com",
+      "https://moonbeam.drpc.org",
+      "wss://moonbeam.drpc.org"
+    ],
+    "supported": true,
+    "etherscanAPI": "https://api-moonbeam.moonscan.io"
+  },
+  {
+    "name": "Moonriver",
+    "chainId": 1285,
+    "rpc": [
+      "https://rpc.api.moonriver.moonbeam.network",
+      "wss://wss.api.moonriver.moonbeam.network",
+      "https://moonriver-rpc.publicnode.com",
+      "wss://moonriver-rpc.publicnode.com",
+      "https://moonriver.drpc.org",
+      "wss://moonriver.drpc.org"
+    ],
+    "supported": true,
+    "etherscanAPI": "https://api-moonriver.moonscan.io"
+  },
+  {
+    "name": "Moonbase Alpha",
+    "chainId": 1287,
+    "rpc": [
+      "https://rpc.api.moonbase.moonbeam.network",
+      "wss://wss.api.moonbase.moonbeam.network",
+      "https://moonbase-alpha.drpc.org",
+      "wss://moonbase-alpha.drpc.org"
+    ],
+    "supported": true,
+    "etherscanAPI": "https://api-moonbase.moonscan.io"
+  },
+  {
+    "name": "Aurora Mainnet",
+    "chainId": 1313161554,
+    "rpc": [
+      "https://mainnet.aurora.dev",
+      "https://aurora.drpc.org",
+      "wss://aurora.drpc.org"
+    ],
+    "supported": true
+  },
+  {
+    "name": "Aurora Testnet",
+    "chainId": 1313161555,
+    "rpc": [
+      "https://testnet.aurora.dev/",
+      "https://aurora-testnet.drpc.org",
+      "wss://aurora-testnet.drpc.org"
+    ],
+    "supported": true
+  },
+  {
+    "name": "Beam Testnet",
+    "chainId": 13337,
+    "rpc": [
+      "https://build.onbeam.com/rpc/testnet",
+      "wss://build.onbeam.com/ws/testnet",
+      "https://subnets.avax.network/beam/testnet/rpc",
+      "wss://subnets.avax.network/beam/testnet/ws"
+    ],
+    "supported": true
+  },
+  {
+    "name": "Phoenix Mainnet",
+    "chainId": 13381,
+    "rpc": [
+      "https://rpc.phoenixplorer.com/"
+    ],
+    "supported": true
+  },
+  {
+    "name": "Elysium Mainnet",
+    "title": "An L1, carbon-neutral, tree-planting, metaverse dedicated blockchain created by VulcanForged",
+    "chainId": 1339,
+    "rpc": [
+      "https://rpc.elysiumchain.tech/"
+    ],
+    "supported": true
+  },
+  {
+    "name": "Polygon Mainnet",
+    "chainId": 137,
+    "rpc": [
+      "https://polygon-mainnet.g.alchemy.com/v2/{ALCHEMY_API_KEY}"
+    ],
+    "supported": true,
+    "etherscanAPI": "https://api.polygonscan.com"
+  },
+  {
+    "name": "Flare Mainnet",
+    "chainId": 14,
+    "rpc": [
+      "https://flare-api.flare.network/ext/C/rpc",
+      "https://flare.rpc.thirdweb.com",
+      "https://flare-bundler.etherspot.io",
+      "https://rpc.ankr.com/flare",
+      "https://rpc.ftso.au/flare",
+      "https://flare.enosys.global/ext/C/rpc",
+      "https://flare.solidifi.app/ext/C/rpc"
+    ],
+    "supported": false
+  },
+  {
+    "name": "Rikeza Network Mainnet",
+    "title": "Rikeza Network Mainnet",
+    "chainId": 1433,
+    "rpc": [
+      "https://rpc.rikscan.com"
+    ],
+    "supported": true
+  },
+  {
+    "name": "Taiko Grimsvotn L2",
+    "chainId": 167005,
+    "rpc": [
+      "https://rpc.test.taiko.xyz"
+    ],
+    "supported": false
+  },
+  {
+    "name": "Taiko Eldfell L3",
+    "chainId": 167006,
+    "rpc": [
+      "https://rpc.l3test.taiko.xyz"
+    ],
+    "supported": false
+  },
+  {
+    "name": "Lightlink Phoenix Mainnet",
+    "chainId": 1890,
+    "rpc": [
+      "https://replicator.phoenix.lightlink.io/rpc/v1"
+    ],
+    "supported": true
+  },
+  {
+    "name": "Lightlink Pegasus Testnet",
+    "chainId": 1891,
+    "rpc": [
+      "https://replicator.pegasus.lightlink.io/rpc/v1"
+    ],
+    "supported": true
+  },
+  {
+    "name": "Songbird Canary-Network",
+    "chainId": 19,
+    "rpc": [
+      "https://songbird-api.flare.network/ext/C/rpc",
+      "https://rpc.ftso.au/songbird",
+      "https://songbird.enosys.global/ext/C/rpc",
+      "https://songbird.solidifi.app/ext/C/rpc"
+    ],
+    "supported": true
+  },
+  {
+    "name": "Gather Mainnet Network",
+    "chainId": 192837465,
+    "rpc": [
+      "https://mainnet.gather.network"
+    ],
+    "supported": true
+  },
+  {
+    "name": "Dogechain Mainnet",
+    "chainId": 2000,
+    "rpc": [
+      "https://rpc.dogechain.dog",
+      "https://rpc01-sg.dogechain.dog",
+      "https://rpc.ankr.com/dogechain"
+    ],
+    "supported": true
+  },
+  {
+    "name": "Edgeware EdgeEVM Mainnet",
+    "chainId": 2021,
+    "rpc": [
+      "https://edgeware-evm.jelliedowl.net",
+      "https://mainnet2.edgewa.re/evm",
+      "https://mainnet3.edgewa.re/evm",
+      "https://mainnet4.edgewa.re/evm",
+      "https://mainnet5.edgewa.re/evm",
+      "wss://edgeware.jelliedowl.net",
+      "wss://mainnet2.edgewa.re",
+      "wss://mainnet3.edgewa.re",
+      "wss://mainnet4.edgewa.re",
+      "wss://mainnet5.edgewa.re"
+    ],
+    "supported": true
+  },
+  {
+    "name": "YMTECH-BESU Testnet",
+    "chainId": 202401,
+    "rpc": [
+      "http://39.119.118.216:8545"
+    ],
+    "supported": true
+  },
+  {
+    "name": "Kiwi Subnet",
+    "chainId": 2037,
+    "rpc": [
+      "https://subnets.avax.network/kiwi/testnet/rpc"
+    ],
+    "supported": true
+  },
+  {
+    "name": "Shrapnel Testnet",
+    "chainId": 2038,
+    "rpc": [
+      "https://subnets.avax.network/shrapnel/testnet/rpc"
+    ],
+    "supported": true
+  },
+  {
+    "name": "Shrapnel Subnet",
+    "chainId": 2044,
+    "rpc": [
+      "https://subnets.avax.network/shrapnel/mainnet/rpc"
+    ],
+    "supported": true
+  },
+  {
+    "name": "Stratos Testnet",
+    "chainId": 2047,
+    "rpc": [
+      "https://web3-rpc-mesos.thestratos.org"
+    ],
+    "supported": true
+  },
+  {
+    "name": "Stratos",
+    "chainId": 2048,
+    "rpc": [
+      "https://web3-rpc.thestratos.org"
+    ],
+    "supported": true
+  },
+  {
+    "name": "MAPO Makalu",
+    "title": "MAPO Testnet Makalu",
+    "chainId": 212,
+    "rpc": [
+      "https://testnet-rpc.maplabs.io"
+    ],
+    "supported": true
+  },
+  {
+    "name": "Kanazawa",
+    "title": "Meld Testnet Kanazawa",
+    "chainId": 222000222,
+    "rpc": [
+      "https://testnet-rpc.meld.com"
+    ],
+    "supported": true
+  },
+  {
+    "name": "Kava Testnet",
+    "chainId": 2221,
+    "rpc": [
+      "https://evm.testnet.kava.io",
+      "https://kava-evm-testnet.rpc.thirdweb.com",
+      "wss://wevm.testnet.kava.io",
+      "https://kava-testnet.drpc.org",
+      "wss://kava-testnet.drpc.org"
+    ],
+    "supported": true
+  },
+  {
+    "name": "Kava",
+    "chainId": 2222,
+    "rpc": [
+      "https://evm.kava.io",
+      "https://kava-rpc.gateway.pokt.network",
+      "https://kava-evm.rpc.thirdweb.com",
+      "wss://wevm.kava.io",
+      "https://kava-evm-rpc.publicnode.com",
+      "wss://kava-evm-rpc.publicnode.com",
+      "https://evm.kava-rpc.com",
+      "https://rpc.ankr.com/kava_evm",
+      "wss://wevm.kava-rpc.com",
+      "https://kava.drpc.org",
+      "wss://kava.drpc.org"
+    ],
+    "supported": true
+  },
+  {
+    "name": "MAP Protocol",
+    "chainId": 22776,
+    "rpc": [
+      "https://rpc.maplabs.io"
+    ],
+    "supported": true
+  },
+  {
+    "name": "Oasis Sapphire",
+    "chainId": 23294,
+    "rpc": [
+      "https://sapphire.oasis.io",
+      "wss://sapphire.oasis.io/ws"
+    ],
+    "supported": true
+  },
+  {
+    "name": "Oasis Sapphire Testnet",
+    "chainId": 23295,
+    "rpc": [
+      "https://testnet.sapphire.oasis.io",
+      "wss://testnet.sapphire.oasis.io/ws"
+    ],
+    "supported": true
+  },
+  {
+    "name": "Kroma Sepolia",
+    "title": "Kroma Testnet Sepolia",
+    "chainId": 2358,
+    "rpc": [
+      "https://api.sepolia.kroma.network"
+    ],
+    "supported": true,
+    "etherscanAPI": "https://api-sepolia.kromascan.com"
+  },
+  {
+    "name": "Energy Web Chain",
+    "chainId": 246,
+    "rpc": [
+      "https://rpc.energyweb.org",
+      "wss://rpc.energyweb.org/ws"
+    ],
+    "supported": true
+  },
+  {
+    "name": "Cronos Mainnet",
+    "chainId": 25,
+    "rpc": [
+      "https://evm.cronos.org",
+      "https://cronos-evm-rpc.publicnode.com",
+      "wss://cronos-evm-rpc.publicnode.com",
+      "https://cronos.drpc.org",
+      "wss://cronos.drpc.org"
+    ],
+    "supported": true,
+    "etherscanAPI": "https://api.cronoscan.com/"
+  },
+  {
+    "name": "Fantom Opera",
+    "chainId": 250,
+    "rpc": [
+      "https://rpc.ftm.tools",
+      "https://fantom-rpc.publicnode.com",
+      "wss://fantom-rpc.publicnode.com",
+      "https://fantom.drpc.org",
+      "wss://fantom.drpc.org"
+    ],
+    "supported": true
+  },
+  {
+    "name": "Fraxtal",
+    "chainId": 252,
+    "rpc": [
+      "https://rpc.frax.com"
+    ],
+    "supported": true,
+    "etherscanAPI": "https://api.fraxscan.com"
+  },
+  {
+    "name": "Fraxtal Testnet",
+    "chainId": 2522,
+    "rpc": [
+      "https://rpc.testnet.frax.com"
+    ],
+    "supported": true,
+    "etherscanAPI": "https://api-holesky.fraxscan.com"
+  },
+  {
+    "name": "Kroma",
+    "chainId": 255,
+    "rpc": [
+      "https://api.kroma.network"
+    ],
+    "supported": true,
+    "etherscanAPI": "https://api.kromascan.com"
+  },
+  {
+    "name": "Bitkub Chain Testnet",
+    "chainId": 25925,
+    "rpc": [
+      "https://rpc-testnet.bitkubchain.io",
+      "wss://wss-testnet.bitkubchain.io"
+    ],
+    "supported": true
+  },
+  {
+    "name": "Boba Network Rinkeby Testnet",
+    "chainId": 28,
+    "rpc": [
+      "https://rinkeby.boba.network/"
+    ],
+    "supported": false
+  },
+  {
+    "name": "Optimism Bedrock (Goerli Alpha Testnet)",
+    "chainId": 28528,
+    "rpc": [
+      "https://alpha-1-replica-0.bedrock-goerli.optimism.io",
+      "https://alpha-1-replica-1.bedrock-goerli.optimism.io",
+      "https://alpha-1-replica-2.bedrock-goerli.optimism.io",
+      "https://alpha-1-replica-2.bedrock-goerli.optimism.io"
+    ],
+    "supported": false
+  },
+  {
+    "name": "Boba Network",
+    "chainId": 288,
+    "rpc": [
+      "https://mainnet.boba.network",
+      "https://replica.boba.network",
+      "https://boba-ethereum.gateway.tenderly.co",
+      "https://gateway.tenderly.co/public/boba-ethereum",
+      "wss://boba-ethereum.gateway.tenderly.co/",
+      "wss://gateway.tenderly.co/public/boba-ethereum",
+      "https://boba-eth.drpc.org",
+      "wss://boba-eth.drpc.org"
+    ],
+    "supported": true
+  },
+  {
+    "name": "Hedera Mainnet",
+    "chainId": 295,
+    "rpc": [
+      "https://mainnet.hashio.io/api"
+    ],
+    "supported": true
+  },
+  {
+    "name": "Rootstock Mainnet",
+    "chainId": 30,
+    "rpc": [
+      "https://public-node.rsk.co",
+      "https://mycrypto.rsk.co"
+    ],
+    "supported": true
+  },
+  {
+    "name": "zkSync Sepolia Testnet",
+    "chainId": 300,
+    "rpc": [
+      "https://sepolia.era.zksync.dev",
+      "https://zksync-sepolia.drpc.org",
+      "wss://zksync-sepolia.drpc.org"
+    ],
+    "supported": false
+  },
+  {
+    "name": "OneLedger Mainnet",
+    "chainId": 311752642,
+    "rpc": [
+      "https://mainnet-rpc.oneledger.network"
+    ],
+    "supported": true
+  },
+  {
+    "name": "Filecoin - Mainnet",
+    "chainId": 314,
+    "rpc": [
+      "https://api.node.glif.io/",
+      "https://rpc.ankr.com/filecoin",
+      "https://filecoin-mainnet.chainstacklabs.com/rpc/v1",
+      "https://filfox.info/rpc/v1",
+      "https://filecoin.drpc.org",
+      "wss://filecoin.drpc.org"
+    ],
+    "supported": true
+  },
+  {
+    "name": "Filecoin - Calibration testnet",
+    "chainId": 314159,
+    "rpc": [
+      "https://api.calibration.node.glif.io/rpc/v1",
+      "https://rpc.ankr.com/filecoin_testnet",
+      "https://filecoin-calibration.chainstacklabs.com/rpc/v1",
+      "https://filecoin-calibration.chainup.net/rpc/v1",
+      "https://calibration.filfox.info/rpc/v1",
+      "https://filecoin-calibration.drpc.org",
+      "wss://filecoin-calibration.drpc.org"
+    ],
+    "supported": true
+  },
+  {
+    "name": "Zilliqa EVM",
+    "chainId": 32769,
+    "rpc": [
+      "https://api.zilliqa.com"
+    ],
+    "supported": true
+  },
+  {
+    "name": "Zilliqa EVM Testnet",
+    "chainId": 33101,
+    "rpc": [
+      "https://dev-api.zilliqa.com"
+    ],
+    "supported": true
+  },
+  {
+    "name": "Meld",
+    "title": "Meld Mainnet",
+    "chainId": 333000333,
+    "rpc": [
+      "https://rpc-1.meld.com"
+    ],
+    "supported": true
+  },
+  {
+    "name": "DFK Chain Test",
+    "chainId": 335,
+    "rpc": [
+      "https://subnets.avax.network/defi-kingdoms/dfk-chain-testnet/rpc"
+    ],
+    "supported": true
+  },
+  {
+    "name": "Shiden",
+    "chainId": 336,
+    "rpc": [
+      "https://shiden.api.onfinality.io/public",
+      "https://shiden-rpc.dwellir.com",
+      "https://shiden.public.blastapi.io",
+      "wss://shiden.api.onfinality.io/public-ws",
+      "wss://shiden.public.blastapi.io",
+      "wss://shiden-rpc.dwellir.com"
+    ],
+    "supported": true
+  },
+  {
+    "name": "Mode",
+    "chainId": 34443,
+    "rpc": [
+      "https://mainnet.mode.network",
+      "https://mode.drpc.org",
+      "wss://mode.drpc.org"
+    ],
+    "supported": true
+  },
+  {
+    "name": "Q Mainnet",
+    "chainId": 35441,
+    "rpc": [
+      "https://rpc.q.org"
+    ],
+    "supported": true
+  },
+  {
+    "name": "Q Testnet",
+    "chainId": 35443,
+    "rpc": [
+      "https://rpc.qtestnet.org"
+    ],
+    "supported": true
+  },
+  {
+    "name": "Gather Testnet Network",
+    "chainId": 356256156,
+    "rpc": [
+      "https://testnet.gather.network"
+    ],
+    "supported": false
+  },
+  {
+    "name": "PulseChain",
+    "chainId": 369,
+    "rpc": [
+      "https://rpc.pulsechain.com",
+      "wss://rpc.pulsechain.com",
+      "https://pulsechain-rpc.publicnode.com",
+      "wss://pulsechain-rpc.publicnode.com",
+      "https://rpc-pulsechain.g4mm4.io",
+      "wss://rpc-pulsechain.g4mm4.io"
+    ],
+    "supported": true
+  },
+  {
+    "name": "Crossbell",
+    "chainId": 3737,
+    "rpc": [
+      "https://rpc.crossbell.io"
+    ],
+    "supported": true
+  },
+  {
+    "name": "Zeniq",
+    "chainId": 383414847825,
+    "rpc": [
+      "https://smart.zeniq.network:9545"
+    ],
+    "supported": true
+  },
+  {
+    "name": "Energi Mainnet",
+    "chainId": 39797,
+    "rpc": [
+      "https://nodeapi.energi.network"
+    ],
+    "supported": true
+  },
+  {
+    "name": "Telos EVM Mainnet",
+    "chainId": 40,
+    "rpc": [
+      "https://mainnet.telos.net/evm",
+      "https://telos.drpc.org",
+      "wss://telos.drpc.org"
+    ],
+    "supported": true
+  },
+  {
+    "name": "Ozone Chain Mainnet",
+    "chainId": 4000,
+    "rpc": [
+      "https://node1.ozonechain.io"
+    ],
+    "supported": true
+  },
+  {
+    "name": "Telos EVM Testnet",
+    "chainId": 41,
+    "rpc": [
+      "https://testnet.telos.net/evm",
+      "https://telos-testnet.drpc.org",
+      "wss://telos-testnet.drpc.org"
+    ],
+    "supported": true
+  },
+  {
+    "name": "CrossFi Testnet",
+    "title": "CrossFi Testnet",
+    "chainId": 4157,
+    "rpc": [
+      "https://rpc.testnet.ms"
+    ],
+    "supported": true
+  },
+  {
+    "name": "Optimism Goerli Testnet",
+    "chainId": 420,
+    "rpc": [
+      "https://goerli.optimism.io",
+      "https://optimism-goerli-rpc.publicnode.com",
+      "wss://optimism-goerli-rpc.publicnode.com",
+      "https://optimism-goerli.gateway.tenderly.co",
+      "wss://optimism-goerli.gateway.tenderly.co",
+      "https://optimism-testnet.drpc.org",
+      "wss://optimism-testnet.drpc.org"
+    ],
+    "supported": false
+  },
+  {
+    "name": "Kekchain",
+    "chainId": 420420,
+    "rpc": [
+      "https://mainnet.kekchain.com"
+    ],
+    "supported": false
+  },
+  {
+    "name": "Kekchain (kektest)",
+    "chainId": 420666,
+    "rpc": [
+      "https://testnet.kekchain.com"
+    ],
+    "supported": false
+  },
+  {
+    "name": "Arbitrum One",
+    "chainId": 42161,
+    "rpc": [
+      "https://arb-mainnet.g.alchemy.com/v2/{ALCHEMY_API_KEY}"
+    ],
+    "supported": true,
+    "etherscanAPI": "https://api.arbiscan.io"
+  },
+  {
+    "name": "Arbitrum Rinkeby",
+    "title": "Arbitrum Testnet Rinkeby",
+    "chainId": 421611,
+    "rpc": [
+      "https://rinkeby.arbitrum.io/rpc"
+    ],
+    "supported": false
+  },
+  {
+    "name": "Arbitrum Goerli",
+    "title": "Arbitrum Goerli Rollup Testnet",
+    "chainId": 421613,
+    "rpc": [
+      "https://goerli-rollup.arbitrum.io/rpc",
+      "https://arbitrum-goerli.publicnode.com",
+      "wss://arbitrum-goerli.publicnode.com"
+    ],
+    "supported": false
+  },
+  {
+    "name": "OneLedger Testnet Frankenstein",
+    "chainId": 4216137055,
+    "rpc": [
+      "https://frankenstein-rpc.oneledger.network"
+    ],
+    "supported": false
+  },
+  {
+    "name": "Arbitrum Sepolia",
+    "title": "Arbitrum Sepolia Rollup Testnet",
+    "chainId": 421614,
+    "rpc": [
+      "https://sepolia-rollup.arbitrum.io/rpc",
+      "https://arbitrum-sepolia.infura.io/v3/{INFURA_API_KEY}"
+    ],
+    "supported": true,
+    "etherscanAPI": "https://api-sepolia.arbiscan.io"
+  },
+  {
+    "name": "Arbitrum Nova",
+    "chainId": 42170,
+    "rpc": [
+      "https://nova.arbitrum.io/rpc",
+      "https://arbitrum-nova.publicnode.com",
+      "wss://arbitrum-nova.publicnode.com"
+    ],
+    "supported": true
+  },
+  {
+    "name": "Celo Mainnet",
+    "chainId": 42220,
+    "rpc": [
+      "https://forno.celo.org",
+      "wss://forno.celo.org/ws"
+    ],
+    "supported": true,
+    "etherscanAPI": "https://api.celoscan.io"
+  },
+  {
+    "name": "Oasis Emerald Testnet",
+    "chainId": 42261,
+    "rpc": [
+      "https://testnet.emerald.oasis.io/",
+      "wss://testnet.emerald.oasis.io/ws"
+    ],
+    "supported": true
+  },
+  {
+    "name": "Oasis Emerald",
+    "chainId": 42262,
+    "rpc": [
+      "https://emerald.oasis.io",
+      "wss://emerald.oasis.io/ws"
+    ],
+    "supported": true
+  },
+  {
+    "name": "ZKFair Mainnet",
+    "title": "ZKFair Mainnet",
+    "chainId": 42766,
+    "rpc": [
+      "https://rpc.zkfair.io"
+    ],
+    "supported": true
+  },
+  {
+    "name": "Darwinia Pangolin Testnet",
+    "chainId": 43,
+    "rpc": [
+      "https://pangolin-rpc.darwinia.network"
+    ],
+    "supported": false
+  },
+  {
+    "name": "Avalanche Fuji Testnet",
+    "chainId": 43113,
+    "rpc": [
+      "https://api.avax-test.network/ext/bc/C/rpc",
+      "https://avalanche-fuji-c-chain-rpc.publicnode.com",
+      "wss://avalanche-fuji-c-chain-rpc.publicnode.com"
+    ],
+    "supported": true
+  },
+  {
+    "name": "Avalanche C-Chain",
+    "chainId": 43114,
+    "rpc": [
+      "https://api.avax.network/ext/bc/C/rpc",
+      "https://avalanche-c-chain-rpc.publicnode.com",
+      "wss://avalanche-c-chain-rpc.publicnode.com"
+    ],
+    "supported": true,
+    "etherscanAPI": "https://api.snowscan.xyz"
+  },
+  {
+    "name": "Dexalot Subnet Testnet",
+    "chainId": 432201,
+    "rpc": [
+      "https://subnets.avax.network/dexalot/testnet/rpc"
+    ],
+    "supported": true
+  },
+  {
+    "name": "Dexalot Subnet",
+    "chainId": 432204,
+    "rpc": [
+      "https://subnets.avax.network/dexalot/mainnet/rpc"
+    ],
+    "supported": true
+  },
+  {
+    "name": "Beam",
+    "chainId": 4337,
+    "rpc": [
+      "https://build.onbeam.com/rpc",
+      "wss://build.onbeam.com/ws",
+      "https://subnets.avax.network/beam/mainnet/rpc",
+      "wss://subnets.avax.network/beam/mainnet/ws"
+    ],
+    "supported": true
+  },
+  {
+    "name": "Crab Network",
+    "chainId": 44,
+    "rpc": [
+      "https://crab-rpc.darwinia.network",
+      "https://crab-rpc.darwiniacommunitydao.xyz"
+    ],
+    "supported": true
+  },
+  {
+    "name": "Celo Alfajores Testnet",
+    "chainId": 44787,
+    "rpc": [
+      "https://alfajores-forno.celo-testnet.org",
+      "wss://alfajores-forno.celo-testnet.org/ws"
+    ],
+    "supported": true,
+    "etherscanAPI": "https://api-alfajores.celoscan.io"
+  },
+  {
+    "name": "Gather Devnet Network",
+    "chainId": 486217935,
+    "rpc": [
+      "https://devnet.gather.network"
+    ],
+    "supported": false
+  },
+  {
+    "name": "Energi Testnet",
+    "chainId": 49797,
+    "rpc": [
+      "https://nodeapi.test.energi.network"
+    ],
+    "supported": true
+  },
+  {
+    "name": "Mantle",
+    "chainId": 5000,
+    "rpc": [
+      "https://rpc.mantle.xyz",
+      "https://mantle-rpc.publicnode.com",
+      "wss://mantle-rpc.publicnode.com"
+    ],
+    "supported": true
+  },
+  {
+    "name": "XDC Apothem Network",
+    "chainId": 51,
+    "rpc": [
+      "https://rpc.apothem.network",
+      "https://erpc.apothem.network"
+    ],
+    "supported": true
+  },
+  {
+    "name": "Candle",
+    "chainId": 534,
+    "rpc": [
+      "https://candle-rpc.com/",
+      "https://rpc.cndlchain.com"
+    ],
+    "supported": false
+  },
+  {
+    "name": "Scroll Sepolia Testnet",
+    "chainId": 534351,
+    "rpc": [
+      "https://sepolia-rpc.scroll.io",
+      "https://rpc.ankr.com/scroll_sepolia_testnet",
+      "https://scroll-sepolia.chainstacklabs.com",
+      "https://scroll-testnet-public.unifra.io"
+    ],
+    "supported": true,
+    "etherscanAPI": "https://api-sepolia.scrollscan.com"
+  },
+  {
+    "name": "Scroll",
+    "chainId": 534352,
+    "rpc": [
+      "https://rpc.scroll.io",
+      "https://rpc-scroll.icecreamswap.com",
+      "https://rpc.ankr.com/scroll",
+      "https://scroll-mainnet.chainstacklabs.com"
+    ],
+    "supported": true,
+    "etherscanAPI": "https://api.scrollscan.com"
+  },
+  {
+    "name": "DFK Chain",
+    "chainId": 53935,
+    "rpc": [
+      "https://subnets.avax.network/defi-kingdoms/dfk-chain/rpc"
+    ],
+    "supported": true
+  },
+  {
+    "name": "Haqq Chain Testnet",
+    "chainId": 54211,
+    "rpc": [
+      "https://rpc.eth.testedge2.haqq.network"
+    ],
+    "supported": true
+  },
+  {
+    "name": "BNB Smart Chain Mainnet",
+    "chainId": 56,
+    "rpc": [
+      "https://bsc-dataseed1.bnbchain.org",
+      "https://bsc-dataseed2.bnbchain.org",
+      "https://bsc-dataseed3.bnbchain.org",
+      "https://bsc-dataseed4.bnbchain.org",
+      "https://bsc-dataseed1.defibit.io",
+      "https://bsc-dataseed2.defibit.io",
+      "https://bsc-dataseed3.defibit.io",
+      "https://bsc-dataseed4.defibit.io",
+      "https://bsc-dataseed1.ninicoin.io",
+      "https://bsc-dataseed2.ninicoin.io",
+      "https://bsc-dataseed3.ninicoin.io",
+      "https://bsc-dataseed4.ninicoin.io",
+      "https://bsc-rpc.publicnode.com",
+      "wss://bsc-rpc.publicnode.com",
+      "wss://bsc-ws-node.nariox.org"
+    ],
+    "supported": true,
+    "etherscanAPI": "https://api.bscscan.com"
+  },
+  {
+    "name": "Syscoin Mainnet",
+    "chainId": 57,
+    "rpc": [
+      "https://rpc.syscoin.org",
+      "https://rpc.ankr.com/syscoin/${ANKR_API_KEY}",
+      "https://syscoin.public-rpc.com",
+      "wss://rpc.syscoin.org/wss",
+      "https://syscoin-evm.publicnode.com",
+      "wss://syscoin-evm.publicnode.com"
+    ],
+    "supported": true
+  },
+  {
+    "name": "Rollux Mainnet",
+    "chainId": 570,
+    "rpc": [
+      "https://rpc.rollux.com",
+      "wss://rpc.rollux.com/wss",
+      "https://rollux.rpc.syscoin.org",
+      "wss://rollux.rpc.syscoin.org/wss"
+    ],
+    "supported": true
+  },
+  {
+    "name": "Syscoin Tanenbaum Testnet",
+    "chainId": 5700,
+    "rpc": [
+      "https://rpc.tanenbaum.io",
+      "wss://rpc.tanenbaum.io/wss",
+      "https://syscoin-tanenbaum-evm.publicnode.com",
+      "wss://syscoin-tanenbaum-evm.publicnode.com"
+    ],
+    "supported": true
+  },
+  {
+    "name": "Rollux Testnet",
+    "chainId": 57000,
+    "rpc": [
+      "https://rpc-tanenbaum.rollux.com",
+      "https://rpc.ankr.com/rollux_testnet/${ANKR_API_KEY}",
+      "wss://rpc-tanenbaum.rollux.com/wss",
+      "https://rollux.rpc.tanenbaum.io",
+      "wss://rollux.rpc.tanenbaum.io/wss"
+    ],
+    "supported": true
+  },
+  {
+    "name": "Astar",
+    "chainId": 592,
+    "rpc": [
+      "https://rpc.astar.network:8545"
+    ],
+    "supported": false
+  },
+  {
+    "name": "Ethereum Classic",
+    "title": "Ethereum Classic Mainnet",
+    "chainId": 61,
+    "rpc": [
+      "https://etc.rivet.link",
+      "https://besu-at.etc-network.info",
+      "https://besu-de.etc-network.info",
+      "https://geth-at.etc-network.info",
+      "https://geth-de.etc-network.info",
+      "https://etc.etcdesktop.com",
+      "https://rpc.etcinscribe.com",
+      "https://etc.mytokenpocket.vip"
+    ],
+    "supported": true
+  },
+  {
+    "name": "UPTN",
+    "chainId": 6119,
+    "rpc": [
+      "https://node-api.uptn.io/v1/ext/rpc"
+    ],
+    "supported": true
+  },
+  {
+    "name": "Celo Baklava Testnet",
+    "chainId": 62320,
+    "rpc": [
+      "https://baklava-forno.celo-testnet.org"
+    ],
+    "supported": true
+  },
+  {
+    "name": "MultiVAC Mainnet",
+    "chainId": 62621,
+    "rpc": [
+      "https://rpc.mtv.ac",
+      "https://rpc-eu.mtv.ac"
+    ],
+    "supported": true
+  },
+  {
+    "name": "Bear Network Chain Mainnet",
+    "chainId": 641230,
+    "rpc": [
+      "https://brnkc-mainnet.bearnetwork.net",
+      "https://brnkc-mainnet1.bearnetwork.net"
+    ],
+    "supported": true
+  },
+  {
+    "name": "Endurance Smart Chain Mainnet",
+    "chainId": 648,
+    "rpc": [
+      "https://rpc-endurance.fusionist.io/"
+    ],
+    "supported": true
+  },
+  {
+    "name": "Optimism Kovan",
+    "title": "Optimism Testnet Kovan",
+    "chainId": 69,
+    "rpc": [
+      "https://kovan.optimism.io/"
+    ],
+    "supported": false
+  },
+  {
+    "name": "ZetaChain Mainnet",
+    "chainId": 7000,
+    "rpc": [
+      "https://zetachain-evm.blockpi.network/v1/rpc/public",
+      "https://zetachain-mainnet-archive.allthatnode.com:8545"
+    ],
+    "supported": true
+  },
+  {
+    "name": "ZetaChain Athens 3 Testnet",
+    "chainId": 7001,
+    "rpc": [
+      "https://rpc.ankr.com/zetachain_evm_athens_testnet"
+    ],
+    "supported": true
+  },
+  {
+    "name": "Tiltyard Mainnet Subnet",
+    "chainId": 710420,
+    "rpc": [
+      "https://subnets.avax.network/tiltyard/mainnet/rpc"
+    ],
+    "supported": true
+  },
+  {
+    "name": "Godwoken Testnet v1",
+    "chainId": 71401,
+    "rpc": [
+      "https://godwoken-testnet-v1.ckbapp.dev",
+      "https://v1.testnet.godwoken.io/rpc"
+    ],
+    "supported": true
+  },
+  {
+    "name": "Godwoken Mainnet",
+    "chainId": 71402,
+    "rpc": [
+      "https://v1.mainnet.godwoken.io/rpc"
+    ],
+    "supported": true
+  },
+  {
+    "name": "Energy Web Volta Testnet",
+    "chainId": 73799,
+    "rpc": [
+      "https://volta-rpc.energyweb.org",
+      "wss://volta-rpc.energyweb.org/ws"
+    ],
+    "supported": true
+  },
+  {
+    "name": "The Root Network - Mainnet",
+    "chainId": 7668,
+    "rpc": [
+      "https://root.rootnet.live/archive",
+      "wss://root.rootnet.live/archive/ws"
+    ],
+    "supported": true
+  },
+  {
+    "name": "The Root Network - Porcini Testnet",
+    "chainId": 7672,
+    "rpc": [
+      "https://porcini.rootnet.app/archive",
+      "wss://porcini.rootnet.app/archive/ws"
+    ],
+    "supported": true
+  },
+  {
+    "name": "POA Network Sokol",
+    "chainId": 77,
+    "rpc": [
+      "https://sokol.poa.network",
+      "wss://sokol.poa.network/wss",
+      "ws://sokol.poa.network:8546"
+    ],
+    "supported": false
+  },
+  {
+    "name": "Canto",
+    "chainId": 7700,
+    "rpc": [
+      "https://canto.slingshot.finance",
+      "https://canto-rpc.ansybl.io",
+      "https://mainnode.plexnode.org:8545",
+      "https://canto.gravitychain.io/"
+    ],
+    "supported": true
+  },
+  {
+    "name": "Canto Tesnet",
+    "chainId": 7701,
+    "rpc": [
+      "https://testnet-archive.plexnode.wtf"
+    ],
+    "supported": true
+  },
+  {
+    "name": "Zora",
+    "chainId": 7777777,
+    "rpc": [
+      "https://rpc.zora.energy/"
+    ],
+    "supported": true
+  },
+  {
+    "name": "Amplify Subnet",
+    "chainId": 78430,
+    "rpc": [
+      "https://subnets.avax.network/amplify/testnet/rpc"
+    ],
+    "supported": false
+  },
+  {
+    "name": "Bulletin Subnet",
+    "chainId": 78431,
+    "rpc": [
+      "https://subnets.avax.network/bulletin/testnet/rpc"
+    ],
+    "supported": false
+  },
+  {
+    "name": "Conduit Subnet",
+    "chainId": 78432,
+    "rpc": [
+      "https://subnets.avax.network/conduit/testnet/rpc"
+    ],
+    "supported": false
+  },
+  {
+    "name": "Ubiq",
+    "chainId": 8,
+    "rpc": [
+      "https://rpc.octano.dev",
+      "https://pyrus2.ubiqscan.io"
+    ],
+    "supported": true
+  },
+  {
+    "name": "Mumbai",
+    "title": "Polygon Testnet Mumbai",
+    "chainId": 80001,
+    "rpc": [
+      "https://polygon-mumbai.g.alchemy.com/v2/{ALCHEMY_API_KEY}"
+    ],
+    "supported": true,
+    "etherscanAPI": "https://api-testnet.polygonscan.com"
+  },
+  {
+    "name": "Meter Mainnet",
+    "chainId": 82,
+    "rpc": [
+      "https://rpc.meter.io"
+    ],
+    "supported": true
+  },
+  {
+    "name": "Klaytn Mainnet Cypress",
+    "chainId": 8217,
+    "rpc": [
+      "https://public-node-api.klaytnapi.com/v1/cypress"
+    ],
+    "supported": false
+  },
+  {
+    "name": "Meter Testnet",
+    "chainId": 83,
+    "rpc": [
+      "https://rpctest.meter.io"
+    ],
+    "supported": true
+  },
+  {
+    "name": "Base",
+    "chainId": 8453,
+    "rpc": [
+      "https://mainnet.base.org/",
+      "https://developer-access-mainnet.base.org/",
+      "https://base.gateway.tenderly.co",
+      "wss://base.gateway.tenderly.co",
+      "https://base-rpc.publicnode.com",
+      "wss://base-rpc.publicnode.com"
+    ],
+    "supported": true,
+    "etherscanAPI": "https://api.basescan.org/"
+  },
+  {
+    "name": "Base Goerli Testnet",
+    "chainId": 84531,
+    "rpc": [
+      "https://goerli.base.org",
+      "https://base-goerli.gateway.tenderly.co",
+      "wss://base-goerli.gateway.tenderly.co",
+      "https://base-goerli-rpc.publicnode.com",
+      "wss://base-goerli-rpc.publicnode.com"
+    ],
+    "supported": false,
+    "etherscanAPI": "https://api-goerli.basescan.org/"
+  },
+  {
+    "name": "Wanchain",
+    "chainId": 888,
+    "rpc": [
+      "https://gwan-ssl.wandevs.org:56891/"
+    ],
+    "supported": true
+  },
+  {
+    "name": "Evmos Testnet",
+    "chainId": 9000,
+    "rpc": [
+      "https://evmos-testnet.lava.build",
+      "https://eth.bd.evmos.dev:8545"
+    ],
+    "supported": true
+  },
+  {
+    "name": "Evmos",
+    "chainId": 9001,
+    "rpc": [
+      "https://evmos.lava.build",
+      "wss://evmos.lava.build/websocket",
+      "https://evmos-evm.publicnode.com",
+      "wss://evmos-evm.publicnode.com"
+    ],
+    "supported": true
+  },
+  {
+    "name": "Mode Testnet",
+    "chainId": 919,
+    "rpc": [
+      "https://sepolia.mode.network"
+    ],
+    "supported": true
+  },
+  {
+    "name": "Lyra Chain",
+    "chainId": 957,
+    "rpc": [
+      "https://rpc.lyra.finance"
+    ],
+    "supported": true
+  },
+  {
+    "name": "Bitkub Chain",
+    "chainId": 96,
+    "rpc": [
+      "https://rpc.bitkubchain.io",
+      "wss://wss.bitkubchain.io"
+    ],
+    "supported": true
+  },
+  {
+    "name": "BNB Smart Chain Testnet",
+    "chainId": 97,
+    "rpc": [
+      "https://data-seed-prebsc-1-s1.bnbchain.org:8545",
+      "https://data-seed-prebsc-2-s1.bnbchain.org:8545",
+      "https://data-seed-prebsc-1-s2.bnbchain.org:8545",
+      "https://data-seed-prebsc-2-s2.bnbchain.org:8545",
+      "https://data-seed-prebsc-1-s3.bnbchain.org:8545",
+      "https://data-seed-prebsc-2-s3.bnbchain.org:8545",
+      "https://bsc-testnet-rpc.publicnode.com",
+      "wss://bsc-testnet-rpc.publicnode.com"
+    ],
+    "supported": true,
+    "etherscanAPI": "https://api-testnet.bscscan.com"
+  },
+  {
+    "name": "POA Network Core",
+    "chainId": 99,
+    "rpc": [
+      "https://core.poa.network"
+    ],
+    "supported": false
+  },
+  {
+    "name": "Mind Smart Chain Testnet",
+    "chainId": 9977,
+    "rpc": [
+      "https://testnet-msc.mindchain.info/",
+      "wss://testnet-msc.mindchain.info/ws"
+    ],
+    "supported": true
+  },
+  {
+    "name": "Wanchain Testnet",
+    "chainId": 999,
+    "rpc": [
+      "https://gwan-ssl.wandevs.org:46891/"
+    ],
+    "supported": true
+  },
+  {
+    "name": "Mind Smart Chain Mainnet",
+    "chainId": 9996,
+    "rpc": [
+      "https://rpc-msc.mindchain.info/",
+      "https://seednode.mindchain.info",
+      "https://archive.mindchain.info/",
+      "https://mind-smart-chain.rpc.thirdweb.com",
+      "wss://archive.mindchain.info/ws",
+      "wss://seednode.mindchain.info/ws"
+    ],
+    "supported": true
+  },
+  {
+    "name": "Zora Sepolia Testnet",
+    "chainId": 999999999,
+    "rpc": [
+      "https://sepolia.rpc.zora.energy"
+    ],
+    "supported": true
+  }
+]

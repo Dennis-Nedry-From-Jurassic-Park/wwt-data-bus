@@ -41,4 +41,7 @@ https://github.com/SeUniVr/EtherSolve
 java -jar EtherSolve.jar -c -H ./bytecode.evm
 java.lang.ArrayIndexOutOfBoundsException: 1
 
+# legacy
+https://github.com/Consensys/bytecode-verifier
+
 
