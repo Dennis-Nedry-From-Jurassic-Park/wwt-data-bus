@@ -1,3 +1,6 @@
+# smartbugs
+https://github.com/smartbugs/smartbugs
+https://ar5iv.labs.arxiv.org/html/2105.10426
 # bytecode deciders
 https://github.com/mkurzmann/soldec
 
@@ -10,6 +13,8 @@ It can be viewed and analyzed by anyone
 # Prover
 
 # anchain
+https://github.com/LearnWeb3DAO/Malicious-External-Contract
+https://www.pnfsoftware.com/blog/ethereum-smart-contract-decompiler/
 https://www.anchain.ai/blog/bytecode-analysis
 https://www.anchain.ai/screen
 # mythril
@@ -28,6 +33,8 @@ https://repo.sourcify.dev/contracts/full_match/1/0x1F98431c8aD98523631AE4a59f267
 https://sourcify.dev/#/verifier
 https://sourcify.dev/#/lookup/0x1F98431c8aD98523631AE4a59f267346ea31F984
 https://docs.blockscout.com/for-users/verifying-a-smart-contract/contracts-verification-via-sourcify
+
+docker pull ghcr.io/ethereum/sourcify/server:1.5.6-amd64
 
 # EtherSolve
 https://github.com/SeUniVr/EtherSolve

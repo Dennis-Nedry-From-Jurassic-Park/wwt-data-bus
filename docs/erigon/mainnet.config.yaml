@@ -1,0 +1,11 @@
+# ./build/bin/erigon
+
+datadir : 'your datadir'
+internalcl : true
+port : 1111
+chain : "mainnet"
+snapshots : true # for chain=mainnet
+http: true
+http.addr: "0.0.0.0"
+http.api : ["eth", "web3", "net", "debug", "trace", "txpool"]
+torrent.download.rate: 50mb
