@@ -3,7 +3,7 @@ https://github.com/smartbugs/smartbugs
 https://ar5iv.labs.arxiv.org/html/2105.10426
 # bytecode deciders
 https://github.com/mkurzmann/soldec
-
+https://github.com/topics/evm-bytecode
 # bytecode
 https://github.com/Consensys/bytecode-verifier
 while source code is not always available, bytecode is
@@ -44,5 +44,8 @@ java.lang.ArrayIndexOutOfBoundsException: 1
 # legacy
 https://github.com/Consensys/bytecode-verifier
 https://github.com/usyd-blockchain/vandal
+https://github.com/fergarrui/ethereum-bytecode-analyzer/tree/master
+https://github.com/metagon/ithildin
 
+link-shortener-typescript-dev
 

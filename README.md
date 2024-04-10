@@ -1,4 +1,8 @@
 ## ~~This project is not ready yet. Work in progress...~~
+# audit
+- [x] mythril. very slow
+- [] slyther trailofbits/eth-security-toolbox
+- [] sourcify
 
 # audit var1 : mythril
 https://mythril-classic.readthedocs.io/en/master/installation.html
@@ -22,6 +26,14 @@ https://etherscan.io/address/0xC6b42b2A7C7b0C5Fa8C2c27e619dEfa8646735CA#code
 # AUDIT SC SMART CONTRACT SRC
 https://github.com/smartbugs/smartbugs
 https://ar5iv.labs.arxiv.org/html/2105.10426
+# audit var0 : eth-security-toolbox
+https://hub.docker.com/r/trailofbits/eth-security-toolbox/tags
+```shell
+docker pull trailofbits/eth-security-toolbox:nightly-20240408
+```
+```shell
+docker run -it -v $(pwd):/share trailofbits/eth-security-toolbox:nightly-20240408 slither /share/scam.sol
+```
 # audit var1 : sourcify
 https://github.com/ethereum/sourcify/pkgs/container/sourcify%2Fserver
 https://github.com/ethereum/sourcify/blob/staging/services/server/.env.dev
@@ -46,8 +58,7 @@ https://sourcify.dev/server/api-docs/#/Session%20Verification/post_session_verif
 https://sourcify.dev/server/api-docs/#/Stateless%20Verification/post_verify_solc_json
 https://playground.sourcify.dev/?address=0xb36c99e9a86ff467bbf4312ae852874f7a6fe57d&chainId=69
 
-# audit var3 : trailofbits/eth-security-toolbox
-docker run -it -v ${pwd}:/share trailofbits/eth-security-toolbox
+
 
 # ??
 https://github.com/ethereumjs/ethereumjs-monorepo
