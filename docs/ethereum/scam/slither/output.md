@@ -1,4 +1,4 @@
-ocker run -it -v $(pwd):/share trailofbits/eth-security-toolbox:nightly-20240408 slither --detect all 0x926E7c4FAab47d7360caB19Af30fbdE05C9a7536 --print human-summary
+docker run -it -v $(pwd):/share trailofbits/eth-security-toolbox:nightly-20240408 slither --detect all 0x926E7c4FAab47d7360caB19Af30fbdE05C9a7536 --print human-summary
 Installing solc '0.8.10'...
 Version '0.8.10' installed.
 'solc --standard-json --allow-paths /home/ethsec' running

@@ -2,6 +2,7 @@
 0x514d547c8ac8ccbec29b5144810454bd7d3625ca
 web3.utils.isAddress('0xc1912fee45d61c87cc5ea59dae31190fffff232d');
 https://playground.sourcify.dev/
+https://smock.readthedocs.io/en/latest/fakes.html#initialization
 
 # start
 https://docs.etherscan.io/api-endpoints/accounts#get-a-list-of-normal-transactions-by-address

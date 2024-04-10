@@ -1,3 +1,5 @@
+https://smock.readthedocs.io/en/latest/fakes.html#initialization
+
 # audit scam variants
 https://t.me/iTokenEthereum/852780
 0x28A8ce5E81e2f58cB5CcA914C3DE46A5F8B48321

@@ -28,6 +28,8 @@ https://habr.com/ru/articles/442114/
 # ConCert 
 https://habr.com/ru/companies/pt/articles/804861/
 Certora ; Isabelle/Solidity ; Solidity SMTChecker, KEVM
+# slither
+https://github.com/crytic/slither
 # sourcify
 https://repo.sourcify.dev/contracts/full_match/1/0x1F98431c8aD98523631AE4a59f267346ea31F984/sources/contracts/libraries/
 https://sourcify.dev/#/verifier
