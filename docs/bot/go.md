@@ -31,8 +31,14 @@ https://github.com/coder/slog
 # db
 https://github.com/jackc/pgx
 https://github.com/lib/pq
+# queue
+https://github.com/coder/redjet
+https://github.com/btubbs/pgq
+https://github.com/vgarvardt/gue
+
 # microservice
 https://gokit.io/
+https://github.com/mikebharris/CLAMS
 https://goenning.net/blog/session-per-request-pattern-go/
 https://github.com/h2o/h2o
 https://github.com/valyala/fasthttp
