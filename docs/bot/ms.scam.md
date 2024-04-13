@@ -6,7 +6,7 @@ https://t.me/iTokenEthereum/852780
 0x60B02881e3880001822Db823Aa76E37976D1FE85
 0x5ABbDae4e6d7c89640129E87409C8F991CeE5174
 
-ocker run -it -v $(pwd):/share trailofbits/eth-security-toolbox:nightly-20240408 slither --detect all 0x926E7c4FAab47d7360caB19Af30fbdE05C9a7536 --print human-summary
+docker run -it -v $(pwd):/share trailofbits/eth-security-toolbox:nightly-20240408 slither --detect all 0x926E7c4FAab47d7360caB19Af30fbdE05C9a7536 --print human-summary
 **0x926E7c4FAab47d7360caB19Af30fbdE05C9a7536** 59 results
 # var1: slither trailofbits/eth-security-toolbox 
 https://blog.trailofbits.com/2018/10/19/slither-a-solidity-static-analysis-framework/

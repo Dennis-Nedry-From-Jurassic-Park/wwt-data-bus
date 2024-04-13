@@ -1,0 +1,15 @@
+# ./build/bin/erigon --config ./sepolia.config.yaml --chain=sepolia --verbosity=5
+# https://erigon.gitbook.io/erigon/advanced-usage/options
+datadir : 'g:\\erigon_sepolia'
+internalcl : true
+port : 30304
+chain : "sepolia"
+snapshots : false # for chain=sepolia, for mainnet=true
+http: true
+ws: true
+http.addr: "127.0.0.1"
+http.port: 8546
+http.api : ["eth", "web3", "net", "debug", "trace", "txpool", "erigon"]
+# https://github.com/ledgerwatch/erigon/blob/devel/cmd/downloader/readme.md
+torrent.download.rate: 50mb # torrent.port=42069
+private.api.addr: "127.0.0.1:9091"
