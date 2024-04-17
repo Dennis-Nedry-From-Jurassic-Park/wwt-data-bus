@@ -1,10 +1,11 @@
 import {WWT} from "./wwt";
 import {Strategy} from "./types";
 import {asyncWriteFile, stringify} from "../../shared/lib-base";
-import {BlockTag} from "../blockchain/ethereum/types";
+//import {BlockTag} from "blockchain/ethereum/types";
 import {unix_to_dt} from "../../shared/lib-base/src/datetime/dt";
-import {FourByte} from "./4byte";
+import {FourByte} from "./signature/4byte";
 import {formatEther} from "viem";
+import {BlockTag} from "../blockchain/ethereum/types";
 
 const main = async () => {
     // 0x2a552844353579636085097082041a0303bb58be -> 5.2eth
@@ -103,7 +104,7 @@ const main = async () => {
 
     //console.log({balance: fe(balance)});
 }
-main()
+//main()
 
 const main09 = async () => {
     const wwt = await WWT.create({
