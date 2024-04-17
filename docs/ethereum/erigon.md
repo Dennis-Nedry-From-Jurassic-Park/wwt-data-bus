@@ -11,6 +11,29 @@ https://scan.builder0x69.io/
 https://scan.builder0x69.io/address/0xAC9b10a9E3F24AA3ba5Df76F75221fB7801438B3
 
 https://www.testinprod.io/our-works
+# rpc
+https://open-rpc.org/learn
+# op-erigon
+https://op-erigon.testinprod.io/
+https://op-erigon.testinprod.io/erigon-lib.html
+
+
+```js
+from web3 import Web3
+
+# Connect to your Erigon node
+w3 = Web3(Web3.HTTPProvider('http://localhost:8545'))
+
+# Specify the address and block number
+address = '0x742d35Cc6634C0532925a3b844Bc454e4438f44e'
+block_number = 19426589
+
+# Get the balance
+balance = w3.eth.get_balance(address, block_number)
+
+print(f"Balance at block {block_number}: {balance} wei")
+
+```
 
 # method
 Identify the Method ID: The methodId is the first 4 bytes (8 hex characters) of the input data

@@ -3,7 +3,7 @@ https://github.com/smartbugs/smartbugs
 https://ar5iv.labs.arxiv.org/html/2105.10426
 # bytecode deciders
 https://github.com/mkurzmann/soldec
-
+https://github.com/topics/evm-bytecode
 # bytecode
 https://github.com/Consensys/bytecode-verifier
 while source code is not always available, bytecode is
@@ -28,6 +28,8 @@ https://habr.com/ru/articles/442114/
 # ConCert 
 https://habr.com/ru/companies/pt/articles/804861/
 Certora ; Isabelle/Solidity ; Solidity SMTChecker, KEVM
+# slither
+https://github.com/crytic/slither
 # sourcify
 https://repo.sourcify.dev/contracts/full_match/1/0x1F98431c8aD98523631AE4a59f267346ea31F984/sources/contracts/libraries/
 https://sourcify.dev/#/verifier
@@ -44,6 +46,8 @@ java.lang.ArrayIndexOutOfBoundsException: 1
 # legacy
 https://github.com/Consensys/bytecode-verifier
 https://github.com/usyd-blockchain/vandal
-https://github.com/crytic/echidna
+https://github.com/fergarrui/ethereum-bytecode-analyzer/tree/master
+https://github.com/metagon/ithildin
 
+link-shortener-typescript-dev
 
