@@ -26,6 +26,11 @@ export class Etherface {
         return this.mongoDbClient_;
     }
 
+    /**
+     * TODO: https://www.etherface.io/statisticsCodeium: Your extension version is too old. Please update to the latest version and restart your IDE. For help, contact us on Discord at https://discord.gg/3XFf78nAx5.
+     * TODO: https://www.etherface.io/api-documentation
+     * const etherface = await Etherface.create({});
+     */
     static async create({}: {}): Promise<Etherface> {
         const etherface = new Etherface();
         etherface.mongoDbClient_ = await MongoDbClient.connect("wwt");
@@ -37,12 +42,16 @@ export class Etherface {
         return etherface
     }
 
-    // TODO: https://www.etherface.io/statistics
+    // TODO: https://api.etherface.io/v1/sources/etherscan/all/4/1
+    // https://community.infura.io/t/web3-js-how-to-track-erc-20-token-transfers-specific-address-token/5571
+    fn = async () => {
+
+    }
+
     /**
-     * const etherface = await Etherface.create({});
-     * await etherface.get_signatures(Model.etherface_signatures, "balance")
+     * search ethereum signatures by searchPattern, f.e. balanceOf or mint
      * @param model Model
-     * @param searchPattern F.E. balanceOf
+     * @param searchPattern
      */
     get_signatures = async (
         model: Model,

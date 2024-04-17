@@ -7,6 +7,13 @@ import {FourByte} from "./signature/4byte";
 import {formatEther} from "viem";
 import {BlockTag} from "../blockchain/ethereum/types";
 
+/*
+https://coderstower.com/2021/02/15/java-concurrency-concurrency-and-parallelism/
+https://stokito.wordpress.com/2015/08/02/concurrency-kinds/
+https://aws.amazon.com/ru/compare/the-difference-between-throughput-and-latency/
+
+ */
+
 const main = async () => {
     // 0x2a552844353579636085097082041a0303bb58be -> 5.2eth
     const address: `0x${string}` = '0x11fa5be01476295200cb162b952972d2c9c6c599'
@@ -83,6 +90,7 @@ const main = async () => {
 
     }
     console.log({balance: formatEther(balance)});
+
 
     //const bytecode = await wwt.getBytecode('0xFBA3912Ca04dd458c843e2EE08967fC04f3579c2')
     const bytecode = await wwt.get_internal_txs('0x291997a769b5c342ab81c4445e7dfff843016169d16dcd4a104105a691828c6e')
