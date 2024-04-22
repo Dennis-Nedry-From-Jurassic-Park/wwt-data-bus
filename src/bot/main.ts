@@ -8,11 +8,99 @@ import {formatEther} from "viem";
 import {BlockTag} from "../blockchain/ethereum/types";
 
 /*
+https://metacpan.org/dist/DR-Tnt/view/lib/DR/Tnt.pm
+https://unera.net/all/2018/04/04/tarantool-session-storage.html
+
+Было бы замечательно, если бы там появилась возможность
+создавать и временные функции CREATE TEMPORARY FUNCTION,
+ которые были бы видны
+ только приконнектившемуся клиенту
+ и
+  удалялись бы после отсоединения.
+
 https://coderstower.com/2021/02/15/java-concurrency-concurrency-and-parallelism/
 https://stokito.wordpress.com/2015/08/02/concurrency-kinds/
 https://aws.amazon.com/ru/compare/the-difference-between-throughput-and-latency/
+*/
 
- */
+const os = require('os');
+const cpuCount = os.cpus().length;
+console.log(cpuCount);
+
+const os2 = require("node:os");
+const availableProcessors = os2.availableParallelism();
+console.log(availableProcessors);
+// const childProcess = require('child_process')
+// const output = childProcess.exec('WMIC CPU Get NumberOfCores')
+// const amount = output.split(os.EOL)
+//     .map(function parse(line) {
+//         return parseInt(line)
+//     })
+//     .filter(function numbers(value) {
+//         return !isNaN(value)
+//     })
+//     .reduce(function add(sum, number) {
+//         return sum + number
+//     }, 0)
+// console.log({amount});
+// https://gist.github.com/brandon93s/a46fb07b0dd589dc34e987c33d775679
+const {
+    Worker,
+    isMainThread,
+    parentPort,
+    workerData,
+} = require("worker_threads");
+
+const {generatePrimes} =
+    require("./prime");
+
+const threads = new Set();
+const number = 999999;
+
+const breakIntoParts = (number, threadCount = 1) => {
+    const parts = [];
+    const chunkSize = Math.ceil(number / threadCount);
+
+    for (let i = 0; i < number; i += chunkSize) {
+        const end = Math.min(i + chunkSize, number);
+        parts.push({start: i, end});
+    }
+
+    return parts;
+};
+
+if (isMainThread) {
+    const parts = breakIntoParts(number, 5);
+    parts.forEach((part) => {
+        threads.add(
+            new Worker(__filename, {
+                workerData: {
+                    start: part.start,
+                    end: part.end,
+                },
+            })
+        );
+    });
+
+    threads.forEach((thread: any) => {
+        thread.on("error", (err) => {
+            throw err;
+        });
+        thread.on("exit", () => {
+            threads.delete(thread);
+            console.log(`Thread exiting, ${threads.size} running...`);
+        });
+        thread.on("message", (msg) => {
+            console.log(msg);
+        });
+    });
+} else {
+    const primes = generatePrimes(workerData.start, workerData.end);
+    parentPort.postMessage(
+        `Primes from - ${workerData.start} to ${workerData.end}: ${primes}`
+    );
+}
+
 
 const main = async () => {
     // 0x2a552844353579636085097082041a0303bb58be -> 5.2eth

@@ -1,3 +1,8 @@
+# ubuntu
+```bash
+~/erigon/build/bin/erigon --config ./sepolia.config.yaml --chain=sepolia --verbosity=5
+```
+
 # windows10
 # https://erigon.gitbook.io/erigon/advanced-usage/configure-erigon
 # mainnet

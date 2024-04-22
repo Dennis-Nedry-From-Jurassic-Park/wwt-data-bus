@@ -27,6 +27,16 @@ export class Etherface {
     }
 
     /**
+     * systemd sysvinit
+     * TODO: ab-generator voice talk
+     * https://github.com/ggerganov/whisper.cpp
+     * https://github.com/Mozer/talk-llama-fast
+     * https://explorer.globe.engineer/?q=%5B%22tarantool%22%5D
+     * https://www.youtube.com/watch?v=0MEZ84uH4-E
+     * https://www.youtube.com/watch?v=en6uW595DM8
+     */
+
+    /**
      * TODO: https://www.etherface.io/statisticsCodeium: Your extension version is too old. Please update to the latest version and restart your IDE. For help, contact us on Discord at https://discord.gg/3XFf78nAx5.
      * TODO: https://www.etherface.io/api-documentation
      * const etherface = await Etherface.create({});

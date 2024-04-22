@@ -1,9 +1,6 @@
+# ./build/bin/erigon --config ./sepolia.config.yaml --chain=sepolia --verbosity>
 # https://erigon.gitbook.io/erigon/advanced-usage/options
-
-# ./build/bin/erigon --config ./sepolia.config.yaml --chain=sepolia --verbosity=5
-# ~/erigon/build/bin/erigon --config ./sepolia.config.yaml --chain=sepolia --verbosity=5
-
-datadir : 'g:\\erigon_sepolia'
+datadir : '~/erigon_sepolia_testnet'
 internalcl : true
 port : 30304
 chain : "sepolia"

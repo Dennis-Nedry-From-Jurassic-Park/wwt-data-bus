@@ -1,4 +1,6 @@
 import {flattenObject} from "./flat";
+import sizeof from 'object-sizeof';
+import flatObj from "flat-obj";
 
 console.log(111);
 
@@ -79,7 +81,7 @@ const msg = {
 let o = {}
 
 let objj = JSON.stringify(msg)
-console.log(JSON.stringify(msg)); 
+console.log(JSON.stringify(msg));
 const pairAddress = msg.pairAddress
 console.log(pairAddress);
 
@@ -92,7 +94,6 @@ console.log(pairAddress);
 
 //import { flatten } from 'flat'
 //import { flatten } from 'flat'
-
 
 
 function calculateObjectSize(obj) {
@@ -176,10 +177,10 @@ const algo = async () => {
         'pairAddress': '0x3785FCDd03Ab373Bf75E787C12ABeC72Fb8e2741'
     }
     const obj_ = JSON.stringify(obj)
-console.log(obj_);
+    console.log(obj_);
+
+
 }
-import sizeof from 'object-sizeof';
-import flatObj from "flat-obj";
 
 const algo1 = async () => {
     const flat = flattenObject(msg)
@@ -191,11 +192,11 @@ const algo1 = async () => {
     console.log(sizeof(flat));
 }
 const algo2 = async () => {
-    if(msg.honeypotResult.isHoneypot) {
+    if (msg.honeypotResult.isHoneypot) {
         console.log(msg.honeypotResult.isHoneypot);
     }
 
-    if(pairs.Liquidity < 10000) {
+    if (pairs.Liquidity < 10000) {
 
     }
 }
