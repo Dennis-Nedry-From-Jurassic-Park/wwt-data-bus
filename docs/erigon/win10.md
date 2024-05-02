@@ -1,0 +1,1 @@
+https://erigon.gitbook.io/erigon/basic-usage/getting-started/windows
