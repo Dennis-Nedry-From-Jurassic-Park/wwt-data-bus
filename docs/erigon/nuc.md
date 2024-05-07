@@ -1,3 +1,6 @@
+# robtech
+https://www.youtube.com/c/robtech
+
 https://www.asrockind.com/en-gb/faned-embedded-box-pc&filter_attribute=27-71
 
 https://www.asrockind.com/en-gb/DSF-A6000
