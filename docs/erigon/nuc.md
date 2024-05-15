@@ -1,5 +1,10 @@
+https://www.gmktec.com/products/intel-ultra-5-125h-mini-pc-nucbox-k9?spm=..index.image_slideshow_1.1&variant=2c517a3e-15dd-4cfc-a862-41dc0a7da684
+
 # robtech
 https://www.youtube.com/c/robtech
+
+https://www.ixbt.com/news/2024/05/07/rj45-5gbe-usb4-oculink-wi-fi-7-core-ultra-9-minisforum-atomman-x7-ti.html
+https://www.minisforum.com/page/x7ti/index.html?lang=en
 
 https://www.asrockind.com/en-gb/faned-embedded-box-pc&filter_attribute=27-71
 
