@@ -1,9 +1,9 @@
-import {MongoDbClient} from "../db/mongo/client";
-import {Model} from "../db/mongo/models";
-import {Collection} from "../db/mongo/collections";
+import {MongoDbClient} from "../../db/mongo/client";
+import {Model} from "../../db/mongo/models";
+import {Collection} from "../../db/mongo/collections";
 import axios from "axios";
-import {delay} from "../../shared/lib-base";
-import {Type4byte} from "./types";
+import {delay} from "../../../shared/lib-base";
+import {Type4byte} from "./type";
 
 export class FourByte {
     private mongoDbClient_!: MongoDbClient;
@@ -31,13 +31,13 @@ export class FourByte {
         const fourByte = new FourByte();
         fourByte.mongoDbClient_ = await MongoDbClient.connect("wwt");
 
-        await fourByte.mongoDbClient.add_model(Model.signatures, Collection.signatures);
-        await fourByte.mongoDbClient.add_model(Model.eventsignatures, Collection.eventsignatures);
+        await fourByte.mongoDbClient.add_model(Model.fourbyte_signatures, Collection.fourbyte_signatures);
+        await fourByte.mongoDbClient.add_model(Model.fourbyte_eventsignatures, Collection.fourbyte_eventsignatures);
 
         fourByte.signatures_model_
-            = await fourByte.mongoDbClient.get_model(Model.signatures);
+            = await fourByte.mongoDbClient.get_model(Model.fourbyte_signatures);
         fourByte.event_signatures_model_
-            = await fourByte.mongoDbClient.get_model(Model.eventsignatures);
+            = await fourByte.mongoDbClient.get_model(Model.fourbyte_eventsignatures);
 
         return fourByte
     }

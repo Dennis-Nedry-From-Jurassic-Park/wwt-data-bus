@@ -57,6 +57,7 @@
     "main": "doppler run -- ts-node src/bot/main.ts",
     "wwt.starknet": "doppler run -- ts-node src/wwt.starknet.ts",
     "exec": "ts-node src/exec.ts",
+    "try.ts": "ts-node src/try.ts",
     "bench": "ts-node bench/flatten.obj.ts",
     "build": "nest build",
     "start": "nest start",

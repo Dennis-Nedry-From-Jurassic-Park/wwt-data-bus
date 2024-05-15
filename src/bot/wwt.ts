@@ -12,7 +12,7 @@ import {ethers, EtherscanProvider} from "ethers";
 import {erc20Abi} from 'abitype/abis'
 
 import Web3 from "web3";
-import {FourByte} from "./4byte";
+import {FourByte} from "./signature/4byte";
 
 const handler = (err) => {
     console.log('catch err111');

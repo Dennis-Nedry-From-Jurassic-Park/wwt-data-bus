@@ -1,10 +1,106 @@
 import {WWT} from "./wwt";
 import {Strategy} from "./types";
 import {asyncWriteFile, stringify} from "../../shared/lib-base";
-import {BlockTag} from "../blockchain/ethereum/types";
+//import {BlockTag} from "blockchain/ethereum/types";
 import {unix_to_dt} from "../../shared/lib-base/src/datetime/dt";
-import {FourByte} from "./4byte";
+import {FourByte} from "./signature/4byte";
 import {formatEther} from "viem";
+import {BlockTag} from "../blockchain/ethereum/types";
+
+/*
+https://metacpan.org/dist/DR-Tnt/view/lib/DR/Tnt.pm
+https://unera.net/all/2018/04/04/tarantool-session-storage.html
+
+Было бы замечательно, если бы там появилась возможность
+создавать и временные функции CREATE TEMPORARY FUNCTION,
+ которые были бы видны
+ только приконнектившемуся клиенту
+ и
+  удалялись бы после отсоединения.
+
+https://coderstower.com/2021/02/15/java-concurrency-concurrency-and-parallelism/
+https://stokito.wordpress.com/2015/08/02/concurrency-kinds/
+https://aws.amazon.com/ru/compare/the-difference-between-throughput-and-latency/
+*/
+
+const os = require('os');
+const cpuCount = os.cpus().length;
+console.log(cpuCount);
+
+const os2 = require("node:os");
+const availableProcessors = os2.availableParallelism();
+console.log(availableProcessors);
+// const childProcess = require('child_process')
+// const output = childProcess.exec('WMIC CPU Get NumberOfCores')
+// const amount = output.split(os.EOL)
+//     .map(function parse(line) {
+//         return parseInt(line)
+//     })
+//     .filter(function numbers(value) {
+//         return !isNaN(value)
+//     })
+//     .reduce(function add(sum, number) {
+//         return sum + number
+//     }, 0)
+// console.log({amount});
+// https://gist.github.com/brandon93s/a46fb07b0dd589dc34e987c33d775679
+const {
+    Worker,
+    isMainThread,
+    parentPort,
+    workerData,
+} = require("worker_threads");
+
+const {generatePrimes} =
+    require("./prime");
+
+const threads = new Set();
+const number = 999999;
+
+const breakIntoParts = (number, threadCount = 1) => {
+    const parts = [];
+    const chunkSize = Math.ceil(number / threadCount);
+
+    for (let i = 0; i < number; i += chunkSize) {
+        const end = Math.min(i + chunkSize, number);
+        parts.push({start: i, end});
+    }
+
+    return parts;
+};
+
+if (isMainThread) {
+    const parts = breakIntoParts(number, 5);
+    parts.forEach((part) => {
+        threads.add(
+            new Worker(__filename, {
+                workerData: {
+                    start: part.start,
+                    end: part.end,
+                },
+            })
+        );
+    });
+
+    threads.forEach((thread: any) => {
+        thread.on("error", (err) => {
+            throw err;
+        });
+        thread.on("exit", () => {
+            threads.delete(thread);
+            console.log(`Thread exiting, ${threads.size} running...`);
+        });
+        thread.on("message", (msg) => {
+            console.log(msg);
+        });
+    });
+} else {
+    const primes = generatePrimes(workerData.start, workerData.end);
+    parentPort.postMessage(
+        `Primes from - ${workerData.start} to ${workerData.end}: ${primes}`
+    );
+}
+
 
 const main = async () => {
     // 0x2a552844353579636085097082041a0303bb58be -> 5.2eth
@@ -83,6 +179,7 @@ const main = async () => {
     }
     console.log({balance: formatEther(balance)});
 
+
     //const bytecode = await wwt.getBytecode('0xFBA3912Ca04dd458c843e2EE08967fC04f3579c2')
     const bytecode = await wwt.get_internal_txs('0x291997a769b5c342ab81c4445e7dfff843016169d16dcd4a104105a691828c6e')
     //await asyncWriteFile('./bytecode.evm', stringify(bytecode))
@@ -103,7 +200,7 @@ const main = async () => {
 
     //console.log({balance: fe(balance)});
 }
-main()
+//main()
 
 const main09 = async () => {
     const wwt = await WWT.create({

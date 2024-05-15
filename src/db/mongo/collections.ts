@@ -3,8 +3,10 @@ export const Collection = {
     logs: 'logs',
     eth_mainnet: 'eth.mainnet',
     // 4byte
-    signatures: '4byte.signatures',
-    eventsignatures: '4byte.eventsignatures',
+    fourbyte_signatures: '4byte.signatures',
+    fourbyte_eventsignatures: '4byte.eventsignatures',
+    // etherface
+    etherface_signatures: 'etherface.signatures',
 }
 
 export type Collection = typeof Collection[keyof typeof Collection]
