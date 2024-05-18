@@ -1,3 +1,5 @@
+// https://www.rapidtables.com/convert/number/hex-to-decimal.html
+
 export class Hex {
     constructor() {
     }
@@ -21,6 +23,5 @@ export class Hex {
 
         return new Date(Number(hex) * 1000)
     }
-
 
 }
