@@ -14,6 +14,9 @@ importers:
       '@1inch/limit-order-protocol-utils':
         specifier: 4.0.21-alpha
         version: 4.0.21-alpha(hardhat@2.19.0)
+      '@ankr.com/ankr.js':
+        specifier: ^0.5.0
+        version: 0.5.0
       '@bwarelabs/blast-sdk-js':
         specifier: ^1.0.16
         version: 1.0.16(@types/node@20.8.10)(typescript@5.2.2)
@@ -359,6 +362,14 @@ packages:
       rxjs: 7.8.1
     transitivePeerDependencies:
       - chokidar
+    dev: false
+
+  /@ankr.com/ankr.js@0.5.0:
+    resolution: {integrity: sha512-NZSYcMQNA+XoE1AjTaZJitzMCc9KOhqtAw+HKRwREix9EYSygYV5tWvqjuCBg/GiNJUYKNC5e0xOj8vNJE6YHQ==}
+    dependencies:
+      axios: 0.26.1
+    transitivePeerDependencies:
+      - debug
     dev: false
 
   /@babel/code-frame@7.22.13:
@@ -5199,6 +5210,14 @@ packages:
 
   /aws4@1.12.0:
     resolution: {integrity: sha512-NmWvPnx0F1SfrQbYwOi7OeaNGokp9XhzNioJ/CSBs8Qa4vxug81mhJEAVZwxXuBmYB5KDRfMq/F3RR0BIU7sWg==}
+    dev: false
+
+  /axios@0.26.1:
+    resolution: {integrity: sha512-fPwcX4EvnSHuInCMItEhAGnaSEXRBjtzh9fOtsE6E1G6p7vl7edEeZe11QHf18+6+9gR5PbKV/sGKNaD8YaMeA==}
+    dependencies:
+      follow-redirects: 1.15.6(debug@4.3.4)
+    transitivePeerDependencies:
+      - debug
     dev: false
 
   /axios@1.6.0:
