@@ -10,3 +10,6 @@
 [submodule "shared/lib-base"]
 	path = shared/lib-base
 	url = https://github.com/Dennis-Nedry-From-Jurassic-Park/lib-base.git
+[submodule "shared/lib-db-client"]
+	path = shared/lib-db-client
+	url = https://github.com/Dennis-Nedry-From-Jurassic-Park/lib-db-client.git
