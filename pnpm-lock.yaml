@@ -1,4 +1,4 @@
-lockfileVersion: '6.0'
+lockfileVersion: '6.1'
 
 settings:
   autoInstallPeers: true
@@ -53,6 +53,9 @@ importers:
       body-parser:
         specifier: ^1.20.2
         version: 1.20.2
+      dotenv:
+        specifier: ^16.4.5
+        version: 16.4.5
       ethers:
         specifier: ^6.11.1
         version: 6.11.1
@@ -700,7 +703,7 @@ packages:
       await-notify: 1.0.1
       chai: 4.3.10
       chai-as-promised: 7.1.1(chai@4.3.10)
-      dotenv: 16.3.1
+      dotenv: 16.4.5
       mocha: 10.2.0
       queue-typescript: 1.0.1
       ts-node: 10.9.1(@types/node@20.8.10)(typescript@5.2.2)
@@ -6321,11 +6324,6 @@ packages:
 
   /dom-walk@0.1.2:
     resolution: {integrity: sha512-6QvTW9mrGeIegrFXdtQi9pk7O/nSK6lSdXW2eqUspN5LWD7UTji2Fqw5V2YLjBpHEoU9Xl/eUWNpDeZvoyOv2w==}
-    dev: false
-
-  /dotenv@16.3.1:
-    resolution: {integrity: sha512-IPzF4w4/Rd94bA9imS68tZBaYyBWSCE47V1RGuMrB94iyTOIEwRmVL2x/4An+6mETpLrKJ5hQkB8W4kFAadeIQ==}
-    engines: {node: '>=12'}
     dev: false
 
   /dotenv@16.4.5:
