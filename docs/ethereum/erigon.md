@@ -62,7 +62,7 @@ https://club.dns-shop.ru/review/t-107-jestkie-diski/8225-obzor-jestkogo-diska-wd
 https://docs.google.com/spreadsheets/d/1vlixCB8T782iJ6mC07MGLRuhVsuprSZwSj3xMXB1IrA/edit#gid=0
 # tips
 **--snap.stop**
-Другой пользователь отметил, что без --snap.stopфлага их RPC отставал до 30 блоков, 
+Другой пользователь отметил, что без --snap.stop флага их RPC отставал до 30 блоков, 
 обычно 6-10, что указывает на то, 
 что время задержки может быть значительным при определенных условиях
 # консенсус
@@ -90,7 +90,7 @@ https://www.dns-shop.ru/product/f5eb1376cdd9ed20/4000-gb-ssd-m2-nakopitel-hp-fx9
 
 ![img.png](img.png)
 
-К счастью, в Geth есть две опции: datadirи datadir.ancient. 
+К счастью, в Geth есть две опции: datadir и datadir.ancient. 
 Используя эти две опции при запуске нашего узла geth, 
 мы можем указать место на отдельном диске для наших древних и активных данных
 
