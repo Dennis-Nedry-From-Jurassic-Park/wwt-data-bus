@@ -11,4 +11,10 @@ export const Strategy = {
 
 export type Strategy = typeof Strategy[keyof typeof Strategy]
 
+// db: clickhouse
+export const Table = {
+    wwt_ankr_getTransactionsByAddress: "wwt.ankr_getTransactionsByAddress",
+    wwt_ankr_getTokenTransfers: "wwt.ankr_getTokenTransfers",
+}
+export type Table = typeof Table[keyof typeof Table]
 
