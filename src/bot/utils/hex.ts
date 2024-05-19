@@ -6,7 +6,7 @@ export class Hex {
 
     // hex_to_number Number("0x65e0fdc3");
 
-    to_datetime = async (
+    to_datetime = (
         hex: `0x${string}`,
     ) => {
         return new Date(Number(hex) * 1000)
