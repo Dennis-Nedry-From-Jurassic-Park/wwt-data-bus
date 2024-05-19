@@ -1,5 +1,6 @@
 # ankr
 ## python
+https://pypi.org/project/ankr-sdk/
 https://github.com/Ankr-network/ankr-python-sdk
 ## js ts typescript
 https://www.ankr.com/docs/advanced-api/javascript-sdk/
