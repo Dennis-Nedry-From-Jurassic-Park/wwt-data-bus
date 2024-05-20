@@ -80,4 +80,15 @@ ENGINE = MongoDB(
  );
 
 
+CREATE TABLE wwt.4byte_eventsignatures
+(
+    `created_at` DateTime64(6,'UTC') CODEC(Delta(8),LZ4),
+    `text_signature` String,
+    `hex_signature` String,
+    `bytes_signature` String,
+    `i` Int32 CODEC(Delta(4),LZ4)
+)
+ENGINE = MergeTree()
+ORDER BY `created_at`
+
  -- TODO: -------------------------------  ??  -------------------------------
