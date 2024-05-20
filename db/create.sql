@@ -58,6 +58,7 @@ ORDER BY `created_at`
 alter table wwt.`4byte_signatures` drop column _id
 alter table wwt.`4byte_signatures` drop column __v
 
+insert into wwt.4byte_signatures (*) values (now(), 'Transfer', '0x', '0x', -2147483648)
 
 -- ddl from dbeaver
 CREATE TABLE wwt.`4byte.eventsignatures`
@@ -90,5 +91,8 @@ CREATE TABLE wwt.4byte_eventsignatures
 )
 ENGINE = MergeTree()
 ORDER BY `created_at`
+
+
+
 
  -- TODO: -------------------------------  ??  -------------------------------
