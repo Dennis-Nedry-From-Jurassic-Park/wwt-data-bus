@@ -94,7 +94,6 @@
     "ethers": "^6.12.1",
     "flat": "^6.0.1",
     "flat-obj": "^3.0.0",
-    "mongoose": "^8.4.0",
     "rimraf": "^5.0.7",
     "run-parallel": "^1.2.0",
     "rxjs": "^7.8.1",
