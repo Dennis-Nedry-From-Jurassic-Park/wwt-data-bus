@@ -13,3 +13,7 @@ https://api-docs.ankr.com/reference/post_ankr-gettransactionsbyaddress
 
 ## pagination
 https://api-docs.ankr.com/reference/pagination
+
+# testnets
+https://ankrnetwork.atlassian.net/wiki/external/2168061953/NzcxMzgzZDRiMzQ2NDA3NzgzMmMxZjBhNmU3YmRmYzY
+https://ankrnetwork.atlassian.net/servicedesk/customer/portal/10
