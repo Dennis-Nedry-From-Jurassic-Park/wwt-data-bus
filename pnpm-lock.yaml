@@ -71,9 +71,6 @@ importers:
       flat-obj:
         specifier: ^3.0.0
         version: 3.0.0
-      mongoose:
-        specifier: ^8.4.0
-        version: 8.4.0
       rimraf:
         specifier: ^5.0.7
         version: 5.0.7
