@@ -40,6 +40,54 @@ CREATE TABLE wwt.ankr_getTransactionsByAddress_Temp
 ENGINE = MergeTree
 ORDER BY timestamp
 
+
+set allow_experimental_object_type = 1;
+
+CREATE TABLE wwt.ankr_getAccountBalance
+(
+    timestamp DateTime64(3, 'UTC'),
+    data JSON CODEC(ZSTD(3)),
+    address String CODEC(LZ4),
+    nextPageToken String CODEC(LZ4)
+)
+ENGINE = MergeTree
+ORDER BY timestamp
+
+SELECT
+    timestamp, toJSONString(data)
+FROM wwt.ankr_getAccountBalance
+where address = '0x11fa5be01476295200cb162b952972d2c9c6c599'
+order by timestamp desc
+
+set allow_experimental_object_type = 1;
+
+CREATE TABLE wwt.wwt_ankr_getAccountBalanceHistorical
+(
+    timestamp DateTime64(3, 'UTC'),
+    data JSON CODEC(ZSTD(3)),
+    address String CODEC(LZ4),
+    nextPageToken String CODEC(LZ4)
+)
+ENGINE = MergeTree
+ORDER BY timestamp
+
+
+
+set allow_experimental_object_type = 1;
+
+CREATE TABLE wwt.ankr_temp
+(
+    timestamp DateTime64(3, 'UTC'),
+    data JSON CODEC(ZSTD(3)),
+    method String CODEC(LZ4),
+    address String CODEC(LZ4),
+    nextPageToken String CODEC(LZ4)
+)
+ENGINE = MergeTree
+ORDER BY timestamp
+
+
+
 -- TODO: -------------------------------  4byte  -------------------------------
 CREATE TABLE wwt.4byte_signatures
 (
@@ -91,8 +139,6 @@ CREATE TABLE wwt.4byte_eventsignatures
 )
 ENGINE = MergeTree()
 ORDER BY `created_at`
-
-
 
 
  -- TODO: -------------------------------  ??  -------------------------------
