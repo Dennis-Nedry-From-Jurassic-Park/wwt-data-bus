@@ -12,7 +12,7 @@ export class Hex {
         return new Date(Number(hex) * 1000)
     }
 
-    to_datetime_rev2 = async (
+    to_datetime_rev2 = (
         hex: `0x${string}`,
     ) => { // "0x65e0fdc3"
         const timeInSeconds = parseInt(hex, 16);
@@ -21,7 +21,7 @@ export class Hex {
 
         const dateTime = new Date(timeInMilliseconds);
 
-        return new Date(Number(hex) * 1000)
+        return dateTime
     }
 
 }
