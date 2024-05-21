@@ -16,3 +16,15 @@ await wwt.savePaginatedPages("ankr_getTransactionsByAddress", {
     pageSize: 1000,
     pageToken: ''
 }, Table.wwt_ankr_getTransactionsByAddress)
+
+
+await wwt.savePaginatedPages("ankr_getAccountBalance", {
+    walletAddress: address,
+    blockchain: 'eth',
+    nativeFirst: false,
+    onlyWhitelisted: false,
+    descOrder: false,
+    syncCheck: false,
+    pageSize: 10000,
+    pageToken: ''
+}, Table.wwt_ankr_getAccountBalance)
