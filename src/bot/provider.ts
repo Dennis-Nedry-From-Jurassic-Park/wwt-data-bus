@@ -1,15 +1,14 @@
-import {ethers, EtherscanProvider} from "ethers/lib.esm";
 import {BlockTag} from "../blockchain/ethereum/types";
 import {AnkrProvider} from "@ankr.com/ankr.js";
 import {RPC} from "./rpc";
-import {JsonRpcProvider} from "ethers";
+import {ethers, EtherscanProvider, JsonRpcProvider} from "ethers";
 import {erc20Abi} from "abitype/abis";
 
 export class Provider {
     private readonly etherscan_: EtherscanProvider
     private readonly ankr_: AnkrProvider
     private readonly getblock_: JsonRpcProvider
-    private provider_: any
+    private readonly provider_: JsonRpcProvider
 
     constructor() {
         const etherscanProviderApiKey = process.env.WWT_ETHERSCAN
@@ -22,7 +21,8 @@ export class Provider {
         this.etherscan_
             = new EtherscanProvider("homestead", etherscanProviderApiKey);
         this.ankr_ = new AnkrProvider(RPC.ankr_multichain);
-        this.getblock_ = new ethers.JsonRpcProvider(RPC.getblock);
+        //this.getblock_ = new ethers.JsonRpcProvider(RPC.getblock);
+        this.getblock_ = null // TODO:
         this.provider_ = new ethers.JsonRpcProvider(RPC.default);
 
     }
@@ -99,6 +99,10 @@ export class Provider {
             console.error(error);
             console.error("This address is not an ERC-20 token or the contract does not implement the required functions.");
         }
+    }
+
+    test = () => {
+        return "test"
     }
 
     checkERC20_0 = async (address: string) => {
