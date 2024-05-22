@@ -58,6 +58,14 @@ export class Provider {
         return this.web3_;
     }
 
+    getBalanceAtBlock = async (address, blockNumber) => {
+        try {
+            return await this.web3.eth.getBalance(address, blockNumber);
+        } catch (error) {
+            console.error(error);
+        }
+    };
+
     getHistory = async (
         address: string,
         startBlock?: BlockTag,

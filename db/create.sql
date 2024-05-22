@@ -87,6 +87,20 @@ ENGINE = MergeTree
 ORDER BY timestamp
 
 
+set allow_experimental_object_type = 1;
+
+CREATE TABLE wwt.temp
+(
+    timestamp DateTime64(3, 'UTC'),
+    api String CODEC(LZ4),
+    method String CODEC(LZ4),
+    data JSON CODEC(ZSTD(3)),
+    address String CODEC(LZ4),
+    next String CODEC(LZ4)
+)
+ENGINE = MergeTree
+ORDER BY timestamp
+
 
 -- TODO: -------------------------------  4byte  -------------------------------
 CREATE TABLE wwt.4byte_signatures
