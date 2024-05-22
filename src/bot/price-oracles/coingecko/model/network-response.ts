@@ -1,5 +1,11 @@
 export interface NetworkResponse {
     data: Network[];
+    links: {
+        first: string | null,
+        prev: string | null,
+        next: string | null,
+        last: string | null
+    }
 }
 
 export interface Network {
