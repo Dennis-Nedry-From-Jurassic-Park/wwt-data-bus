@@ -20,6 +20,12 @@ importers:
       '@bwarelabs/blast-sdk-js':
         specifier: ^1.0.17
         version: 1.0.17(@types/node@20.12.12)(typescript@5.4.5)
+      '@depyronick/clickhouse-client':
+        specifier: ^2.0.4
+        version: 2.0.4
+      '@depyronick/nestjs-clickhouse':
+        specifier: ^2.0.4
+        version: 2.0.4(@nestjs/common@10.3.8)
       '@golevelup/nestjs-rabbitmq':
         specifier: ^5.3.0
         version: 5.3.0(@nestjs/common@10.3.8)(@nestjs/core@10.3.8)(reflect-metadata@0.2.2)(rxjs@7.8.1)
@@ -1087,6 +1093,27 @@ packages:
     engines: {node: '>=12'}
     dependencies:
       '@jridgewell/trace-mapping': 0.3.9
+
+  /@depyronick/clickhouse-client@2.0.4:
+    resolution: {integrity: sha512-4NSbl/YacOZu9cQfP6TvIatiebyG3X6mbR/YFS2FuA3vhmMtw7up3Rl74n+E0MVPSlHe6zotFCH0lXstFSn0KA==}
+    dependencies:
+      axios: 1.6.7
+      rxjs: 7.8.1
+      stream-json: 1.8.0
+    transitivePeerDependencies:
+      - debug
+    dev: false
+
+  /@depyronick/nestjs-clickhouse@2.0.4(@nestjs/common@10.3.8):
+    resolution: {integrity: sha512-aSvqeCsXs5ijsBMLPxgj9TUxJZueQ9E/97thotqalZIVX39YwWKIEUCmz/tZ1O9uEoNDE+g8FCnAbyiYiJG6PQ==}
+    peerDependencies:
+      '@nestjs/common': 10.3.1
+    dependencies:
+      '@depyronick/clickhouse-client': 2.0.4
+      '@nestjs/common': 10.3.8(reflect-metadata@0.2.2)(rxjs@7.8.1)
+    transitivePeerDependencies:
+      - debug
+    dev: false
 
   /@dsherret/to-absolute-glob@2.0.2:
     resolution: {integrity: sha512-InCaQ/KEOcFtAFztn47wadritBLP2nT6m/ucbBnIgI5YwxuMzKKCHtqazR2+D1yR6y1ZTnPea9aLFEUrTttUSQ==}
@@ -5628,6 +5655,16 @@ packages:
     resolution: {integrity: sha512-fPwcX4EvnSHuInCMItEhAGnaSEXRBjtzh9fOtsE6E1G6p7vl7edEeZe11QHf18+6+9gR5PbKV/sGKNaD8YaMeA==}
     dependencies:
       follow-redirects: 1.15.6(debug@4.3.4)
+    transitivePeerDependencies:
+      - debug
+    dev: false
+
+  /axios@1.6.7:
+    resolution: {integrity: sha512-/hDJGff6/c7u0hDkvkGxR/oy6CbCs8ziCsC7SqmhjfozqiJGc8Z11wrv9z9lYfY4K8l+H9TpjcMDX0xOZmx+RA==}
+    dependencies:
+      follow-redirects: 1.15.6(debug@4.3.4)
+      form-data: 4.0.0
+      proxy-from-env: 1.1.0
     transitivePeerDependencies:
       - debug
     dev: false
@@ -11560,6 +11597,16 @@ packages:
   /statuses@2.0.1:
     resolution: {integrity: sha512-RwNA9Z/7PrK06rYLIzFMlaF+l73iwpzsqRIFgbMLbTcLD6cOao82TaWefPXQvB2fOC4AjuYSEndS7N/mTCbkdQ==}
     engines: {node: '>= 0.8'}
+    dev: false
+
+  /stream-chain@2.2.5:
+    resolution: {integrity: sha512-1TJmBx6aSWqZ4tx7aTpBDXK0/e2hhcNSTV8+CbFJtDjbb+I1mZ8lHit0Grw9GRT+6JbIrrDd8esncgBi8aBXGA==}
+    dev: false
+
+  /stream-json@1.8.0:
+    resolution: {integrity: sha512-HZfXngYHUAr1exT4fxlbc1IOce1RYxp2ldeaf97LYCOPSoOqY/1Psp7iGvpb+6JIOgkra9zDYnPX01hGAHzEPw==}
+    dependencies:
+      stream-chain: 2.2.5
     dev: false
 
   /stream2asynciter@1.0.3:
