@@ -1,5 +1,5 @@
-// https://www.rapidtables.com/convert/number/hex-to-decimal.html
 
+// https://www.rapidtables.com/convert/number/hex-to-decimal.html
 export class Hex {
     constructor() {
     }
