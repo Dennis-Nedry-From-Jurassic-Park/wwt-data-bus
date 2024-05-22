@@ -28,4 +28,18 @@ export class AppController {
     return this.appService.isERC721(body.address);
   }
 
+  @Post('/test')
+  test(@Req() req): any {
+    const body = req.body;
+
+    return this.appService.test();
+  }
+
+  @Post('/fetch')
+  fetch(@Req() req): any {
+    const body = req.body;
+
+    return this.appService.fetch();
+  }
+
 }
