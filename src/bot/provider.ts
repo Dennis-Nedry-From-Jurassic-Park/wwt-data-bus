@@ -5,6 +5,14 @@ import {ethers, EtherscanProvider, JsonRpcProvider} from "ethers";
 import {erc20Abi} from "abitype/abis";
 import Web3 from "web3";
 
+// EtherscanProvider.prototype['stop'] = function () {
+//     console.log('Stop');
+// }
+//
+// interface EtherscanProvider {
+//     stop(): void;
+// }
+
 export class Provider {
     private readonly etherscan_: EtherscanProvider
     private readonly ankr_: AnkrProvider
@@ -24,8 +32,7 @@ export class Provider {
         this.etherscan_
             = new EtherscanProvider("homestead", etherscanProviderApiKey);
         this.ankr_ = new AnkrProvider(RPC.ankr_multichain);
-        //this.getblock_ = new ethers.JsonRpcProvider(RPC.getblock);
-        this.getblock_ = null // TODO:
+        this.getblock_ = new ethers.JsonRpcProvider(RPC.getblock);
         this.provider_ = new ethers.JsonRpcProvider(RPC.default);
 
         this.web3_ = new Web3(RPC.default);
@@ -51,7 +58,11 @@ export class Provider {
         return this.web3_;
     }
 
-    getHistory = async (address: string, startBlock?: BlockTag, endBlock?: BlockTag): Promise<Array<any>> => {
+    getHistory = async (
+        address: string,
+        startBlock?: BlockTag,
+        endBlock?: BlockTag
+    ): Promise<Array<any>> => {
         const params = {
             action: "txlist",
             address,
