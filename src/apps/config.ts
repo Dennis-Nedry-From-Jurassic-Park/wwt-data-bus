@@ -1,7 +1,10 @@
 export const App = {
     analysis: {
-        port: 3000
+        port: 3000,
+        logger: true
     },
-    event_signatures: "event-signatures",
+    other: {
+
+    },
 }
-export type Type4byte = typeof Type4byte[keyof typeof Type4byte]
+export type App = typeof App[keyof typeof App]
