@@ -20,7 +20,7 @@ export class GeckoTerminalApiV2 {
      * @return {Promise<NetworkResponse>} get list of supported networks
      */
     public getNetworks(page: number = 1): Promise<NetworkResponse> {
-        return this.get<NetworkResponse>(`/networks`);
+        return this.get<NetworkResponse>(`/networks?page=${page}'`);
     }
 
     /**
