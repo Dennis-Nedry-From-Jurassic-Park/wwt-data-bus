@@ -50,10 +50,6 @@ export class WWT extends Base {
     private provider_: Provider
     private publicClient_: any
 
-    // price oracles
-    private geckoTerminalApiV2_: GeckoTerminalApiV2
-
-    private web3_: Web3
 
     private fourByte_: FourByte;
 
@@ -69,17 +65,11 @@ export class WWT extends Base {
         return this.provider_;
     }
 
-    public get geckoTerminalApiV2() {
-        return this.geckoTerminalApiV2_;
-    }
-
     public get publicClient() {
         return this.publicClient_;
     }
 
-    public get web3() {
-        return this.web3_;
-    }
+
 
     get fourByte() {
         return this.fourByte_;
@@ -93,7 +83,6 @@ export class WWT extends Base {
     ): Promise<WWT> {
         const bot = new WWT();
 
-        bot.geckoTerminalApiV2_ = new GeckoTerminalApiV2();
 
         bot.publicClient_ = createPublicClient({
             chain: mainnet,
@@ -101,7 +90,6 @@ export class WWT extends Base {
             // transport: http('http://localhost:8545'),
         });
 
-        bot.web3_ = new Web3(RPC.default);
 
         bot.fourByte_ = await FourByte.create({});
 
@@ -122,80 +110,59 @@ export class WWT extends Base {
 
     // https://github.com/0xsha/ChainWalker
     // TODO: NOT WORKING !!
-    get_txs = async (
-        address: string,
-        blockTag: BlockTag,
-    ) => {
-        const transactionCount
-            = await this.publicClient.getTransactionCount({address: address, blockTag: blockTag});
-        console.log({transactionCount});
+    // get_txs = async (
+    //     address: string,
+    //     blockTag: BlockTag,
+    // ) => {
+    //     const transactionCount
+    //         = await this.publicClient.getTransactionCount({address: address, blockTag: blockTag});
+    //     console.log({transactionCount});
+    //
+    //     const transactions = [];
+    //     const transactions_failed_indexes = [];
+    //     for (let i = 0; i < transactionCount; i++) {
+    //         try {
+    //             const transaction = await this.publicClient.getTransaction({
+    //                 blockTag: blockTag,
+    //                 index: i
+    //             });
+    //             transactions.push(transaction);
+    //             await this.dataModel.insertMany([{
+    //                 ts: now_iso(),
+    //                 address: address,
+    //                 fail: false,
+    //                 i: i,
+    //                 ops: OpsType.data,
+    //                 blockTag: blockTag,
+    //                 test: true,
+    //                 msg: transaction
+    //             }]);
+    //         } catch (err) {
+    //             console.log(`failed fetch tx with index = ${i}`);
+    //             console.log({err});
+    //             transactions_failed_indexes.push(i)
+    //             await delay(1000)
+    //
+    //         }
+    //     }
+    //
+    //     await this.dataModel.insertMany([{
+    //         ts: now_iso(),
+    //         address: address,
+    //         fail: true,
+    //         i: -1,
+    //         ops: OpsType.data,
+    //         blockTag: blockTag,
+    //         test: true,
+    //         msg: transactions_failed_indexes
+    //     }]);
+    //
+    //     console.log({transactions_failed_indexes});
+    //     console.log({transactions_failed_indexes_len: transactions_failed_indexes.length});
+    //
+    //     return transactions
+    // }
 
-        const transactions = [];
-        const transactions_failed_indexes = [];
-        for (let i = 0; i < transactionCount; i++) {
-            try {
-                const transaction = await this.publicClient.getTransaction({
-                    blockTag: blockTag,
-                    index: i
-                });
-                transactions.push(transaction);
-                await this.dataModel.insertMany([{
-                    ts: now_iso(),
-                    address: address,
-                    fail: false,
-                    i: i,
-                    ops: OpsType.data,
-                    blockTag: blockTag,
-                    test: true,
-                    msg: transaction
-                }]);
-            } catch (err) {
-                console.log(`failed fetch tx with index = ${i}`);
-                console.log({err});
-                transactions_failed_indexes.push(i)
-                await delay(1000)
-
-            }
-        }
-
-        await this.dataModel.insertMany([{
-            ts: now_iso(),
-            address: address,
-            fail: true,
-            i: -1,
-            ops: OpsType.data,
-            blockTag: blockTag,
-            test: true,
-            msg: transactions_failed_indexes
-        }]);
-
-        console.log({transactions_failed_indexes});
-        console.log({transactions_failed_indexes_len: transactions_failed_indexes.length});
-
-        return transactions
-    }
-
-    // https://abitype.dev/guide/getting-started
-    isERC20 = async (address) => { // Coin erc-20-abi
-        const contract = new this.web3.eth.Contract(erc20Abi, address);
-        try {
-            await contract.methods.totalSupply().call();
-            return true;
-        } catch (error) {
-            return false;
-        }
-    }
-
-    isERC721 = async (address) => { // TODO: NFT
-        const ERC721_ABI = [] // TODO:
-        const contract = new this.web3.eth.Contract(ERC721_ABI, address);
-        try {
-            await contract.methods.ownerOf().call();
-            return true;
-        } catch (error) {
-            return false;
-        }
-    }
 
     getBytecode = async (address, blockNumber?) => {
         const bytecode = await this.publicClient.getBytecode({
@@ -207,13 +174,7 @@ export class WWT extends Base {
         return bytecode
     }
 
-    getBalanceAtBlock = async (address, blockNumber) => {
-        try {
-            return await this.web3.eth.getBalance(address, blockNumber);
-        } catch (error) {
-            console.error(error);
-        }
-    };
+
 
     getERCtype = async (address) => {
         // const contract = new this.web3.eth.Contract(erc20Abi, address);
