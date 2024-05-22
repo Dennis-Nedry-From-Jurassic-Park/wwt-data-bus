@@ -5,4 +5,4 @@
   **Etherscan API** | **TrueBlocks** | **Amberdata** | **Bitquery**
 - Q3 Ankr pagination see docs/!bot/Q/Q3.pagination/ankr.md
 - Q4 clickhouse shared batch insert
-- 
+- Q5 convert weth to usd price ??? https://min-api.cryptocompare.com/pricing

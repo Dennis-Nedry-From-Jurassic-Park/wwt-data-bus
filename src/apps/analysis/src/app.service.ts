@@ -47,9 +47,7 @@ export class AppService {
         }
     }
 
-
     test = async (): Promise<any> => {
-
         return "test" //this.provider.etherscan.stop()
     }
 
