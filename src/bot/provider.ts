@@ -3,12 +3,15 @@ import {AnkrProvider} from "@ankr.com/ankr.js";
 import {RPC} from "./rpc";
 import {ethers, EtherscanProvider, JsonRpcProvider} from "ethers";
 import {erc20Abi} from "abitype/abis";
+import Web3 from "web3";
 
 export class Provider {
     private readonly etherscan_: EtherscanProvider
     private readonly ankr_: AnkrProvider
     private readonly getblock_: JsonRpcProvider
     private readonly provider_: JsonRpcProvider
+
+    private readonly web3_: Web3
 
     constructor() {
         const etherscanProviderApiKey = process.env.WWT_ETHERSCAN
@@ -25,6 +28,7 @@ export class Provider {
         this.getblock_ = null // TODO:
         this.provider_ = new ethers.JsonRpcProvider(RPC.default);
 
+        this.web3_ = new Web3(RPC.default);
     }
 
     get ankr() {
@@ -41,6 +45,10 @@ export class Provider {
 
     get provider() {
         return this.provider_;
+    }
+
+    get web3() {
+        return this.web3_;
     }
 
     getHistory = async (address: string, startBlock?: BlockTag, endBlock?: BlockTag): Promise<Array<any>> => {
