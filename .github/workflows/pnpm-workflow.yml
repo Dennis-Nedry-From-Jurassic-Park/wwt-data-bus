@@ -1,5 +1,5 @@
 name: pnpm-workflow
-on: [push]
+#on: [push]
 
 jobs:
   pnpm-install:
