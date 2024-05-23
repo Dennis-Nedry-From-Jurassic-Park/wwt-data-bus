@@ -54,7 +54,7 @@ export class Provider {
         return this.provider_;
     }
 
-    get web3() {
+    get web3(): Web3 {
         return this.web3_;
     }
 
