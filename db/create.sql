@@ -101,6 +101,11 @@ CREATE TABLE wwt.temp
 ENGINE = MergeTree
 ORDER BY timestamp
 
+SELECT `timestamp`, api, `method`, toJSONString(`data`), address, `next`
+FROM wwt.temp
+order by timestamp desc
+
+
 
 -- TODO: -------------------------------  4byte  -------------------------------
 CREATE TABLE wwt.4byte_signatures
