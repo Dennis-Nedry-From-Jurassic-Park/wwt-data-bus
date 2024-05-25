@@ -6,9 +6,11 @@
   "private": true,
   "license": "UNLICENSED",
   "scripts": {
+    "pnpm:add:p": "npx pnpm add -w bybit-api @nestjs/websockets @nestjs/platform-socket.io socket.io",
+    "pnpm:install:*": "npx pnpm -r install --recursive",
     "build": "nest build",
     "format": "prettier --write \"src/**/*.ts\" \"test/**/*.ts\"",
-    "start": "nest start",
+    "start": "doppler run -- nest start",
     "start:dev": "nest start --watch",
     "start:debug": "nest start --debug --watch",
     "start:prod": "node dist/main",
