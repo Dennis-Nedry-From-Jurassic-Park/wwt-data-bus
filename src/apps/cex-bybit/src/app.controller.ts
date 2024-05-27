@@ -16,11 +16,11 @@ export class AppController {
 
     // TODO: getOpenInterest getHistoricOrders
 
-    @Get()
-    getHello(): string {
-        return this.appService.getHello();
-    }
-
+    /*
+        {
+            "accountType": "UNIFIED"
+        }
+     */
     @Post('getWalletBalance')
     async getWalletBalance(@Req() req): Promise<any> {
         console.log(req.body);
@@ -30,21 +30,40 @@ export class AppController {
     // https://github.com/tiagosiebler/bybit-api/blob/master/examples/rest-v5-private.ts
     @Post('submitOrder')
     async order(@Req() req): Promise<any> {
+        const balance_before_deal =
+            await this.appService.client.getWalletBalance(req.body);
         const body = req.body
-        console.log({body});
-        const orderResult = await (await this.appService.generateClient()).submitOrder({
+        const orderResult = await this.appService.client.submitOrder({
             category: body.category,
             symbol: body.symbol,
             orderType: body.orderType,
             qty: body.qty,
             side: body.side,
+            price: body.price,
         });
+        const orderDetails = await this.appService.client.getActiveOrders({
+            category: body.category,
+            orderId: orderResult.result.orderId
+        });
+
         this.clickHouseClient.insert<BybitTemp>(
             "wwt.bybit_temp", [
                 {
                     timestamp: Date.now(),
+                    router: 'getWalletBalance',
+                    data: balance_before_deal,
+                    version: 5
+                },
+                {
+                    timestamp: Date.now(),
                     router: `submitOrder.${body.category}.${body.orderType}.${body.side}.${body.qty}`,
                     data: orderResult,
+                    version: 5
+                },
+                {
+                    timestamp: Date.now(),
+                    router: `getActiveOrders.${body.category}.${orderResult.result.orderId}`,
+                    data: orderDetails,
                     version: 5
                 }
             ]
@@ -53,7 +72,7 @@ export class AppController {
                 console.error({err});
             },
         });
-        console.log({orderResult});
+
         return orderResult;
     }
 }
