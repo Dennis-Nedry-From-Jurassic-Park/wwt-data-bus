@@ -1,4 +1,4 @@
-import {Controller, Get, Inject, Post, Req} from '@nestjs/common';
+import {Controller, Inject, Post, Req} from '@nestjs/common';
 import {AppService} from './app.service';
 import {token} from "../../../db/clickhouse/config";
 import {ClickHouseClient} from "@depyronick/nestjs-clickhouse";
@@ -24,7 +24,22 @@ export class AppController {
     @Post('getWalletBalance')
     async getWalletBalance(@Req() req): Promise<any> {
         console.log(req.body);
-        return await this.appService.client.getWalletBalance(req.body);
+        const data
+            = await this.appService.client.getWalletBalance(req.body);
+        await this.clickHouseClient.insert<BybitTemp>(
+            "wwt.bybit_temp", [
+                {
+                    timestamp: Date.now(),
+                    router: 'getWalletBalance',
+                    data: data,
+                    version: 5
+                }
+            ]).subscribe({
+            error: (err: any): void => {
+                console.error({err});
+            },
+        });
+        return data
     } // TODO https://bybit-exchange.github.io/docs/v5/account/wallet-balance
 
     // https://github.com/tiagosiebler/bybit-api/blob/master/examples/rest-v5-private.ts
