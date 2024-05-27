@@ -6,7 +6,11 @@
   "private": true,
   "license": "UNLICENSED",
   "scripts": {
-    "pnpm:add:p": "npx pnpm add -w bybit-api @nestjs/websockets @nestjs/platform-socket.io socket.io",
+    "pnpm:add:p": "npx pnpm add -w axios crypto bybit-api @nestjs/websockets @nestjs/platform-socket.io socket.io",
+    "pnpm:add:p:dev": "npx pnpm add -w -D @nestjs/testing",
+    "pnpm:update-deps": "pnpm update --latest",
+    "pnpm:install": "npx pnpm -r install --recursive",
+    "pnpm:update-deps:for:packages": "pnpm update --filter packages --latest",
     "pnpm:install:*": "npx pnpm -r install --recursive",
     "build": "nest build",
     "format": "prettier --write \"src/**/*.ts\" \"test/**/*.ts\"",
@@ -24,7 +28,6 @@
   "dependencies": {
     "@nestjs/common": "^10.0.0",
     "@nestjs/core": "^10.0.0",
-    "@nestjs/platform-express": "^10.0.0",
     "reflect-metadata": "^0.2.0",
     "rxjs": "^7.8.1"
   },
