@@ -1,14 +1,16 @@
 import {WSClientConfigurableOptions} from "bybit-api/lib/types";
 
-const API_KEY = process.env.CEX_BYBIT_API_V5_PUBKEY;
-const PRIVATE_KEY = process.env.CEX_BYBIT_API_V5_PRIVATEKEY;
+export const API_KEY = process.env.CEX_BYBIT_API_V5_PUB_KEY;
+export const PRIVATE_KEY = process.env.CEX_BYBIT_API_V5_PRIVATE_KEY;
+export const RECV_WINDOW = 10000;
+
 
 export const ws_options: WSClientConfigurableOptions= {
     market: 'v5',
     testnet: false,
     key: API_KEY,
     secret: PRIVATE_KEY,
-    pongTimeout: 30_000,
+    pongTimeout: 10000,
     // how often to check (in ms) that WS connection is still alive
     pingInterval: 10000,
     // config options sent to RestClient (used for time sync). See RestClient docs.
