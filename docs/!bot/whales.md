@@ -1,0 +1,3 @@
+jaredfromsubway
+https://etherscan.io/token/0xec21890967a8ceb3e55a3f79dac4e90673ba3c2e?a=0x6b75d8af000000e20b7a7ddf000ba900b4009a80
+

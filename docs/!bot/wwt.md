@@ -1,3 +1,8 @@
+https://arbiscan.io/tx/0xf3e687f904ea7e24b4ae20ef31ca86c6c2b35a92fd3e4a206d736c6dc39389fc
+https://top100token.com/address/0x1cb260887a927b5a05ff35c354fc7f7c0c14f939
+https://top100token.com/latest/arbitrum/trending?orderBy=age&orderType=DESC
+https://t.me/top100tokenChat/43232
+
 # signature db 4byte
 Swap Exact Token...
 https://etherscan.io/address/0x79c610b7ebddce5a87e777785600f7e6bd6f037e
