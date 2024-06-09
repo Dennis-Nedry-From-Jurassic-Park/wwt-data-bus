@@ -1,19 +1,19 @@
 const pairs = [
-    'XRPUSDT',
+    //'XRPUSDT',
     'ARBUSDT',
-    'STRKUSDT',
-    'OPUSDT',
+    //'STRKUSDT',
+    //'OPUSDT',
     'ETHUSDT',
-    'ICPUSDT',
-
-    'APTUSDT',
-    'SOLUSDT',
+    // 'ICPUSDT',
+    //
+    // 'APTUSDT',
+    // 'SOLUSDT',
     // mem-coins
-    'PEPEUSDT',
+    //'PEPEUSDT',
 
 ]
 
-const klineTopics = pairs.map(it => `kline.1.${it}`)
+const klineTopics = pairs.map(it => `kline.5.${it}`)
 
 export const wsTopics = [
     ...[],
